@@ -1,0 +1,26 @@
+{
+	"seo": {
+		"title": "JunoVerse",
+		"description": "Dive right into JunoVerse"
+	},
+
+	"hero": {
+		"title": "An Independent Growth Consultancy that happens to make brilliant creative",
+		"description": [
+			"The agency model is breaking under its own weight. Holdcos are restructuring.",
+			"Boutiques are narrow. Brands don't need more partners - they need sharper eyes"
+		],
+		"bottomDescription": "We are JUNO."
+	},
+
+	"services": [
+		{
+			"title": "Web Development",
+			"description": "Modern performant websites."
+		},
+		{
+			"title": "Animation",
+			"description": "GSAP powered interactions."
+		}
+	]
+}
