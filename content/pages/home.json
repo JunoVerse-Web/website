@@ -13,14 +13,7 @@
 		"bottomDescription": "We are JUNO."
 	},
 
-	"services": [
-		{
-			"title": "Web Development",
-			"description": "Modern performant websites."
-		},
-		{
-			"title": "Animation",
-			"description": "GSAP powered interactions."
-		}
-	]
+	"ourThinking": {
+		"title": "See Our Thinking"
+	}
 }

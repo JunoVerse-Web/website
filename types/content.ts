@@ -4,13 +4,12 @@ export interface HomePage {
 	hero: {
 		title: string;
 		description: string[];
-        bottomDescription: string;
+		bottomDescription: string;
 	};
 
-	services: {
+	ourThinking: {
 		title: string;
-		description: string;
-	}[];
+	};
 }
 
 interface SeoTypes {
