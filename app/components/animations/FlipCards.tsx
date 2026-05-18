@@ -48,8 +48,8 @@ export default function FlipCards({ front, back, repeat = false }: { front: Reac
 			setIsFlipped((prev) => {
 				const next = !prev;
 
-				setRotation((current) => current + 90);
-				setBackRotation((current) => current + 90);
+				setRotation((current) => current + 180);
+				setBackRotation((current) => current + 180);
 
 				return next;
 			});
