@@ -45,9 +45,6 @@ body:has(> main.homepage):before {
 	pointer-events: none;
 }
 
-main {
-}
-
 section > * {
 	z-index: 1;
 }
