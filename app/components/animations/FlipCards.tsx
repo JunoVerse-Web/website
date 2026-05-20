@@ -61,7 +61,7 @@ export default function FlipCards({ front, back, repeat = false }: { front: Reac
 	};
 
 	const sharedClass =
-		"backface-hidden w-full h-full pointer-events-none rounded-[1vw] overflow-hidden transform-3d outline-1 outline-red-500 transition-transform duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] ";
+		"backface-hidden w-full h-full pointer-events-none rounded-[1vw] overflow-hidden transform-3d transition-transform duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] ";
 
 	const innerSharedClass = "transform-3d transition-transform ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform flex items-center justify-center w-full h-full";
 

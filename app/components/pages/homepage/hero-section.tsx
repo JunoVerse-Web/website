@@ -5,9 +5,9 @@ import CardsContainer from "./cards-container";
 
 export default function HeroSection({ title, description, bottomDescription }: { title: string; description: string[]; bottomDescription: string }) {
 	return (
-		<section className="bg-yellow px-[10.292vw] text-center pt-[12vw] pb-[2vw]">
+		<section className="hero-section px-[9.38vw] text-center pt-[12vw] pb-[2vw]">
 			<div>
-				<h1 className="text-center font-bold text-[3.8vw] leading-[1.2] mb-[2vw]">
+				<h1 className="text-center font-bold text-white">
 					<BlurText
 						text={title}
 						delay={100}
@@ -20,13 +20,13 @@ export default function HeroSection({ title, description, bottomDescription }: {
 					{description.map((p, i) => (
 						<p
 							key={i}
-							className="mb-0!"
+							className="mb-0! text-white"
 						>
 							{p}
 						</p>
 					))}
 				</div>
-				<p>{bottomDescription}</p>
+				<p className="text-white">{bottomDescription}</p>
 			</div>
 			<CardsContainer />
 		</section>

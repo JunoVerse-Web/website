@@ -1,9 +1,9 @@
 import { getPage } from "@/lib/content/getPage";
 import { HomePage } from "@/types/content";
-import HeroSection from "../components/pages/homepage/hero-section";
+import HeroSection from "./components/pages/homepage/hero-section";
 import { getSeo } from "@/lib/seo/getSeo";
 import type { Metadata } from "next";
-import OurThinkingSection from "../components/pages/homepage/our-thinking-section";
+import OurThinkingSection from "./components/pages/homepage/our-thinking-section";
 
 export async function generateMetadata(): Promise<Metadata> {
 	const page = await getPage("home");

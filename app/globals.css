@@ -87,10 +87,82 @@ section > * {
 	}
 }
 
+h1 {
+	@apply leading-[1.2];
+	font-size: clamp(56px, 3.91vw, 3.91vw);
+	margin-bottom: clamp(1.2rem, 3.13vw, 3.13vw);
+}
+
 h2 {
 	@apply leading-normal font-bold text-[2.604vw] mb-(--paragraph-mb);
 }
 
 p {
-	@apply leading-normal font-medium text-[1.042vw] mb-(--paragraph-mb);
+	@apply leading-normal font-medium;
+	font-size: clamp(1rem, 1.25vw, 1.25vw);
+	margin-bottom: clamp(1rem, 1.67vw, 1.67vw);
+}
+
+/* Burger Menu */
+.burgerMenuIcon {
+	width: clamp(2rem, 2.08vw, 2.08vw);
+	aspect-ratio: 40/26;
+	object-fit: contain;
+}
+
+.burgerMenuOverlayHolder {
+	@apply fixed inset-0 w-full h-full bg-yellow;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: clamp(1rem, 4.69vw, 4.69vw);
+}
+
+.burgerMenuOverlayHolder .burgerMenuLinksHolder {
+	@apply flex flex-col w-full;
+}
+
+.burgermenuLogo {
+	@apply h-auto w-[9.11vw] min-w-25 object-contain aspect-175/51;
+}
+
+.burgerMenuTopHodler {
+	position: fixed;
+	padding-top: clamp(1rem, 2.6vw, 2.6vw);
+	padding-left: clamp(1rem, 4.69vw, 4.69vw);
+	padding-right: clamp(1rem, 4.69vw, 4.69vw);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	z-index: 9999;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+}
+
+.burgerMenuOverlayHolder a {
+	font-size: clamp(1.4rem, 2.4vw, 2.4vw);
+	padding: clamp(0.85rem, 2.08vw, 2.08vw) 0;
+	line-height: 1;
+	font-weight: 700;
+}
+
+.cardTags {
+	position: absolute;
+	font-size: clamp(1rem, 1.25vw, 1.25vw);
+	line-height: 1;
+	font-weight: 700;
+	color: white !important;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	bottom: 3.2%;
+}
+
+/*  */
+.hero-section {
+	background: radial-gradient(circle at center 65%, #ffeb9e 0%, #f5c45c 25%, #d18f2e 45%, #4a2e7a 70%, #1e1b4b 85%, #0f0c2e 100%);
 }
