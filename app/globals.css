@@ -87,20 +87,29 @@ section > * {
 	}
 }
 
-h1 {
-	@apply leading-[1.2];
-	font-size: clamp(56px, 3.91vw, 3.91vw);
+h1, h1 * {
+	font-size: clamp(56px, 3.91vw, 3.91vw) !important;
+	line-height: 1.2 !important;
 	margin-bottom: clamp(1.2rem, 3.13vw, 3.13vw);
+	font-weight: 800 !important;
 }
 
 h2 {
 	@apply leading-normal font-bold text-[2.604vw] mb-(--paragraph-mb);
 }
 
-p {
+p, a, span, li, ul ol {
 	@apply leading-normal font-medium;
 	font-size: clamp(1rem, 1.25vw, 1.25vw);
 	margin-bottom: clamp(1rem, 1.67vw, 1.67vw);
+}
+
+.font-size-56 {
+	font-size: clamp(2.4rem, 2.92vw, 2.92vw);
+}
+
+.blur-text > span {
+	margin-bottom: 0 !important;
 }
 
 /* Burger Menu */

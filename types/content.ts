@@ -10,6 +10,16 @@ export interface HomePage {
 	ourThinking: {
 		title: string;
 	};
+
+	decisionSection: {
+		title: string;
+		description: string;
+		ctaDescription: string;
+		ctaLink: {
+			name: string;
+			link: string;
+		}
+	}
 }
 
 interface SeoTypes {

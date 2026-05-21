@@ -15,5 +15,15 @@
 
 	"ourThinking": {
 		"title": "See Our Thinking"
+	},
+
+	"decisionSection": {
+		"title": "Are you ready for JUNO?",
+		"description": "Pick the one closest to where you actually are right now.",
+		"ctaDescription": "or skip the cards and email us:",
+		"ctaLink": {
+			"name": "hello@junoverse.io",
+			"link": "mailto:hello@junoverse.io"
+		}
 	}
 }

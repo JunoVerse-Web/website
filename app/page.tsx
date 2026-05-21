@@ -4,6 +4,7 @@ import HeroSection from "./components/pages/homepage/hero-section";
 import { getSeo } from "@/lib/seo/getSeo";
 import type { Metadata } from "next";
 import OurThinkingSection from "./components/pages/homepage/our-thinking-section";
+import DecisionSection from "./components/pages/homepage/decision-section";
 
 export async function generateMetadata(): Promise<Metadata> {
 	const page = await getPage("home");
@@ -22,6 +23,7 @@ export default async function Home() {
 				bottomDescription={content.hero.bottomDescription}
 			/>
 			<OurThinkingSection title={content.ourThinking.title} />
+			<DecisionSection content={content} />
 		</main>
 	);
 }
