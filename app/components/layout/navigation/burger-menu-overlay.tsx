@@ -101,9 +101,11 @@ export default function BurgerMenuOverlay() {
 				</Link>
 
 				<div
-					className="burgerMenuIcon cursor-pointer"
+					className="burgerMenuIcon cursor-pointer flex flex-col items-center justify-center gap-1"
 					onClick={toggleMenu}
 				>
+					<WhiteArrowLeft />
+					<WhiteArrowLeft />
 					<WhiteArrowLeft />
 				</div>
 			</div>

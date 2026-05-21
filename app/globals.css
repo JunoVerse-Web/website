@@ -133,7 +133,7 @@ p, a, span, li, ul ol {
 }
 
 .burgermenuLogo {
-	@apply h-auto w-[9.11vw] min-w-25 object-contain aspect-175/51;
+	@apply h-auto w-[9.11vw] min-w-25 object-contain aspect-175/51 !m-0;
 }
 
 .burgerMenuTopHodler {
@@ -157,6 +157,7 @@ p, a, span, li, ul ol {
 	padding: clamp(0.85rem, 2.08vw, 2.08vw) 0;
 	line-height: 1;
 	font-weight: 700;
+	margin: 0;
 }
 
 .cardTags {
