@@ -176,3 +176,48 @@ p, a, span, li, ul ol {
 .hero-section {
 	background: radial-gradient(circle at center 65%, #ffeb9e 0%, #f5c45c 25%, #d18f2e 45%, #4a2e7a 70%, #1e1b4b 85%, #0f0c2e 100%);
 }
+
+
+
+/* Card Feed Holder  */
+.CardFeedHolder h3 {
+	font-size: clamp(2rem, 2.4vw, 2.4vw) !important;
+	line-height: 1;
+	font-weight: 700;
+	margin-bottom: 0;
+	color: white;
+	margin-bottom: clamp(1rem, 0.83vw, 0.83vw);
+}
+
+.CardFeedHolder p,
+.CardFeedHolder span {
+	font-size: clamp(1.7rem, 1.88vw, 1.88vw) !important;
+	line-height: 1.3;
+	font-weight: 700;
+	margin-bottom: 0;
+	color: white;
+}
+
+.CardFeedHolder span {
+	margin-bottom: clamp(1.2rem, 2.86vw, 2.86vw);
+}
+
+
+
+/* Sections */
+/* section[data-section="decision"] {
+	background-image: url();
+} */
+
+
+
+/* Footer */
+footer > div:first-child * {
+    font-size: clamp(1rem, 0.83vw, 0.83vw);
+    margin: 0;
+}
+
+footer > div:first-child > div * {
+    font-weight: 700;
+}
+

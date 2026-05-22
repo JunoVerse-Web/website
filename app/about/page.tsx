@@ -3,7 +3,7 @@ import { HomePage } from "@/types/content";
 import HeroSection from "../components/pages/homepage/hero-section";
 import { getSeo } from "@/lib/seo/getSeo";
 import type { Metadata } from "next";
-import OurThinkingSection from "../components/pages/homepage/our-thinking-section";
+import OurThinkingSection from "../components/pages/homepage/card-feeds-section";
 
 export async function generateMetadata(): Promise<Metadata> {
 	const page = await getPage("home");

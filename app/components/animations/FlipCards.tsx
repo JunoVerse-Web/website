@@ -8,7 +8,6 @@ export default function FlipCards({ front, back, repeat = false, link }: { front
 	const [rotation, setRotation] = useState(0);
 	const [backRotation, setBackRotation] = useState(180);
 	const [isAnimating, setIsAnimating] = useState(false);
-	const [isHovered, setIsHovered] = useState(false);
 	const [focused, setFocused] = useState(false);
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const [isFlipped, setIsFlipped] = useState(false);
@@ -42,26 +41,24 @@ export default function FlipCards({ front, back, repeat = false, link }: { front
 	};
 
 	const handleMouseLeave = () => {
-		setIsHovered(false);
-
 		leaveTimeout.current = setTimeout(() => {
 			setFocused(false);
 		}, 1000);
 	};
 
-
 	const sharedClass =
 		"backface-hidden w-full h-full pointer-events-none rounded-[1vw] overflow-hidden transform-3d transition-transform duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] ";
 
-	const innerSharedClass = "transform-3d transition-transform ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform flex items-center justify-center w-full h-full";
+	const innerSharedClass =
+		"transform-3d transition-transform ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform flex items-center justify-center w-full h-full";
 
 	return (
-		<Link href={link || "#"}
+		<Link
+			href={link || "#"}
 			className={clsx(
 				"group relative grid content-center text-center bg-transparent w-full h-auto perspective-[1250px] cursor-pointer",
 				focused && "z-50",
 			)}
-			
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={handleMouseLeave}
 		>

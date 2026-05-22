@@ -13,8 +13,37 @@
 		"bottomDescription": "We are JUNO."
 	},
 
-	"ourThinking": {
-		"title": "See Our Thinking"
+	"cardFeedsSection": {
+		"title": "See Our Thinking",
+		"cards": [
+			{
+				"topTitle": "EP1:",
+				"mainTitle": "MAGIC,",
+				"description": "the Antidote to Mediocre",
+				"link": {
+					"name": "Read More",
+					"url": "https://junoverse.io/future-of-commerce"
+				}
+			},
+			{
+				"topTitle": "EP2:",
+				"mainTitle": "MAGIC,",
+				"description": "the Antidote to Mediocre",
+				"link": {
+					"name": "Read More",
+					"url": "https://junoverse.io/future-of-commerce"
+				}
+			},
+			{
+				"topTitle": "EP3:",
+				"mainTitle": "MAGIC,",
+				"description": "the Antidote to Mediocre",
+				"link": {
+					"name": "Read More",
+					"url": "https://junoverse.io/future-of-commerce"
+				}
+			}
+		]
 	},
 
 	"decisionSection": {
@@ -24,6 +53,24 @@
 		"ctaLink": {
 			"name": "hello@junoverse.io",
 			"link": "mailto:hello@junoverse.io"
-		}
+		},
+		"cards": [
+			{
+				"title": "First Card",
+				"text": ["My brand feels tired."]
+			},
+			{
+				"title": "Second Card",
+				"text": ["We have something to launch."]
+			},
+			{
+				"title": "Third Card",
+				"text": ["The work is fine.", "The numbers aren't."]
+			},
+			{
+				"title": "Fourth Card",
+				"text": ["I don't know what i need yet."]
+			}
+		]
 	}
 }

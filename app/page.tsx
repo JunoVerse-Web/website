@@ -3,7 +3,7 @@ import { HomePage } from "@/types/content";
 import HeroSection from "./components/pages/homepage/hero-section";
 import { getSeo } from "@/lib/seo/getSeo";
 import type { Metadata } from "next";
-import OurThinkingSection from "./components/pages/homepage/our-thinking-section";
+import CardFeedsSection from "./components/pages/homepage/card-feeds-section";
 import DecisionSection from "./components/pages/homepage/decision-section";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -22,7 +22,7 @@ export default async function Home() {
 				description={content.hero.description}
 				bottomDescription={content.hero.bottomDescription}
 			/>
-			<OurThinkingSection title={content.ourThinking.title} />
+			<CardFeedsSection content={content.cardFeedsSection} />
 			<DecisionSection content={content} />
 		</main>
 	);

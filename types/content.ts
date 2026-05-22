@@ -1,3 +1,5 @@
+import { Link } from "./global-types";
+
 export interface HomePage {
 	seo: SeoTypes;
 
@@ -7,8 +9,9 @@ export interface HomePage {
 		bottomDescription: string;
 	};
 
-	ourThinking: {
+	cardFeedsSection: {
 		title: string;
+		cards: CardFeeds[];
 	};
 
 	decisionSection: {
@@ -18,8 +21,21 @@ export interface HomePage {
 		ctaLink: {
 			name: string;
 			link: string;
-		}
+		},
+		cards: FlyingCard[];
 	}
+}
+
+interface FlyingCard {
+	title: string;
+	text: string[];
+}
+
+export interface CardFeeds {
+	topTitle: string;
+	mainTitle: string;
+	description: string;
+	link: Link;
 }
 
 interface SeoTypes {

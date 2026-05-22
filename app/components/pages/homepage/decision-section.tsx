@@ -1,23 +1,73 @@
 import { HomePage } from "@/types/content";
-import React from "react";
+import FlyingCards from "../../animations/FlyingCards";
+import Image from "next/image";
+import clsx from "clsx";
+import Card1 from "../../../../public/JUNO-card-1.webp";
+import Card2 from "../../../../public/JUNO-card-2.webp";
+import Card3 from "../../../../public/JUNO-card-3.webp";
+import Card4 from "../../../../public/JUNO-card-4.webp";
 
 export default function DecisionSection({ content }: { content: HomePage }) {
-	const { title, description, ctaDescription, ctaLink } = content.decisionSection;
+	const { title, description, ctaDescription, ctaLink, cards } = content.decisionSection;
+
+	const backgroundImage = "absolute w-full h-full object-cover pointer-events-none z-0";
 
 	return (
 		<section
 			data-section="decision"
-			className="pt-[11.46vw] px-[6.25vw] pb-[9.38vw] bg-yellow"
+			className="relative pt-[11.46vw] px-[6.25vw] pb-[9.38vw]"
 		>
-            {/* Top Content */}
-			<div className="text-center">
+			{/* Top Content */}
+			<div className="text-center md-[1.4rem] lg:mb-[3.13vw]">
 				<h2 className="font-size-56 text-white">{title}</h2>
 				<p className="text-white">{description}</p>
 			</div>
 
-            {/* Card Content */}
+			{/* Card Content */}
+			<div className="grid grid-cols-4 gap-[1.56vw] md:mb-12 lg:mb-[4.17vw]">
+				<FlyingCards
+					cardImage={
+						<Image
+							src={Card1}
+							alt="Juno Card 1"
+							className={clsx(backgroundImage)}
+						/>
+					}
+					text={cards[0].text}
+				/>
+				<FlyingCards
+					cardImage={
+						<Image
+							src={Card2}
+							alt="Juno Card 2"
+							className={clsx(backgroundImage)}
+						/>
+					}
+					text={cards[1].text}
+				/>
+				<FlyingCards
+					cardImage={
+						<Image
+							src={Card3}
+							alt="Juno Card 3"
+							className={clsx(backgroundImage)}
+						/>
+					}
+					text={cards[2].text}
+				/>
+				<FlyingCards
+					cardImage={
+						<Image
+							src={Card4}
+							alt="Juno Card 4"
+							className={clsx(backgroundImage)}
+						/>
+					}
+					text={cards[3].text}
+				/>
+			</div>
 
-            {/* Bottom CTA Line */}
+			{/* Bottom CTA Line */}
 			<div className="flex items-center justify-center">
 				<p className="text-white">{ctaDescription}</p>
 				<a
