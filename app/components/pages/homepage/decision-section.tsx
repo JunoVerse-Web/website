@@ -20,11 +20,11 @@ export default function DecisionSection({ content }: { content: HomePage }) {
 			{/* Background Decor */}
 			<span
 				data-background="top"
-				className="absolute top-0 left-0 right-0 translate-y-[-50%] w-[85%] h-auto aspect-square rounded-full z-0 blur-[80px]"
+				className="absolute top-0 left-0 right-0 translate-y-[-50%] w-[85%] h-auto aspect-square rounded-full"
 			></span>
 			<span
 				data-background="bottom"
-				className="absolute bottom-[22%] left-[12.5%] right-0 translate-x-[-25%] w-[150%] h-[15%] rounded-[100%] z-0 blur-[80px]"
+				className="absolute bottom-[22%] left-[12.5%] right-0 translate-x-[-25%] w-[150%] h-[15%] rounded-[100%]"
 			></span>
 
 			{/* Top Content */}
@@ -86,11 +86,11 @@ export default function DecisionSection({ content }: { content: HomePage }) {
 			</div>
 
 			{/* Bottom CTA Line */}
-			<div className="relative z-10 flex items-center justify-center">
-				<p className="text-white">{ctaDescription}</p>
+			<div className="relative z-10 flex items-center justify-center gap-1.5">
+				<p className="text-white mb-0!">{ctaDescription}</p>
 				<a
 					href={ctaLink.link}
-					className="text-white"
+					className="text-white mb-0!"
 					target="_blank"
 				>
 					{ctaLink.name}

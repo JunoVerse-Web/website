@@ -34,6 +34,7 @@ section {
 	overflow: hidden;
 }
 
+/* Background Grained Effect */
 section[data-section="home-hero"]:before,
 section[data-section="decision"]:before {
 	content: "";
@@ -43,7 +44,7 @@ section[data-section="decision"]:before {
 	position: absolute;
 	opacity: 0.1;
 	animation: animateGrain 8s steps(5) infinite;
-	z-index: 0;
+	z-index: 1;
 	pointer-events: none;
 	top: 0;
 	bottom: 0;
@@ -232,6 +233,13 @@ footer > div:first-child > div * {
 
 
 /* Graidents */
+section[data-section="decision"] span[data-background="top"],
+section[data-section="decision"] span[data-background="bottom"] {
+	pointer-events: none;
+	z-index: 0;
+	filter: blur(60px);
+}
+
 section[data-section="decision"] span[data-background="top"] {
 	background: radial-gradient(#F0C16A 0%, #D0A06D 30%, #665679 74%, transparent 100%);
 	margin: auto;
