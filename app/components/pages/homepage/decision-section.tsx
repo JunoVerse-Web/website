@@ -31,6 +31,8 @@ export default function DecisionSection({ content }: { content: HomePage }) {
 							src={Card1}
 							alt="Juno Card 1"
 							className={clsx(backgroundImage)}
+							sizes={"auto"}
+							fill
 						/>
 					}
 					text={cards[0].text}
@@ -41,6 +43,8 @@ export default function DecisionSection({ content }: { content: HomePage }) {
 							src={Card2}
 							alt="Juno Card 2"
 							className={clsx(backgroundImage)}
+							sizes={"auto"}
+							fill
 						/>
 					}
 					text={cards[1].text}
@@ -51,6 +55,8 @@ export default function DecisionSection({ content }: { content: HomePage }) {
 							src={Card3}
 							alt="Juno Card 3"
 							className={clsx(backgroundImage)}
+							sizes={"auto"}
+							fill
 						/>
 					}
 					text={cards[2].text}
@@ -61,6 +67,8 @@ export default function DecisionSection({ content }: { content: HomePage }) {
 							src={Card4}
 							alt="Juno Card 4"
 							className={clsx(backgroundImage)}
+							sizes={"auto"}
+							fill
 						/>
 					}
 					text={cards[3].text}

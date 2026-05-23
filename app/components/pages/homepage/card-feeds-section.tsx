@@ -38,13 +38,14 @@ export default function CardFeedsSection({ content }: { content: HomePage["cardF
 					return (
 						<SwiperSlide
 							key={index}
-							className="relative flex flex-col items-center justify-center font-medium mb-[1.25vw] aspect-410/500 overflow-hidden rounded-[2.5vw]"
+							className="relative flex flex-col items-center justify-center font-medium mb-[1.25vw] aspect-410/500 overflow-hidden rounded-[2.5vw] mt-8 md:mt-12 lg:mt-[4.17vw]"
 						>
 							{/* Background Gradient Image */}
 							<Image
 								src={currentGradient}
 								alt={`Gradient ${gradientIndex + 1}`}
 								fill
+								sizes="auto"
 								className="object-cover absolute inset-0 w-full h-full z-0"
 								priority={index < 3} // Optional: prioritize first few
 							/>

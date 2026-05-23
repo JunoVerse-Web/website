@@ -27,26 +27,33 @@ body {
 body {
 	background: var(--background);
 	color: var(--foreground);
-	/* font-family: var(--font-poppins); */
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
 }
 
-body:has(> main.homepage):before {
+section {
+	position: relative;
+	overflow: hidden;
+}
+
+section[data-section="home-hero"]:before,
+section[data-section="decision"]:before {
 	content: "";
 	background-image: url("../public/grain.png");
 	height: 200%;
 	width: 200%;
-	position: fixed;
+	position: absolute;
 	opacity: 0.1;
 	animation: animateGrain 8s steps(5) infinite;
 	z-index: 0;
 	pointer-events: none;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
 }
 
 section > * {
-	z-index: 1;
+	z-index: 5;
 }
 
 @keyframes animateGrain {
@@ -87,7 +94,8 @@ section > * {
 	}
 }
 
-h1, h1 * {
+h1,
+h1 * {
 	font-size: clamp(56px, 3.91vw, 3.91vw) !important;
 	line-height: 1.2 !important;
 	margin-bottom: clamp(1.2rem, 3.13vw, 3.13vw);
@@ -98,7 +106,11 @@ h2 {
 	@apply leading-normal font-bold text-[2.604vw] mb-(--paragraph-mb);
 }
 
-p, a, span, li, ul ol {
+p,
+a,
+span,
+li,
+ul ol {
 	@apply leading-normal font-medium;
 	font-size: clamp(1rem, 1.25vw, 1.25vw);
 	margin-bottom: clamp(1rem, 1.67vw, 1.67vw);
@@ -114,7 +126,8 @@ p, a, span, li, ul ol {
 
 /* Burger Menu */
 .burgerMenuIcon {
-	width: clamp(2rem, 2.08vw, 2.08vw);
+	height: 90%;
+	width: auto;
 	aspect-ratio: 40/26;
 	object-fit: contain;
 }
@@ -177,8 +190,6 @@ p, a, span, li, ul ol {
 	background: radial-gradient(circle at center 65%, #ffeb9e 0%, #f5c45c 25%, #d18f2e 45%, #4a2e7a 70%, #1e1b4b 85%, #0f0c2e 100%);
 }
 
-
-
 /* Card Feed Holder  */
 .CardFeedHolder h3 {
 	font-size: clamp(2rem, 2.4vw, 2.4vw) !important;
@@ -202,22 +213,17 @@ p, a, span, li, ul ol {
 	margin-bottom: clamp(1.2rem, 2.86vw, 2.86vw);
 }
 
-
-
 /* Sections */
 /* section[data-section="decision"] {
 	background-image: url();
 } */
 
-
-
 /* Footer */
 footer > div:first-child * {
-    font-size: clamp(1rem, 0.83vw, 0.83vw);
-    margin: 0;
+	font-size: clamp(1rem, 0.83vw, 0.83vw);
+	margin: 0;
 }
 
 footer > div:first-child > div * {
-    font-weight: 700;
+	font-weight: 700;
 }
-

@@ -5,7 +5,7 @@ import CardsContainer from "./cards-container";
 
 export default function HeroSection({ title, description, bottomDescription }: { title: string; description: string[]; bottomDescription: string }) {
 	return (
-		<section className="hero-section px-[9.38vw] text-center pt-[12vw] pb-[2vw]">
+		<section data-section="home-hero" className="hero-section px-[9.38vw] text-center pt-[12vw] pb-[2vw]">
 			<div>
 				<h1 className="text-center font-bold text-white">
 					<BlurText

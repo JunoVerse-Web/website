@@ -1,14 +1,13 @@
 "use client";
 
 import { useState, useRef, Fragment } from "react";
-import Image from "next/image";
-import JunoDarkLogo from "../../../../public/juno-logo.svg";
 import JunoLogo from "@/app/components/icons/juno-logo";
 import Link from "next/link";
 import WhiteArrowLeft from "../../icons/white-arrow-left";
 import clsx from "clsx";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { useMenuStore } from "@/store";
 
 export default function BurgerMenuOverlay() {
 	const menuLinks = [
@@ -87,7 +86,12 @@ export default function BurgerMenuOverlay() {
 		{ dependencies: [menuToggled] }, // Re-run when menuToggled changes
 	);
 
-	const toggleMenu = () => setMenuToggled((prev) => !prev);
+	const darkState = useMenuStore((state) => state.dark);
+
+	const toggleMenu = () => {
+		setMenuToggled((prev) => !prev);
+		useMenuStore.setState({ dark: !darkState });
+	};
 
 	return (
 		<>
@@ -97,23 +101,30 @@ export default function BurgerMenuOverlay() {
 					href="/"
 					className="burgermenuLogo"
 				>
-					<JunoLogo className="w-full h-full object-contain" />
+					<JunoLogo
+						className="w-full h-full object-contain"
+						dark={darkState}
+					/>
 				</Link>
 
 				<div
 					className="burgerMenuIcon cursor-pointer flex flex-col items-center justify-center gap-1"
 					onClick={toggleMenu}
 				>
-					<WhiteArrowLeft />
-					<WhiteArrowLeft />
-					<WhiteArrowLeft />
+					<WhiteArrowLeft dark={darkState} />
+					<WhiteArrowLeft dark={darkState} />
+					<WhiteArrowLeft dark={darkState} />
 				</div>
 			</div>
 
 			{/* Overlay */}
 			<div
 				ref={overlayRef}
-				className={clsx("burgerMenuOverlayHolder fixed inset-0 -translate-y-full bg-white z-50", "overflow-hidden", menuToggled ? "pointer-events-auto" : "pointer-events-none")}
+				className={clsx(
+					"burgerMenuOverlayHolder fixed inset-0 -translate-y-full bg-white z-50",
+					"overflow-hidden",
+					menuToggled ? "pointer-events-auto" : "pointer-events-none",
+				)}
 			>
 				<div className="h-full w-full flex items-center justify-center">
 					<div
