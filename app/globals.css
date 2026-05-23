@@ -227,3 +227,17 @@ footer > div:first-child * {
 footer > div:first-child > div * {
 	font-weight: 700;
 }
+
+
+
+
+/* Graidents */
+section[data-section="decision"] span[data-background="top"] {
+	background: radial-gradient(#F0C16A 0%, #D0A06D 30%, #665679 74%, transparent 100%);
+	margin: auto;
+}
+
+section[data-section="decision"] span[data-background="bottom"] {
+	background: radial-gradient(#FCF390 0%, #FCF390 30%, #59486F 64%, transparent 100%);
+	margin: auto;
+}

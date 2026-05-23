@@ -15,16 +15,26 @@ export default function DecisionSection({ content }: { content: HomePage }) {
 	return (
 		<section
 			data-section="decision"
-			className="relative pt-[11.46vw] px-[6.25vw] pb-[9.38vw]"
+			className="relative pt-[11.46vw] px-[6.25vw] pb-[9.38vw] bg-[#052447]"
 		>
+			{/* Background Decor */}
+			<span
+				data-background="top"
+				className="absolute top-0 left-0 right-0 translate-y-[-50%] w-[85%] h-auto aspect-square rounded-full z-0 blur-[80px]"
+			></span>
+			<span
+				data-background="bottom"
+				className="absolute bottom-[22%] left-[12.5%] right-0 translate-x-[-25%] w-[150%] h-[15%] rounded-[100%] z-0 blur-[80px]"
+			></span>
+
 			{/* Top Content */}
-			<div className="text-center md-[1.4rem] lg:mb-[3.13vw]">
+			<div className="relative z-10 text-center md-[1.4rem] lg:mb-[3.13vw]">
 				<h2 className="font-size-56 text-white">{title}</h2>
 				<p className="text-white">{description}</p>
 			</div>
 
 			{/* Card Content */}
-			<div className="grid grid-cols-4 gap-[1.56vw] md:mb-12 lg:mb-[4.17vw]">
+			<div className="relative z-10 grid grid-cols-4 gap-[1.56vw] md:mb-12 lg:mb-[4.17vw]">
 				<FlyingCards
 					cardImage={
 						<Image
@@ -76,11 +86,12 @@ export default function DecisionSection({ content }: { content: HomePage }) {
 			</div>
 
 			{/* Bottom CTA Line */}
-			<div className="flex items-center justify-center">
+			<div className="relative z-10 flex items-center justify-center">
 				<p className="text-white">{ctaDescription}</p>
 				<a
 					href={ctaLink.link}
 					className="text-white"
+					target="_blank"
 				>
 					{ctaLink.name}
 				</a>
