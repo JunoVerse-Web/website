@@ -106,14 +106,40 @@ export default function BurgerMenuOverlay() {
 						dark={darkState}
 					/>
 				</Link>
+				<div className="overflow-hidden">
+					<div
+						className="burgerMenuIcon relative cursor-pointer flex flex-col items-center justify-center gap-1 w-[2.6vw] h-auto"
+						onClick={toggleMenu}
+					>
+						{/* Burger */}
+						<WhiteArrowLeft
+							dark={darkState}
+							className={clsx(!darkState ? "burger-animate-out" : "burger-animate-in", "")}
+							// style={{animationDelay: "0.2s"}}
+						/>
+						<WhiteArrowLeft
+							dark={darkState}
+							className={clsx(!darkState ? "burger-animate-out" : "burger-animate-in", "")}
+							// style={{animationDelay: "0.4s"}}
+						/>
+						<WhiteArrowLeft
+							dark={darkState}
+							className={clsx(!darkState ? "burger-animate-out" : "burger-animate-in", "")}
+							// style={{animationDelay: "0.6s"}}
+						/>
 
-				<div
-					className="burgerMenuIcon cursor-pointer flex flex-col items-center justify-center gap-1"
-					onClick={toggleMenu}
-				>
-					<WhiteArrowLeft dark={darkState} />
-					<WhiteArrowLeft dark={darkState} />
-					<WhiteArrowLeft dark={darkState} />
+						{/* X Icon */}
+						<WhiteArrowLeft
+							dark={darkState}
+							className={clsx(darkState ? "burger-x-animate-out" : "burger-x-animate-in", "absolute inset-0 rotate-45")}
+							// style={darkState ? {animationDelay: "0.8s"} : {animationDelay: "1.2s"}}
+						/>
+						<WhiteArrowLeft
+							dark={darkState}
+							className={clsx(darkState ? "burger-x-animate-out" : "burger-x-animate-in", "absolute inset-0 rotate-135")}
+							// style={darkState ? {animationDelay: "0.8s"} : {animationDelay: "1.2s"}}
+						/>
+					</div>
 				</div>
 			</div>
 

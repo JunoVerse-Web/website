@@ -1,12 +1,13 @@
-import * as React from "react";
+import clsx from "clsx";
 
-const WhiteArrowLeft = ({ dark }: { dark?: boolean }) => (
+
+const WhiteArrowLeft = ({ dark, className, style }: { dark?: boolean, className: string; style?: React.CSSProperties }) => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
-		width="41"
-		height="7"
 		fill="none"
 		viewBox="0 0 41 7"
+		className={clsx("w-full h-full object-contain", className)}
+		style={style}
 	>
 		<path
 			fill={dark ? "#fff" : "#000"}

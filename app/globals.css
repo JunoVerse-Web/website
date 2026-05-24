@@ -36,7 +36,8 @@ section {
 
 /* Background Grained Effect */
 section[data-section="home-hero"]:before,
-section[data-section="decision"]:before {
+section[data-section="decision"]:before,
+section[data-section="services-hero"]:before {
 	content: "";
 	background-image: url("../public/grain.png");
 	height: 200%;
@@ -117,6 +118,10 @@ ul ol {
 	margin-bottom: clamp(1rem, 1.67vw, 1.67vw);
 }
 
+.font-size-36 {
+	font-size: clamp(1.4rem, 1.88vw, 1.88vw);
+}
+
 .font-size-56 {
 	font-size: clamp(2.4rem, 2.92vw, 2.92vw);
 }
@@ -127,11 +132,10 @@ ul ol {
 
 /* Burger Menu */
 .burgerMenuIcon {
-	height: 90%;
-	width: auto;
-	aspect-ratio: 40/26;
+	aspect-ratio: 41/7;
 	object-fit: contain;
 }
+
 
 .burgerMenuOverlayHolder {
 	@apply fixed inset-0 w-full h-full bg-yellow;
@@ -174,6 +178,60 @@ ul ol {
 	margin: 0;
 }
 
+.burger-animate-in {
+	animation: burgerAnimateIn 0.5s ease-in-out forwards;
+}
+
+.burger-animate-out {
+	animation: burgerAnimateOut 0.5s ease-in-out forwards;
+}
+
+@keyframes burgerAnimateOut {
+	0% {
+		transform: translateX(0%);
+	}
+	100% {
+		transform: translateX(-100%);
+	}
+}
+
+@keyframes burgerAnimateIn {
+	0% {
+		transform: translateX(100%);
+	}
+	100% {
+		transform: translateX(0%);
+	}
+}
+
+.burger-x-animate-in {
+	animation:cubic-bezier(1, 0, 0, 1) 0.5s forwards BurgerXAnimateIn;
+}
+
+.burger-x-animate-out {
+	animation:cubic-bezier(1, 0, 0, 1) 0.5s forwards BurgerXAnimateOut;
+}
+
+@keyframes BurgerXAnimateIn {
+	0% {
+		transform: translate(110%, 0%);
+	}
+	100% {
+		transform: translate(0%, 0%);
+	}
+}
+
+@keyframes BurgerXAnimateOut {
+	0% {
+		transform: translate(0%, 0%);
+	}
+	100% {
+		transform: translate(-110%, 0%);
+	}
+}
+
+
+/* General */
 .cardTags {
 	position: absolute;
 	font-size: clamp(1rem, 1.25vw, 1.25vw);
@@ -214,10 +272,13 @@ ul ol {
 	margin-bottom: clamp(1.2rem, 2.86vw, 2.86vw);
 }
 
-/* Sections */
-/* section[data-section="decision"] {
-	background-image: url();
-} */
+
+/* Services Page */
+main.services-page {
+	background: url(../public//page-background/services-background-image.webp) center -50% no-repeat var(--yellow);
+	background-size: 115%;
+}
+
 
 /* Footer */
 footer > div:first-child * {

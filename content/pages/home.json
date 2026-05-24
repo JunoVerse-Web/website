@@ -10,7 +10,33 @@
 			"The agency model is breaking under its own weight. Holdcos are restructuring.",
 			"Boutiques are narrow. Brands don't need more partners - they need sharper eyes"
 		],
-		"bottomDescription": "We are JUNO."
+		"bottomDescription": "We are JUNO.",
+		"cards": [
+			{
+				"title": "Our Philosophy",
+				"link": "/our-philosophy"
+			},
+			{
+				"title": "Our Services",
+				"link": "/our-services"
+			},
+			{
+				"title": "Our Creations",
+				"link": "/our-creations"
+			},
+			{
+				"title": "Our World",
+				"link": "/our-world"
+			},
+			{
+				"title": "Our Folks",
+				"link": "/our-folks"
+			},
+			{
+				"title": "Our Culture",
+				"link": "/our-culture"
+			}
+		]
 	},
 
 	"cardFeedsSection": {
@@ -36,6 +62,15 @@
 			},
 			{
 				"topTitle": "EP3:",
+				"mainTitle": "MAGIC,",
+				"description": "the Antidote to Mediocre",
+				"link": {
+					"name": "Read More",
+					"url": "https://junoverse.io/future-of-commerce"
+				}
+			},
+			{
+				"topTitle": "EP4:",
 				"mainTitle": "MAGIC,",
 				"description": "the Antidote to Mediocre",
 				"link": {

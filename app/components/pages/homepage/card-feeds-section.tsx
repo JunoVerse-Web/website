@@ -11,6 +11,7 @@ import Image from "next/image";
 import GradientOne from "../../../../public/gradient-image-1.jpg";
 import GradientTwo from "../../../../public/gradient-image-2.jpg";
 import GradientThree from "../../../../public/gradient-image-3.jpg";
+import ArrowButton from "../../shared/arrow-button";
 
 const gradients = [GradientOne, GradientTwo, GradientThree];
 
@@ -18,7 +19,15 @@ export default function CardFeedsSection({ content }: { content: HomePage["cardF
 	const { title, cards } = content;
 	return (
 		<section className="relative z-10 bg-gray px-[10.4vw] text-center py-[7.2vw]">
-			<h2>{title}</h2>
+			<div className="relative flex items-center justify-center">
+				<h2 className="mb-0! flex-1">{title}</h2>
+				<ArrowButton
+					label="More"
+					url="#"
+					target="_self"
+					className={"absolute top-0 bottom-0 right-0 m-auto"}
+				/>
+			</div>
 
 			<Swiper
 				spaceBetween={50}

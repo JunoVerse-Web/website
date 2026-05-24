@@ -1,0 +1,34 @@
+{
+	"seo": {
+		"title": "JunoVerse | Services",
+		"description": "This is the services page."
+	},
+
+	"hero": {
+		"title": "A Matter of Craft",
+		"mainDescription": "Where are Craft that creates impact you can feel — and measure.",
+		"secondDescription": "We shape brands to close the distance between business and buyer. Every layer is developed until the task seems obvious, and execution feels earned. Outcomes like that aren't found in breadth of capability — it's designed through depth of craft.",
+		"cards": [
+			{
+				"title": "Brand Positining and Strategy",
+				"description": "Find a position so sharp, everything that follows feels obvious."
+			},
+			{
+				"title": "Brand Refresh and Rebuild",
+				"description": "Turn brands that feels tired into ones the market can't ignore."
+			},
+			{
+				"title": "Campaign Development",
+				"description": "Build a powerful idea that scales and endures beyond the campaign window."
+			},
+			{
+				"title": "Go-To-Market Strategy",
+				"description": "Deliver product, brand, and message to your audience in one decisive move."
+			},
+			{
+				"title": "Growth Systems",
+				"description": "Design integrated systems where strategy, creative, and performance compound."
+			}
+		]
+	}
+}

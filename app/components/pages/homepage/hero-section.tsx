@@ -2,10 +2,24 @@
 
 import BlurText from "../../animations/BlurText";
 import CardsContainer from "./cards-container";
+import { HomeHeroCardsType } from "@/types/global-types";
 
-export default function HeroSection({ title, description, bottomDescription }: { title: string; description: string[]; bottomDescription: string }) {
+export default function HeroSection({
+	title,
+	description,
+	bottomDescription,
+	cards,
+}: {
+	title: string;
+	description: string[];
+	bottomDescription: string;
+	cards: HomeHeroCardsType[];
+}) {
 	return (
-		<section data-section="home-hero" className="hero-section px-[9.38vw] text-center pt-[12vw] pb-[2vw]">
+		<section
+			data-section="home-hero"
+			className="hero-section px-[9.38vw] text-center pt-[12vw] pb-[2vw]"
+		>
 			<div>
 				<h1 className="text-center font-bold text-white">
 					<BlurText
@@ -28,7 +42,7 @@ export default function HeroSection({ title, description, bottomDescription }: {
 				</div>
 				<p className="text-white">{bottomDescription}</p>
 			</div>
-			<CardsContainer />
+			<CardsContainer content={cards} />
 		</section>
 	);
 }

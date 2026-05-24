@@ -1,4 +1,6 @@
-import { Link } from "./global-types";
+import { CardFeeds, FlyingCard, HomeHeroCardsType, SeoTypes, ServicesCardType } from "./global-types";
+
+
 
 export interface HomePage {
 	seo: SeoTypes;
@@ -7,6 +9,7 @@ export interface HomePage {
 		title: string;
 		description: string[];
 		bottomDescription: string;
+		cards: HomeHeroCardsType[];
 	};
 
 	cardFeedsSection: {
@@ -21,24 +24,19 @@ export interface HomePage {
 		ctaLink: {
 			name: string;
 			link: string;
-		},
+		};
 		cards: FlyingCard[];
+	};
+}
+
+
+export interface ServicesPage {
+	seo: SeoTypes;
+
+	hero: {
+		title: string;
+		mainDescription: string;
+		secondDescription: string;
+		cards: ServicesCardType[];
 	}
-}
-
-interface FlyingCard {
-	title: string;
-	text: string[];
-}
-
-export interface CardFeeds {
-	topTitle: string;
-	mainTitle: string;
-	description: string;
-	link: Link;
-}
-
-interface SeoTypes {
-	title: string;
-	description: string;
 }
