@@ -13,6 +13,10 @@ export type HomeHeroCardsType = {
 	link: string;
 };
 
+export type CreationsCardType = {
+	link: string;
+};
+
 export type FlyingCard = {
 	title: string;
 	text: string[];

@@ -1,4 +1,4 @@
-import { CardFeeds, FlyingCard, HomeHeroCardsType, SeoTypes, ServicesCardType } from "./global-types";
+import { CardFeeds, FlyingCard, HomeHeroCardsType, SeoTypes, ServicesCardType, CreationsCardType } from "./global-types";
 
 
 
@@ -38,5 +38,15 @@ export interface ServicesPage {
 		mainDescription: string;
 		secondDescription: string;
 		cards: ServicesCardType[];
+	}
+}
+
+export interface CreationsPage {
+	seo: SeoTypes;
+
+	hero: {
+		title: string;
+		description: string;
+		cards: CreationsCardType[];
 	}
 }
