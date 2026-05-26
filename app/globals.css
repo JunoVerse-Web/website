@@ -55,6 +55,7 @@ section[data-section="services-hero"]:before {
 }
 
 section > * {
+	position: relative;
 	z-index: 5;
 }
 
