@@ -249,8 +249,12 @@ ul ol {
 }
 
 /*  */
-.hero-section {
+/* .hero-section {
 	background: radial-gradient(circle at center 65%, #ffeb9e 0%, #f5c45c 25%, #d18f2e 45%, #4a2e7a 70%, #1e1b4b 85%, #0f0c2e 100%);
+} */
+section[data-section="home-hero"] {
+	background: url(../public//page-background/creations-bakcground-image.jpg) center center no-repeat;
+	background-size: cover;
 }
 
 /* Card Feed Holder  */
