@@ -100,6 +100,11 @@ export default function BurgerMenuOverlay() {
 				<Link
 					href="/"
 					className="burgermenuLogo"
+					onClick={() => {
+						if(menuToggled) {
+							toggleMenu();
+						}
+					}}
 				>
 					<JunoLogo
 						className="w-full h-full object-contain"
@@ -162,7 +167,7 @@ export default function BurgerMenuOverlay() {
 								<Link
 									href={link.href}
 									className="block py-5 text-2xl font-medium text-black"
-									onClick={() => toggleMenu()}
+									onClick={toggleMenu}
 								>
 									{link.name}
 								</Link>
