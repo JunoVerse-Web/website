@@ -162,7 +162,7 @@ export default function BurgerMenuOverlay() {
 								<Link
 									href={link.href}
 									className="block py-5 text-2xl font-medium text-black"
-									onClick={() => setMenuToggled(false)}
+									onClick={() => toggleMenu()}
 								>
 									{link.name}
 								</Link>

@@ -118,6 +118,10 @@ ul ol {
 	margin-bottom: clamp(1rem, 1.67vw, 1.67vw);
 }
 
+.font-size-18 {
+	font-size: clamp(1rem, 0.94vw, 0.94vw);
+}
+
 .font-size-36 {
 	font-size: clamp(1.4rem, 1.88vw, 1.88vw);
 }
@@ -280,6 +284,13 @@ main.services-page {
 }
 
 
+/* Creations Page */
+main.creations-page {
+	background: url(../public//page-background/creations-bakcground-image.jpg) center center no-repeat;
+	background-size: cover;
+}
+
+
 /* Footer */
 footer > div:first-child * {
 	font-size: clamp(1rem, 0.83vw, 0.83vw);
@@ -289,7 +300,6 @@ footer > div:first-child * {
 footer > div:first-child > div * {
 	font-weight: 700;
 }
-
 
 
 
