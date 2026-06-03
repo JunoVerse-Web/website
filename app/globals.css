@@ -4,6 +4,7 @@
 	--background: #ffffff;
 	--foreground: #171717;
 	--yellow: #f8b435;
+	--orange: #ff8c00;
 	--gray: #e7e4d5;
 	--font-poppins: "Poppins", sans-serif;
 	--paragraph-mb: clamp(0.8rem, 1.042vw, 1.042vw);
@@ -12,6 +13,7 @@
 
 @theme {
 	--color-yellow: var(--yellow);
+	--color-orange: var(--orange);
 	--color-gray: var(--gray);
 	--spacing-2: var(--spacing-cards);
 }

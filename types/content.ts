@@ -1,7 +1,5 @@
 import { CardFeeds, FlyingCard, HomeHeroCardsType, SeoTypes, ServicesCardType, CreationsCardType } from "./global-types";
 
-
-
 export interface HomePage {
 	seo: SeoTypes;
 
@@ -29,7 +27,6 @@ export interface HomePage {
 	};
 }
 
-
 export interface ServicesPage {
 	seo: SeoTypes;
 
@@ -38,7 +35,7 @@ export interface ServicesPage {
 		mainDescription: string;
 		secondDescription: string;
 		cards: ServicesCardType[];
-	}
+	};
 }
 
 export interface CreationsPage {
@@ -48,5 +45,25 @@ export interface CreationsPage {
 		title: string;
 		description: string;
 		cards: CreationsCardType[];
-	}
+	};
+}
+
+// Portfolio Pages Type
+export interface PortfolioPage {
+	seo: SeoTypes;
+
+	hero: {
+		title: string;
+		imageUrl: string;
+	};
+
+	descriptionSection: {
+		title: string;
+		points: {
+			title: string;
+			description: string;
+		}[];
+	};
+
+	galleryImages: string[];
 }

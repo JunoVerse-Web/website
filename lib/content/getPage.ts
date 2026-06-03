@@ -8,3 +8,11 @@ export async function getPage(slug: string) {
 
 	return JSON.parse(file);
 }
+
+export async function getPortfolio(slug: string) {
+	const filePath = path.join(process.cwd(), "./content/portfolio", `${slug}.json`);
+
+	const file = await fs.readFile(filePath, "utf-8");
+
+	return JSON.parse(file);
+}

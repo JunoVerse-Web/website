@@ -5,11 +5,31 @@
 	},
 
 	"hero": {
-		"title": "An Independent Growth Consultancy that happens to make brilliant creative",
-		"description": [
-			"The agency model is breaking under its own weight. Holdcos are restructuring.",
-			"Boutiques are narrow. Brands don't need more partners - they need sharper eyes"
-		],
-		"bottomDescription": "We are JUNO."		
-	}
+		"title": "Spritzer",
+		"imageUrl": "/portfolio/spritzer/hero-banner.webp"
+	},
+
+	"descriptionSection": {
+		"title": "From Scattered Campaigns to singular Brand Story",
+		"points": [
+			{
+				"title": "The Brief",
+				"description": "Another seasonal campaign."
+			},
+			{
+				"title": "The Reality",
+				"description": "A brand without a unifying story."
+			},
+			{
+				"title": "The Solve",
+				"description": "We built a scalable brand narrative engine designed to cascade across sub-brands."
+			}
+		]
+	},
+
+	"galleryImages": [
+		"/portfolio/spritzer/hero-banner.webp",
+		"/portfolio/spritzer/hero-banner.webp",
+		"/portfolio/spritzer/hero-banner.webp"
+	]
 }
