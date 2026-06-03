@@ -44,11 +44,11 @@ export default function TiltingCards({ content, url = "#" }: { content: React.Re
 		}
 	};
 
-	const sharedClass =
-		"backface-hidden w-full h-full aspect-[397/595] pointer-events-none rounded-[1vw] overflow-hidden";
+	const sharedClass = "backface-hidden w-full h-full aspect-[397/595] pointer-events-none rounded-[1vw] overflow-hidden";
 
 	return (
 		<Link
+			scroll={false}
 			href={url}
 			className="group relative w-full h-auto perspective-[1200px] cursor-pointer block"
 		>
@@ -64,9 +64,7 @@ export default function TiltingCards({ content, url = "#" }: { content: React.Re
 			>
 				{/* Card Content */}
 				<div className={clsx("relative", sharedClass)}>
-					<div className="w-full h-full flex items-center justify-center">
-						{content}
-					</div>
+					<div className="w-full h-full flex items-center justify-center">{content}</div>
 				</div>
 			</div>
 		</Link>

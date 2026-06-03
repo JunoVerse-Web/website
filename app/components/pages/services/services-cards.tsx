@@ -1,11 +1,10 @@
 import { ServicesCardType } from "@/types/global-types";
 import React from "react";
 import SingleFlipCards from "../../animations/SingleFlipCards";
-import CardThumbnail from "../../../../public/JUNO-Deck-image-1.webp";
 import Image from "next/image";
 // import clsx from "clsx";'
-import FrontBlueCard from "../../../../public/Juno-blue-card.png";
-import MagicMakers from "../../../../public/magic-makers.png";
+import FrontBlueCard from "../../../../public/general/Juno-blue-card.png";
+import MagicMakers from "../../../../public/general/magic-makers.png";
 
 export default function ServicesCards({ cards }: { cards: ServicesCardType[] }) {
 	return (

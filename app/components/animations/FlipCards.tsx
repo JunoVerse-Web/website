@@ -54,6 +54,7 @@ export default function FlipCards({ front, back, repeat = false, link }: { front
 
 	return (
 		<Link
+		 	scroll={false}
 			href={link || "#"}
 			className={clsx(
 				"group relative grid content-center text-center bg-transparent w-full h-auto perspective-[1250px] cursor-pointer",

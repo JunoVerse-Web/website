@@ -10,6 +10,7 @@ export default function Footer() {
 				<span>©Rekalabs Sdn. Bhd. All rights reserved.</span>
 				<div className="flex gap-1.5">
 					<Link
+						scroll={false}
 						href="/privacy-policy"
 						className="underline"
 					>
@@ -17,6 +18,7 @@ export default function Footer() {
 					</Link>
 					<span> | </span>
 					<Link
+						scroll={false}
 						href="/terms-of-use"
 						className="underline"
 					>

@@ -2,8 +2,8 @@ import BlackArrowRight from "../icons/black-arrow-right";
 import Link from "next/link";
 import clsx from "clsx";
 
-export default function ArrowButton({ label, url, target = "_self", className }: { label: string; url: string; target: string, className?: string }) {
-    const linkClass = "group flex items-center gap-[0.52vw] mb-0!";
+export default function ArrowButton({ label, url, target = "_self", className }: { label: string; url: string; target: string; className?: string }) {
+	const linkClass = "group flex items-center gap-[0.52vw] mb-0!";
 	if (target === "_blank") {
 		return (
 			<a
@@ -18,6 +18,7 @@ export default function ArrowButton({ label, url, target = "_self", className }:
 	} else {
 		return (
 			<Link
+				scroll={false}
 				href={url}
 				className={clsx(linkClass, className)}
 			>

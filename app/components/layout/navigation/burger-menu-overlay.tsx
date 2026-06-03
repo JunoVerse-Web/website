@@ -2,12 +2,12 @@
 
 import { useState, useRef, Fragment } from "react";
 import JunoLogo from "@/app/components/icons/juno-logo";
-import Link from "next/link";
 import WhiteArrowLeft from "../../icons/white-arrow-left";
 import clsx from "clsx";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useMenuStore } from "@/store";
+import CustomLink from "../../shared/custom-link";
 
 export default function BurgerMenuOverlay() {
 	const menuLinks = [
@@ -97,20 +97,19 @@ export default function BurgerMenuOverlay() {
 		<>
 			{/* Top Bar */}
 			<div className="burgerMenuTopHodler">
-				<Link
+				<CustomLink
+					scroll={false}
 					href="/"
 					className="burgermenuLogo"
 					onClick={() => {
-						if(menuToggled) {
-							toggleMenu();
-						}
+						if (menuToggled) toggleMenu();
 					}}
 				>
 					<JunoLogo
 						className="w-full h-full object-contain"
 						dark={darkState}
 					/>
-				</Link>
+				</CustomLink>
 				<div className="overflow-hidden">
 					<div
 						className="burgerMenuIcon relative cursor-pointer flex flex-col items-center justify-center gap-1 w-[2.6vw] h-auto"
@@ -164,13 +163,14 @@ export default function BurgerMenuOverlay() {
 					>
 						{menuLinks.map((link, index) => (
 							<Fragment key={index}>
-								<Link
+								<CustomLink
+									scroll={false}
 									href={link.href}
 									className="block py-5 text-2xl font-medium text-black"
 									onClick={toggleMenu}
 								>
 									{link.name}
-								</Link>
+								</CustomLink>
 								{index !== menuLinks.length - 1 && <hr className="border-black" />}
 							</Fragment>
 						))}

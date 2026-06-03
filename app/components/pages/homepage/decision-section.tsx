@@ -2,10 +2,10 @@ import { HomePage } from "@/types/content";
 import FlyingCards from "../../animations/FlyingCards";
 import Image from "next/image";
 import clsx from "clsx";
-import Card1 from "../../../../public/JUNO-card-1.webp";
-import Card2 from "../../../../public/JUNO-card-2.webp";
-import Card3 from "../../../../public/JUNO-card-3.webp";
-import Card4 from "../../../../public/JUNO-card-4.webp";
+import Card1 from "../../../../public/general/JUNO-card-1.webp";
+import Card2 from "../../../../public/general/JUNO-card-2.webp";
+import Card3 from "../../../../public/general/JUNO-card-3.webp";
+import Card4 from "../../../../public/general/JUNO-card-4.webp";
 
 export default function DecisionSection({ content }: { content: HomePage }) {
 	const { title, description, ctaDescription, ctaLink, cards } = content.decisionSection;

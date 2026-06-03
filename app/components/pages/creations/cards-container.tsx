@@ -17,7 +17,7 @@ export default function CardsContainer({ content }: { content: CreationsCardType
 		<div className="relative px-[16.93vw] pt-[2vw] pb-[3vw]">
 			<div className="grid grid-cols-3 gap-(--spacing-2)">
 				<TiltingCards
-					url={"#"}
+					url={"/our-creations/spritzer"}
 					content={
 						<div className={clsx(cardsClass)}>
 							{/* Background Image */}
@@ -32,7 +32,7 @@ export default function CardsContainer({ content }: { content: CreationsCardType
 					}
 				/>
 				<TiltingCards
-					url={"#"}
+					url={"/our-creations/big-caring-group"}
 					content={
 						<div className={clsx(cardsClass)}>
 							{/* Background Image */}

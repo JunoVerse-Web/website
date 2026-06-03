@@ -8,9 +8,9 @@ import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import CardFrame from "../../icons/card-frame";
 import Image from "next/image";
-import GradientOne from "../../../../public/gradient-image-1.jpg";
-import GradientTwo from "../../../../public/gradient-image-2.jpg";
-import GradientThree from "../../../../public/gradient-image-3.jpg";
+import GradientOne from "../../../../public/general/gradient-image-1.jpg";
+import GradientTwo from "../../../../public/general/gradient-image-2.jpg";
+import GradientThree from "../../../../public/general/gradient-image-3.jpg";
 import ArrowButton from "../../shared/arrow-button";
 
 const gradients = [GradientOne, GradientTwo, GradientThree];
@@ -61,6 +61,7 @@ export default function CardFeedsSection({ content }: { content: HomePage["cardF
 
 							{/* Content Overlay */}
 							<Link
+								scroll={false}
 								href="#"
 								className="CardFeedHolder relative z-10 text-center px-[10%] pt-[25%] grid justify-center place-content-start w-fill h-full"
 							>

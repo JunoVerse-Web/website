@@ -3,12 +3,12 @@ import Image from "next/image";
 import FlipCards from "../../animations/FlipCards";
 import { HomeHeroCardsType } from "@/types/global-types";
 
-import FirstCardThumbnail from "../../../../public/JUNO-Deck-image-1.webp";
-import SecondCardThumbnail from "../../../../public/JUNO-Deck-image-2.webp";
-import ThirdCardThumbnail from "../../../../public/JUNO-Deck-image-3.webp";
-import FourthCardThumbnail from "../../../../public/JUNO-Deck-image-4.webp";
-import FifthCardThumbnail from "../../../../public/JUNO-Deck-image-5.webp";
-import SixthCardThumbnail from "../../../../public/JUNO-Deck-image-6.webp";
+import FirstCardThumbnail from "../../../../public/general/JUNO-Deck-image-1.webp";
+import SecondCardThumbnail from "../../../../public/general/JUNO-Deck-image-2.webp";
+import ThirdCardThumbnail from "../../../../public/general/JUNO-Deck-image-3.webp";
+import FourthCardThumbnail from "../../../../public/general/JUNO-Deck-image-4.webp";
+import FifthCardThumbnail from "../../../../public/general/JUNO-Deck-image-5.webp";
+import SixthCardThumbnail from "../../../../public/general/JUNO-Deck-image-6.webp";
 
 export default function CardsContainer({ content }: { content: HomeHeroCardsType[] }) {
 	const cardsClass = "relative w-full h-full aspect-397/595 object-cover";
