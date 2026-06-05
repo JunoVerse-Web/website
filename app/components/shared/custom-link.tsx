@@ -33,8 +33,8 @@ const CustomLink = forwardRef<HTMLAnchorElement, CustomLinkProps>(
         className={clsx(className)}
         target={target}
         rel={target === "_blank" ? "noopener noreferrer" : rel}
-        {...props}
         onClick={handleClick}
+        {...props}
       >
         {children}
       </Link>

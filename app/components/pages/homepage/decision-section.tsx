@@ -12,6 +12,9 @@ export default function DecisionSection({ content }: { content: HomePage }) {
 
 	const backgroundImage = "absolute w-full h-full object-cover pointer-events-none z-0";
 
+	const cardImages = [Card1, Card2, Card3, Card4];
+	
+
 	return (
 		<section
 			data-section="decision"
@@ -35,54 +38,23 @@ export default function DecisionSection({ content }: { content: HomePage }) {
 
 			{/* Card Content */}
 			<div className="relative z-10 grid grid-cols-4 gap-[1.56vw] md:mb-12 lg:mb-[4.17vw]">
-				<FlyingCards
-					cardImage={
-						<Image
-							src={Card1}
-							alt="Juno Card 1"
-							className={clsx(backgroundImage)}
-							sizes={"auto"}
-							fill
-						/>
-					}
-					text={cards[0].text}
-				/>
-				<FlyingCards
-					cardImage={
-						<Image
-							src={Card2}
-							alt="Juno Card 2"
-							className={clsx(backgroundImage)}
-							sizes={"auto"}
-							fill
-						/>
-					}
-					text={cards[1].text}
-				/>
-				<FlyingCards
-					cardImage={
-						<Image
-							src={Card3}
-							alt="Juno Card 3"
-							className={clsx(backgroundImage)}
-							sizes={"auto"}
-							fill
-						/>
-					}
-					text={cards[2].text}
-				/>
-				<FlyingCards
-					cardImage={
-						<Image
-							src={Card4}
-							alt="Juno Card 4"
-							className={clsx(backgroundImage)}
-							sizes={"auto"}
-							fill
-						/>
-					}
-					text={cards[3].text}
-				/>
+				{cards.map((card, index) => (
+					<FlyingCards
+						key={index}
+						cardImage={
+							<Image
+								src={cardImages[index]}
+								alt={`Juno Card ${index + 1}`}
+								className={clsx(backgroundImage)}
+								sizes={"auto"}
+								fill
+								loading="eager"
+							/>
+						}
+						text={card.text}
+						cardData={card.cardData}
+					/>
+				))}
 			</div>
 
 			{/* Bottom CTA Line */}

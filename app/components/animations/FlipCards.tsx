@@ -3,6 +3,7 @@
 import React, { useRef, useState } from "react";
 import clsx from "clsx";
 import Link from "next/link";
+import {useLenis} from "lenis/react";
 
 export default function FlipCards({ front, back, repeat = false, link }: { front: React.ReactNode; back: React.ReactNode; repeat?: boolean; link?: string }) {
 	const [rotation, setRotation] = useState(0);
@@ -13,6 +14,8 @@ export default function FlipCards({ front, back, repeat = false, link }: { front
 	const [isFlipped, setIsFlipped] = useState(false);
 
 	const leaveTimeout = useRef<NodeJS.Timeout | null>(null);
+
+	const lenis = useLenis();
 
 	const handleMouseEnter = () => {
 		if (isAnimating) return;
@@ -62,6 +65,9 @@ export default function FlipCards({ front, back, repeat = false, link }: { front
 			)}
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={handleMouseLeave}
+			onClick={() => {
+				lenis?.scrollTo(0, { lerp: 1, duration: 0.6 });
+			}}
 		>
 			<div
 				className={clsx("relative", sharedClass)}

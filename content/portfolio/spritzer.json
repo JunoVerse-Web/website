@@ -27,9 +27,13 @@
 		]
 	},
 
-	"galleryImages": [
-		"/portfolio/spritzer/hero-banner.webp",
-		"/portfolio/spritzer/hero-banner.webp",
-		"/portfolio/spritzer/hero-banner.webp"
-	]
+	"galleryImages1": ["/portfolio/spritzer/hero-banner.webp", "/portfolio/spritzer/hero-banner.webp", "/portfolio/spritzer/hero-banner.webp"],
+
+	"smallDescriptionSection": {
+		"title": "The Result",
+		"description": "Every campaign now reinforces one story —strengthening the brand with every execution."
+	},
+
+	"singleImage1": "/portfolio/spritzer/hero-banner.webp",
+	"galleryImages2": ["/portfolio/spritzer/hero-banner.webp", "/portfolio/spritzer/hero-banner.webp"]
 }

@@ -92,19 +92,35 @@
 		"cards": [
 			{
 				"title": "First Card",
-				"text": ["My brand feels tired."]
+				"text": ["My brand feels tired."],
+				"cardData": {
+					"id": "first-card",
+					"title": "First Card"
+				}
 			},
 			{
 				"title": "Second Card",
-				"text": ["We have something to launch."]
+				"text": ["We have something to launch."],
+				"cardData": {
+					"id": "second-card",
+					"title": "Second Card"
+				}
 			},
 			{
 				"title": "Third Card",
-				"text": ["The work is fine.", "The numbers aren't."]
+				"text": ["The work is fine.", "The numbers aren't."],
+				"cardData": {
+					"id": "third-card",
+					"title": "Third Card"
+				}
 			},
 			{
 				"title": "Fourth Card",
-				"text": ["I don't know what i need yet."]
+				"text": ["I don't know what i need yet."],
+				"cardData": {
+					"id": "fourth-card",
+					"title": "Fourth Card"
+				}
 			}
 		]
 	}

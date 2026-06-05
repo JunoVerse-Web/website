@@ -3,6 +3,7 @@
 import React, { useRef } from "react";
 import clsx from "clsx";
 import Link from "next/link";
+import CustomLink from "../shared/custom-link";
 
 export default function TiltingCards({ content, url = "#" }: { content: React.ReactNode; url: string }) {
 	const cardRef = useRef<HTMLDivElement>(null);
@@ -47,7 +48,7 @@ export default function TiltingCards({ content, url = "#" }: { content: React.Re
 	const sharedClass = "backface-hidden w-full h-full aspect-[397/595] pointer-events-none rounded-[1vw] overflow-hidden";
 
 	return (
-		<Link
+		<CustomLink
 			scroll={false}
 			href={url}
 			className="group relative w-full h-auto perspective-[1200px] cursor-pointer block"
@@ -67,6 +68,6 @@ export default function TiltingCards({ content, url = "#" }: { content: React.Re
 					<div className="w-full h-full flex items-center justify-center">{content}</div>
 				</div>
 			</div>
-		</Link>
+		</CustomLink>
 	);
 }

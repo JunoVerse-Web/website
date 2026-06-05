@@ -65,5 +65,18 @@ export interface PortfolioPage {
 		}[];
 	};
 
-	galleryImages: string[];
+	galleryImagesType: string[];
+	galleryImages1: string[];
+	galleryImages2: string[];
+	galleryImages3: string[];
+
+	singleImageType: string;
+	singleImage1: string;
+	singleImage2: string;
+	singleImage3: string;
+
+	smallDescriptionSection: {
+		title: string;
+		description: string;
+	}
 }

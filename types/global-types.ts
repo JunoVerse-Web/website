@@ -20,6 +20,7 @@ export type CreationsCardType = {
 export type FlyingCard = {
 	title: string;
 	text: string[];
+	cardData: CardData;
 };
 
 export interface CardFeeds {
@@ -33,3 +34,8 @@ export type ServicesCardType = {
     title: string;
     description: string;
 }
+
+export type CardData = {
+  id: string;
+  title: string;
+};
