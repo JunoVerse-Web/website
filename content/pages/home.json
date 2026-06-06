@@ -95,7 +95,8 @@
 				"text": ["My brand feels tired."],
 				"cardData": {
 					"id": "first-card",
-					"title": "First Card"
+					"title": "First Card",
+					"description":"the Antidote to Mediocre"
 				}
 			},
 			{
@@ -103,7 +104,8 @@
 				"text": ["We have something to launch."],
 				"cardData": {
 					"id": "second-card",
-					"title": "Second Card"
+					"title": "Second Card",
+					"description":"the Antidote to Mediocre"
 				}
 			},
 			{
@@ -111,7 +113,8 @@
 				"text": ["The work is fine.", "The numbers aren't."],
 				"cardData": {
 					"id": "third-card",
-					"title": "Third Card"
+					"title": "Third Card",
+					"description":"the Antidote to Mediocre"
 				}
 			},
 			{
@@ -119,7 +122,8 @@
 				"text": ["I don't know what i need yet."],
 				"cardData": {
 					"id": "fourth-card",
-					"title": "Fourth Card"
+					"title": "Fourth Card",
+					"description":"the Antidote to Mediocre"
 				}
 			}
 		]

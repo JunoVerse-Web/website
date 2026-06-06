@@ -6,7 +6,7 @@ import WhiteArrowLeft from "../../icons/white-arrow-left";
 import clsx from "clsx";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { useMenuStore } from "@/store";
+import { useMenuStore, useFormStore } from "@/store";
 import CustomLink from "../../shared/custom-link";
 
 export default function BurgerMenuOverlay() {
@@ -93,10 +93,13 @@ export default function BurgerMenuOverlay() {
 		useMenuStore.setState({ dark: !darkState });
 	};
 
+
+	const isFormOpen = useFormStore((state) => state.isFormOpen);
+
 	return (
 		<>
 			{/* Top Bar */}
-			<div className="burgerMenuTopHodler">
+			<div className={clsx("burgerMenuTopHodler duration-300", isFormOpen && "-translate-y-full")}>
 				<CustomLink
 					scroll={false}
 					href="/"
