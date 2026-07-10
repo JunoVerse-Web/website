@@ -31,10 +31,6 @@
 			{
 				"title": "Our Folks",
 				"link": "/our-folks"
-			},
-			{
-				"title": "Our Culture",
-				"link": "/our-culture"
 			}
 		]
 	},
@@ -95,8 +91,67 @@
 				"text": ["My brand feels tired."],
 				"cardData": {
 					"id": "first-card",
-					"title": "First Card",
-					"description":"the Antidote to Mediocre"
+					"title": "Tell us where you are",
+					"description": "The more honest the picture, the sharper our reply. We read every brief and we replu within 48 hours.",
+					"radioFields": [
+						{
+							"label": "What's the rough size of the business?",
+							"radioBoxes": [
+								{
+									"value": "Early-stage / Founder-led"
+								},
+								{
+									"value": "Growth-stage, RM 10-50M revenue"
+								},
+								{
+									"value": "Estalished, RM 50M+"
+								},
+								{
+									"value": "Multinational / Regional brand"
+								},
+								{
+									"value": "Prefer not to say"
+								}
+							]
+						},
+						{
+							"label": "What's driving the conversation right now?",
+							"radioBoxes": [
+								{
+									"value": "Groth has stalled and we need to figure out why"
+								},
+								{
+									"value": "A specific moment is coming - a launch, a milestone, a deadline"
+								},
+								{
+									"value": "Leadership disagrees on what needs to change"
+								},
+								{
+									"value": "We want a sharper perspective before a big decision"
+								},
+								{
+									"value": "Honestly, I'm still figuring it out"
+								}
+							]
+						},
+						{
+							"label": "How soon does this need to move",
+							"radioBoxes": [
+								{
+									"value": "This quarter"
+								},
+								{
+									"value": "Within 6 months"
+								},
+								{
+									"value": "This year, no fixed date"
+								},
+								{
+									"value": "No rush, we want to start with the thinking"
+								}
+							]
+						}
+					]
 				}
 			},
 			{
@@ -105,7 +160,7 @@
 				"cardData": {
 					"id": "second-card",
 					"title": "Second Card",
-					"description":"the Antidote to Mediocre"
+					"description": "the Antidote to Mediocre"
 				}
 			},
 			{
@@ -114,7 +169,7 @@
 				"cardData": {
 					"id": "third-card",
 					"title": "Third Card",
-					"description":"the Antidote to Mediocre"
+					"description": "the Antidote to Mediocre"
 				}
 			},
 			{
@@ -123,7 +178,7 @@
 				"cardData": {
 					"id": "fourth-card",
 					"title": "Fourth Card",
-					"description":"the Antidote to Mediocre"
+					"description": "the Antidote to Mediocre"
 				}
 			}
 		]

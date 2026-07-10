@@ -8,12 +8,13 @@ import SecondCardThumbnail from "../../../../public/general/JUNO-Deck-image-2.we
 import ThirdCardThumbnail from "../../../../public/general/JUNO-Deck-image-3.webp";
 import FourthCardThumbnail from "../../../../public/general/JUNO-Deck-image-4.webp";
 import FifthCardThumbnail from "../../../../public/general/JUNO-Deck-image-5.webp";
+import SixthCardThumbnail from "../../../../public/general/JUNO-Deck-image-5.webp";
 
 export default function CardsContainer({ content }: { content: CardsType[] }) {
 	const cardsClass = "relative w-full h-full aspect-397/595 object-cover";
 	const cardTagsClass = "cardTags";
 
-	const cardThumbnails = [FirstCardThumbnail, SecondCardThumbnail, ThirdCardThumbnail, FourthCardThumbnail, FifthCardThumbnail];
+	const cardThumbnails = [FirstCardThumbnail, SecondCardThumbnail, ThirdCardThumbnail, FourthCardThumbnail, FifthCardThumbnail, SixthCardThumbnail];
 
 	return (
 		<div className="relative px-[7vw] pt-[2vw] pb-[3vw]">
@@ -22,7 +23,6 @@ export default function CardsContainer({ content }: { content: CardsType[] }) {
 					return (
 						<FlipCards
 							key={index}
-							link={content[index].link}
 							front={
 								<div className={clsx(cardsClass)}>
 									<Image
@@ -44,7 +44,7 @@ export default function CardsContainer({ content }: { content: CardsType[] }) {
 										sizes="auto"
 										loading="eager"
 									/>
-									<p className={clsx(cardTagsClass)}>{content[0].title}</p>
+									<p className={clsx(cardTagsClass)}>{content[index].title}</p>
 								</div>
 							}
 						/>

@@ -1,14 +1,14 @@
 export interface SeoTypes {
-    title: string;
-    description: string;
+	title: string;
+	description: string;
 }
 
 export interface Link {
-    name: string;
-    url: string;
+	name: string;
+	url: string;
 }
 
-export type HomeHeroCardsType = {
+export type CardsType = {
 	title: string;
 	link: string;
 };
@@ -31,12 +31,43 @@ export interface CardFeeds {
 }
 
 export type ServicesCardType = {
-    title: string;
-    description: string;
-}
+	title: string;
+	description: string;
+};
 
 export type CardData = {
-  id: string;
-  title: string;
-  description: string;
+	id: string;
+	title: string;
+	description: string;
+	checkboxFields: CheckboxFieldType[];
+	radioFields: RadioFieldType[];
+};
+
+
+
+
+// Form
+export type FormData = {
+	title: string;
+	description: string;
+	name: string;
+	email: string;
+	phoneNumber: string;
+	radioFields: RadioFieldType[];
+	selectedRadioboxes: RadioFieldType["radioBoxes"][number][];
+	pdpa: boolean;
+};
+
+export type CheckboxFieldType = {
+	label: string;
+	checkboxes: {
+		value: string;
+	}[];
+};
+
+export type RadioFieldType = {
+	label: string;
+	radioBoxes: {
+		value: string;
+	}[];
 };

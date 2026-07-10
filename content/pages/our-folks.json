@@ -1,0 +1,40 @@
+{
+	"seo": {
+		"title": "Our Folks | JunoVerse",
+		"description": "Dive right into JunoVerse"
+	},
+
+	"hero": {
+		"title": "The Covenant Of Creators",
+		"description": [
+			"Every card holds a creator. Every creator holds a power.",
+            "Tap to reveal the magic behind JUNO."
+		],
+		"cards": [
+			{
+				"title": "Our Philosophy",
+				"description": "/our-philosophy"
+			},
+			{
+				"title": "Our Services",
+				"description": "/our-services"
+			},
+			{
+				"title": "Our Creations",
+				"description": "/our-creations"
+			},
+			{
+				"title": "Our World",
+				"link": "/our-world"
+			},
+			{
+				"title": "Our Folks",
+				"description": "/our-folks"
+			}, 
+            {
+                "title": "Our Covenant",
+                "description": "/our-covenant"
+            }
+		]
+	}
+}

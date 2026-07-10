@@ -7,12 +7,10 @@ import { CardsType } from "@/types/global-types";
 export default function HeroSection({
 	title,
 	description,
-	bottomDescription,
 	cards,
 }: {
 	title: string;
 	description: string[];
-	bottomDescription: string;
 	cards: CardsType[];
 }) {
 	return (
@@ -40,7 +38,6 @@ export default function HeroSection({
 						</p>
 					))}
 				</div>
-				<p className="text-white">{bottomDescription}</p>
 			</div>
 			<CardsContainer content={cards} />
 		</section>

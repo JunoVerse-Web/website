@@ -31,10 +31,6 @@ export default function BurgerMenuOverlay() {
 			name: "Our Folks",
 			href: "/our-folks",
 		},
-		{
-			name: "Our Culture",
-			href: "/our-culture",
-		},
 	];
 
 	const [menuToggled, setMenuToggled] = useState(false);
@@ -92,7 +88,6 @@ export default function BurgerMenuOverlay() {
 		setMenuToggled((prev) => !prev);
 		useMenuStore.setState({ dark: !darkState });
 	};
-
 
 	const isFormOpen = useFormStore((state) => state.isFormOpen);
 
@@ -159,22 +154,30 @@ export default function BurgerMenuOverlay() {
 					menuToggled ? "pointer-events-auto" : "pointer-events-none",
 				)}
 			>
-				<div className="h-full w-full flex items-center justify-center">
+				{/* <div className="h-full w-full flex items-center justify-center"> */}
+				<div className="h-full w-full flex justify-center pt-[60px] md:pt-[4%]">
 					<div
 						ref={linksRef}
 						className="burgerMenuLinksHolder text-center"
 					>
 						{menuLinks.map((link, index) => (
 							<Fragment key={index}>
-								<CustomLink
-									scroll={false}
-									href={link.href}
-									className="block py-5 text-2xl font-medium text-black"
-									onClick={toggleMenu}
+								<div
+									key={index}
+									className="flex items-center gap-4 py-5 md:pl-[33vw]"
 								>
-									{link.name}
-								</CustomLink>
-								{index !== menuLinks.length - 1 && <hr className="border-black" />}
+									<span className="m-0!">{index + 1 < 10 ? `0${index + 1}` : index + 1}</span>
+									<CustomLink
+										scroll={false}
+										href={link.href}
+										className="block py-1! text-2xl font-medium text-black"
+										onClick={toggleMenu}
+									>
+										{link.name}
+									</CustomLink>
+								</div>
+								{/* {index !== menuLinks.length - 1 && <hr className="border-black" />} */}
+								<hr className="border-black" />
 							</Fragment>
 						))}
 					</div>

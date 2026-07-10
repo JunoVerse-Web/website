@@ -21,12 +21,6 @@ export default function CardFeedsSection({ content }: { content: HomePage["cardF
 		<section className="relative z-10 bg-gray px-[10.4vw] text-center py-[7.2vw]">
 			<div className="relative flex items-center justify-center">
 				<h2 className="mb-0! flex-1">{title}</h2>
-				<ArrowButton
-					label="More"
-					url="#"
-					target="_self"
-					className={"absolute top-0 bottom-0 right-0 m-auto"}
-				/>
 			</div>
 
 			<Swiper
