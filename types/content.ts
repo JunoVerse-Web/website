@@ -27,6 +27,11 @@ export interface HomePage {
 	};
 }
 
+export interface PrivacyPolicyPage {
+	seo: SeoTypes;
+
+}
+
 export interface OurFolksPage {
 	seo: SeoTypes;
 
