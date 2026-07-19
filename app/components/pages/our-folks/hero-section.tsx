@@ -2,7 +2,7 @@
 
 import BlurText from "../../animations/BlurText";
 import CardsContainer from "./cards-container";
-import { CardsType } from "@/types/global-types";
+import { SlideCardsType } from "@/types/global-types";
 
 export default function HeroSection({
 	title,
@@ -11,7 +11,7 @@ export default function HeroSection({
 }: {
 	title: string;
 	description: string[];
-	cards: CardsType[];
+	cards: SlideCardsType[];
 }) {
 	return (
 		<section
