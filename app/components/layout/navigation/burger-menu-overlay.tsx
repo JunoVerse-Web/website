@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, Fragment } from "react";
+import { useState, useRef, Fragment, useEffect } from "react";
 import JunoLogo from "@/app/components/icons/juno-logo";
 import WhiteArrowLeft from "../../icons/white-arrow-left";
 import clsx from "clsx";
@@ -9,7 +9,7 @@ import { useGSAP } from "@gsap/react";
 import { useMenuStore, useFormStore } from "@/store";
 import CustomLink from "../../shared/custom-link";
 
-export default function BurgerMenuOverlay() {
+export default function BurgerMenuOverlay({dark}: {dark: boolean}) {
 	const menuLinks = [
 		{
 			name: "Our Philosophy",
@@ -36,6 +36,10 @@ export default function BurgerMenuOverlay() {
 	const [menuToggled, setMenuToggled] = useState(false);
 	const overlayRef = useRef<HTMLDivElement>(null);
 	const linksRef = useRef<HTMLDivElement>(null);
+
+	// Use store as single source of truth
+	const darkState = useMenuStore((state) => state.dark);
+	const setDark = useMenuStore((state) => state.setDark);
 
 	// Register plugin (recommended)
 	gsap.registerPlugin(useGSAP);
@@ -82,11 +86,18 @@ export default function BurgerMenuOverlay() {
 		{ dependencies: [menuToggled] }, // Re-run when menuToggled changes
 	);
 
-	const darkState = useMenuStore((state) => state.dark);
+
+	// Sync prop → store when parent dark mode changes
+	useEffect(() => {
+		useMenuStore.setState({ dark });
+	}, [dark]);
 
 	const toggleMenu = () => {
-		setMenuToggled((prev) => !prev);
-		useMenuStore.setState({ dark: !darkState });
+		const newToggled = !menuToggled;
+		setMenuToggled(newToggled);
+
+		// Toggle dark state in store
+		useMenuStore.setState((state) => ({ dark: !state.dark }));
 	};
 
 	const isFormOpen = useFormStore((state) => state.isFormOpen);
@@ -105,7 +116,7 @@ export default function BurgerMenuOverlay() {
 				>
 					<JunoLogo
 						className="w-full h-full object-contain"
-						dark={darkState}
+						dark={dark ? darkState : dark}
 					/>
 				</CustomLink>
 				<div className="overflow-hidden">
@@ -115,30 +126,30 @@ export default function BurgerMenuOverlay() {
 					>
 						{/* Burger */}
 						<WhiteArrowLeft
-							dark={darkState}
-							className={clsx(!darkState ? "burger-animate-out" : "burger-animate-in", "")}
+							dark={dark ? darkState : dark}
+							className={clsx(menuToggled ? "burger-animate-out" : "burger-animate-in", "")}
 							// style={{animationDelay: "0.2s"}}
 						/>
 						<WhiteArrowLeft
-							dark={darkState}
-							className={clsx(!darkState ? "burger-animate-out" : "burger-animate-in", "")}
+							dark={dark ? darkState : dark}
+							className={clsx(menuToggled ? "burger-animate-out" : "burger-animate-in", "")}
 							// style={{animationDelay: "0.4s"}}
 						/>
 						<WhiteArrowLeft
-							dark={darkState}
-							className={clsx(!darkState ? "burger-animate-out" : "burger-animate-in", "")}
+							dark={dark ? darkState : dark}
+							className={clsx(menuToggled ? "burger-animate-out" : "burger-animate-in", "")}
 							// style={{animationDelay: "0.6s"}}
 						/>
 
 						{/* X Icon */}
 						<WhiteArrowLeft
-							dark={darkState}
-							className={clsx(darkState ? "burger-x-animate-out" : "burger-x-animate-in", "absolute inset-0 rotate-45")}
+							dark={dark ? darkState : dark}
+							className={clsx(!menuToggled ? "burger-x-animate-out" : "burger-x-animate-in", "absolute inset-0 rotate-45")}
 							// style={darkState ? {animationDelay: "0.8s"} : {animationDelay: "1.2s"}}
 						/>
 						<WhiteArrowLeft
-							dark={darkState}
-							className={clsx(darkState ? "burger-x-animate-out" : "burger-x-animate-in", "absolute inset-0 rotate-135")}
+							dark={dark ? darkState : dark}
+							className={clsx(!menuToggled ? "burger-x-animate-out" : "burger-x-animate-in", "absolute inset-0 rotate-135")}
 							// style={darkState ? {animationDelay: "0.8s"} : {animationDelay: "1.2s"}}
 						/>
 					</div>

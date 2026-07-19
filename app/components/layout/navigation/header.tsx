@@ -5,10 +5,10 @@ import Image from "next/image";
 import BurgerMenuOverlay from "./burger-menu-overlay";
 import JunoLogo from "@/app/components/icons/juno-logo";
 
-export default function Header() {
+export default function Header({dark} : {dark: boolean}) {
 	return (
 		<nav className="fixed w-full h-fit px-[2vw] top-[2vh] flex items-center justify-between z-999">
-			<BurgerMenuOverlay />
+			<BurgerMenuOverlay dark={dark} />
 		</nav>
 	);
 }

@@ -12,29 +12,45 @@
 		],
 		"cards": [
 			{
-				"title": "Our Philosophy",
-				"description": "/our-philosophy"
+				"frontImage": "/folks/Juno-Erica-Image-01.webp",
+				"backImage": "/folks/Juno-Erica-Image-02.webp"
 			},
 			{
-				"title": "Our Services",
-				"description": "/our-services"
+				"frontImage": "/folks/Juno-Dennis-Image-01.webp",
+				"backImage": "/folks/Juno-Dennis-Image-02.webp"
 			},
 			{
-				"title": "Our Creations",
-				"description": "/our-creations"
+				"frontImage": "/folks/Juno-Naqib-Image-01.webp",
+				"backImage": "/folks/Juno-Naqib-Image-02.webp"
 			},
 			{
-				"title": "Our World",
-				"link": "/our-world"
+				"frontImage": "/folks/Juno-Gui-Image-01.webp",
+				"backImage": "/folks/Juno-Gui-Image-02.webp"
 			},
 			{
-				"title": "Our Folks",
-				"description": "/our-folks"
-			}, 
-            {
-                "title": "Our Covenant",
-                "description": "/our-covenant"
-            }
+				"frontImage": "/folks/Juno-Sue-Image-01.webp",
+				"backImage": "/folks/Juno-Sue-Image-02.webp"
+			},
+			{
+				"frontImage": "/folks/Juno-Keyang-Image-01.webp",
+				"backImage": "/folks/Juno-Keyang-Image-02.webp"
+			},
+			{
+				"frontImage": "/folks/Juno-Icy-Image-01.webp",
+				"backImage": "/folks/Juno-Icy-Image-02.webp"
+			},
+			{
+				"frontImage": "/folks/Juno-Riyren-Image-01.webp",
+				"backImage": "/folks/Juno-Riyren-Image-02.webp"
+			},
+			{
+				"frontImage": "/folks/Juno-Thirah-Image-01.webp",
+				"backImage": "/folks/Juno-Thirah-Image-02.webp"
+			},
+			{
+				"frontImage": "/folks/Juno-Jascinta-Image-01.webp",
+				"backImage": "/folks/Juno-Jascinta-Image-02.webp"
+			}
 		]
 	}
 }

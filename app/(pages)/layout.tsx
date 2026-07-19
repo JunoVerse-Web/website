@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<>
-			<Header />
+			<Header dark={true} />
 			<html
 				lang="en"
 				className={poppins.className}

@@ -9,8 +9,8 @@ export interface Link {
 }
 
 export type CardsType = {
-	title: string;
-	link: string;
+	frontImage: string;
+	backImage: string;
 };
 
 export type CreationsCardType = {

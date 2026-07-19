@@ -19,15 +19,56 @@ section:before {
 }
 
 h1 {
-    font-size: 2.5rem !important;
-    text-align: center;
+	font-size: 2.5rem !important;
+	text-align: center;
 }
 
-
 section.title-section {
-    padding: clamp(5rem, 12vw, 12vw) clamp(1rem, 10.25vw, 10.25vw) 0 !important;
+	padding: clamp(5rem, 12vw, 12vw) clamp(1rem, 10.25vw, 10.25vw) 0 !important;
 }
 
 section {
-    padding: 0 clamp(1rem, 10.25vw, 10.25vw) !important;
+	padding: 0 clamp(1rem, 15.25vw, 15.25vw) !important;
+}
+
+main[data-page-type="general"] p,
+main[data-page-type="general"] a,
+main[data-page-type="general"] span,
+main[data-page-type="general"] li {
+	font-size: clamp(1rem, 0.83vw, 0.83vw) !important;
+	margin-bottom: clamp(1rem, 0.83vw, 0.83vw);
+}
+
+main[data-page-type="general"] ol,
+main[data-page-type="general"] ul {
+	margin-bottom: clamp(1rem, 0.83vw, 0.83vw);
+}
+
+main[data-page-type="general"] ul {
+	list-style: disc !important;
+	padding-left: clamp(1.2rem, 2.5vw, 2.5vw) !important;
+}
+
+main[data-page-type="general"] ol {
+	list-style: decimal !important;
+	padding-left: clamp(12px, 0.63vw, 0.63vw) !important;
+}
+
+main[data-page-type="general"] ol.latin {
+	list-style: lower-latin !important;
+	padding-left: clamp(1.2rem, 2.5vw, 2.5vw) !important;
+}
+
+main[data-page-type="general"] ol.roman {
+	list-style: lower-roman !important;
+	padding-left: clamp(1.2rem, 2.5vw, 2.5vw) !important;
+}
+
+main[data-page-type="general"] li,
+main[data-page-type="general"] ol {
+	margin-bottom: 0;
+}
+
+main[data-page-type="general"] section:last-child {
+	padding-bottom: clamp(6rem, 11.46vw, 11.46vw) !important;
 }

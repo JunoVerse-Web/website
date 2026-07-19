@@ -1,9 +1,9 @@
 import BurgerMenuOverlay from "./burger-menu-overlay";
 
-export default function Header() {
+export default function HeaderDark() {
 	return (
 		<nav className="fixed w-full h-fit px-[2vw] top-[2vh] flex items-center justify-between z-999">
-			<BurgerMenuOverlay />
+			<BurgerMenuOverlay dark={true} />
 		</nav>
 	);
 }
