@@ -1,14 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { CardsType } from "@/types/global-types";
+import { SlideCardsType } from "@/types/global-types";
 import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(useGSAP);
 
-export default function CardsContainer({ content }: { content: CardsType[] }) {
+export default function CardsContainer({ content }: { content: SlideCardsType[] }) {
 	return (
 		<div className="relative px-[7vw] pt-[2vw] pb-[3vw]">
 			<div className="grid grid-cols-3 gap-(--spacing-2)">
@@ -24,7 +24,7 @@ export default function CardsContainer({ content }: { content: CardsType[] }) {
 	);
 }
 
-function Card({ card, index }: { card: CardsType; index: number }) {
+function Card({ card, index }: { card: SlideCardsType; index: number }) {
 	const [toggled, setToggled] = useState(false);
 
 	const containerRef = useRef<HTMLDivElement>(null);
