@@ -99,6 +99,9 @@ function Card({ card, index }: { card: CardsType; index: number }) {
 					alt={`Card ${index + 1} back`}
 					fill
 					className="object-cover"
+					sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+					loading="eager"
+					quality={70}
 				/>
 			</div>
 
@@ -115,6 +118,9 @@ function Card({ card, index }: { card: CardsType; index: number }) {
 					alt={`Card ${index + 1} front`}
 					fill
 					className="object-cover"
+					sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+					loading="eager"
+					quality={70}
 				/>
 			</div>
 		</div>
