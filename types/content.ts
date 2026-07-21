@@ -27,6 +27,29 @@ export interface HomePage {
 	};
 }
 
+export interface OurWorldPage {
+	seo: SeoTypes;
+
+	box2: {
+		image1: string;
+		image2: string;
+		image3: string;
+		image4: string;
+		image5: string;
+		image6: string;
+	};
+
+	box3: {
+		image1: string;
+		image2: string;
+		image3: string;
+		image4: string;
+		image5: string;
+		image6: string;
+	};
+
+}
+
 export interface PrivacyPolicyPage {
 	seo: SeoTypes;
 

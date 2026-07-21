@@ -9,7 +9,6 @@ export default function HeroBannerTitle({ content }: { content: PortfolioPage['h
 				<Image
 					src={content.imageUrl}
 					alt="Hero Banner Image"
-					layout="responsive"
 					width={1200}
 					height={600}
 					className="w-full h-auto object-cover object-center"

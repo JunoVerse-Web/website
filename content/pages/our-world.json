@@ -1,0 +1,24 @@
+{
+	"seo": {
+		"title": "JunoVerse | Our World",
+		"description": "Dive right into JunoVerse"
+	},
+
+	"box2": {
+		"image1": "/our-world/hoodle-box-image-1.webp",
+		"image2": "/our-world/hoodle-box-image-2.webp",
+		"image3": "/our-world/hoodle-box-image-3.webp",
+		"image4": "/our-world/hoodle-box-image-4.webp",
+		"image5": "/our-world/hoodle-box-image-5.webp",
+		"image6": "/our-world/hoodle-box-image-6.webp"
+	},
+	
+	"box3": {
+		"image1": "/our-world/hoodle-box-3-image-1.webp",
+		"image2": "/our-world/hoodle-box-3-image-2.webp",
+		"image3": "/our-world/hoodle-box-3-image-3.webp",
+		"image4": "/our-world/hoodle-box-3-image-4.webp",
+		"image5": "/our-world/hoodle-box-3-image-5.webp",
+		"image6": "/our-world/hoodle-box-3-image-6.webp"
+	}
+}
