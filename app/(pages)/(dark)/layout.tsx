@@ -1,9 +1,9 @@
 // import type { Metadata } from "next";
 // import { Geist, Geist_Mono } from "next/font/google";
-import "../globals.css";
-import Header from "../components/layout/navigation/header";
-import Footer from "../components/layout/navigation/footer";
-import Providers from "../providers";
+import "../../globals.css";
+import Header from "../../components/layout/navigation/header";
+import Footer from "../../components/layout/navigation/footer";
+import Providers from "../../providers";
 import { Poppins } from "next/font/google";
 
 const poppins = Poppins({
@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<>
-			<Header dark={true} />
+			<Header dark={false} />
 			<html
 				lang="en"
 				className={poppins.className}

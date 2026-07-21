@@ -1,11 +1,11 @@
 import { getPage } from "@/lib/content/getPage";
 import { HomePage } from "@/types/content";
-import HeroSection from "../components/pages/homepage/hero-section";
+import HeroSection from "../../components/pages/homepage/hero-section";
 import { getSeo } from "@/lib/seo/getSeo";
 import type { Metadata } from "next";
-import CardFeedsSection from "../components/pages/homepage/card-feeds-section";
-import DecisionSection from "../components/pages/homepage/decision-section";
-import ContactForm from "../components/pages/homepage/contact-form";
+import CardFeedsSection from "../../components/pages/homepage/card-feeds-section";
+import DecisionSection from "../../components/pages/homepage/decision-section";
+import ContactForm from "../../components/pages/homepage/contact-form";
 
 export async function generateMetadata(): Promise<Metadata> {
 	const page = await getPage("home");

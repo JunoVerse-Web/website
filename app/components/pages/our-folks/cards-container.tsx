@@ -98,7 +98,7 @@ function Card({ card, index }: { card: SlideCardsType; index: number }) {
 					src={card.backImage}
 					alt={`Card ${index + 1} back`}
 					fill
-					className="object-cover"
+					className="object-fill!"
 					sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
 					loading="eager"
 					quality={70}
@@ -117,7 +117,7 @@ function Card({ card, index }: { card: SlideCardsType; index: number }) {
 					src={card.frontImage}
 					alt={`Card ${index + 1} front`}
 					fill
-					className="object-cover"
+					className="object-fill!"
 					sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
 					loading="eager"
 					quality={70}

@@ -8,8 +8,9 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useMenuStore, useFormStore } from "@/store";
 import CustomLink from "../../shared/custom-link";
+import { usePathname } from "next/dist/client/components/navigation";
 
-export default function BurgerMenuOverlay({dark}: {dark: boolean}) {
+export default function BurgerMenuOverlay({ dark }: { dark: boolean }) {
 	const menuLinks = [
 		{
 			name: "Our Philosophy",
@@ -39,7 +40,6 @@ export default function BurgerMenuOverlay({dark}: {dark: boolean}) {
 
 	// Use store as single source of truth
 	const darkState = useMenuStore((state) => state.dark);
-	const setDark = useMenuStore((state) => state.setDark);
 
 	// Register plugin (recommended)
 	gsap.registerPlugin(useGSAP);
@@ -86,11 +86,11 @@ export default function BurgerMenuOverlay({dark}: {dark: boolean}) {
 		{ dependencies: [menuToggled] }, // Re-run when menuToggled changes
 	);
 
-
+	const pathname = usePathname();
 	// Sync prop → store when parent dark mode changes
 	useEffect(() => {
 		useMenuStore.setState({ dark });
-	}, [dark]);
+	}, [dark, pathname]);
 
 	const toggleMenu = () => {
 		const newToggled = !menuToggled;
@@ -101,6 +101,19 @@ export default function BurgerMenuOverlay({dark}: {dark: boolean}) {
 	};
 
 	const isFormOpen = useFormStore((state) => state.isFormOpen);
+
+	const gradientDirection = "bg-gradient-to-br"; // or to-r, to-br, etc. — change as needed
+	const backgroundColors = [
+		"from-[#034f93] via-[#d1c6e8] to-[#034f93]",
+		"from-[#034f93] via-[#d1c6e8] to-[#034f93]",
+		"from-[#034f93] via-[#d1c6e8] to-[#034f93]",
+		"from-[#034f93] via-[#d1c6e8] to-[#034f93]",
+		"from-[#034f93] via-[#d1c6e8] to-[#fdfdfd]",
+	];
+
+	const [isHovered, setIsHovered] = useState(false);
+	const [currentHoverColor, setCurrentHoverColor] = useState<string>("");
+
 
 	return (
 		<>
@@ -160,12 +173,12 @@ export default function BurgerMenuOverlay({dark}: {dark: boolean}) {
 			<div
 				ref={overlayRef}
 				className={clsx(
-					"burgerMenuOverlayHolder fixed inset-0 -translate-y-full bg-white z-50",
-					"overflow-hidden",
+					"burgerMenuOverlayHolder fixed inset-0 -translate-y-full bg-white z-50 overflow-hidden",
+					// Apply gradient when hovered
+					isHovered && currentHoverColor ? `${gradientDirection} ${currentHoverColor}` : "bg-white",
 					menuToggled ? "pointer-events-auto" : "pointer-events-none",
 				)}
 			>
-				{/* <div className="h-full w-full flex items-center justify-center"> */}
 				<div className="h-full w-full flex justify-center pt-[60px] md:pt-[4%]">
 					<div
 						ref={linksRef}
@@ -174,8 +187,16 @@ export default function BurgerMenuOverlay({dark}: {dark: boolean}) {
 						{menuLinks.map((link, index) => (
 							<Fragment key={index}>
 								<div
-									key={index}
-									className="flex items-center gap-4 py-5 md:pl-[33vw]"
+									className="flex items-center gap-4 py-5 md:pl-[33vw] cursor-pointer"
+									onMouseEnter={() => {
+										setIsHovered(true);
+										setCurrentHoverColor(backgroundColors[index]);
+									}}
+									onMouseLeave={() => {
+										setIsHovered(false);
+										// Optional: keep last color or reset to none
+										// setCurrentHoverColor("");
+									}}
 								>
 									<span className="m-0!">{index + 1 < 10 ? `0${index + 1}` : index + 1}</span>
 									<CustomLink
@@ -187,7 +208,6 @@ export default function BurgerMenuOverlay({dark}: {dark: boolean}) {
 										{link.name}
 									</CustomLink>
 								</div>
-								{/* {index !== menuLinks.length - 1 && <hr className="border-black" />} */}
 								<hr className="border-black" />
 							</Fragment>
 						))}

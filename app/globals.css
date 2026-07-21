@@ -155,8 +155,9 @@ ul ol {
 /* .hero-section {
 	background: radial-gradient(circle at center 65%, #ffeb9e 0%, #f5c45c 25%, #d18f2e 45%, #4a2e7a 70%, #1e1b4b 85%, #0f0c2e 100%);
 } */
-section[data-section="home-hero"] {
-	background: url(../public//page-background/creations-bakcground-image.jpg) center center no-repeat;
+section[data-section="home-hero"],
+section[data-section="philosophy-hero"] {
+	background: url(../public/page-background/creations-bakcground-image.jpg) center center no-repeat;
 	background-size: cover;
 }
 
@@ -186,7 +187,7 @@ section[data-section="home-hero"] {
 
 /* Services Page */
 main.services-page {
-	background: url(../public//page-background/services-background-image.webp) center -50% no-repeat var(--yellow);
+	background: url(../public/page-background/services-background-image.webp) center -50% no-repeat var(--yellow);
 	background-size: 115%;
 }
 
@@ -232,6 +233,7 @@ section[data-section="decision"] span[data-background="bottom"] {
 	align-items: center;
 	justify-content: center;
 	padding: clamp(1rem, 4.69vw, 4.69vw);
+	transition: background-color 0.4s ease, background-image 0.4s ease;
 }
 
 .burgerMenuOverlayHolder .burgerMenuLinksHolder {

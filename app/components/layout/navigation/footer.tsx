@@ -1,6 +1,7 @@
 import Link from "next/link";
 import InstagramIcon from "../../icons/instagram-icon";
 import LinkedinIcon from "../../icons/linkedin-icon";
+import CustomLink from "../../shared/custom-link";
 
 export default function Footer() {
 	return (
@@ -9,21 +10,21 @@ export default function Footer() {
 			<div className="flex gap-5">
 				<span>©Rekalabs Sdn. Bhd. All rights reserved.</span>
 				<div className="flex gap-1.5">
-					<Link
+					<CustomLink
 						scroll={false}
 						href="/privacy-policy"
-						className="underline"
+						className="block text-2xl font-medium text-black underline"
 					>
 						Privacy Policy
-					</Link>
+					</CustomLink>
 					<span> | </span>
-					<Link
+					<CustomLink
 						scroll={false}
 						href="/terms-of-use"
-						className="underline"
+						className="block text-2xl font-medium text-black underline"
 					>
 						Terms of Use
-					</Link>
+					</CustomLink>
 				</div>
 			</div>
 
