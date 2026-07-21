@@ -85,7 +85,7 @@ function Card({ card, index }: { card: SlideCardsType; index: number }) {
 	return (
 		<div
 			ref={containerRef}
-			className="relative w-full aspect-397/595 overflow-hidden rounded-[0.5rem] md:rounded-[0.83vw] cursor-pointer"
+			className="relative w-full aspect-397/595 overflow-hidden rounded-lg md:rounded-[0.83vw] cursor-pointer"
 			onClick={() => setToggled((prev) => !prev)}
 			onMouseLeave={() => setToggled(false)}
 		>

@@ -47,8 +47,6 @@ export default function BurgerMenuOverlay({ dark }: { dark: boolean }) {
 	];
 
 	const [menuToggled, setMenuToggled] = useState(false);
-	const [currentBg, setCurrentBg] = useState<string | null>(null);
-
 	const overlayRef = useRef<HTMLDivElement>(null);
 	const bg1Ref = useRef<HTMLDivElement>(null);
 	const bg2Ref = useRef<HTMLDivElement>(null);
@@ -121,7 +119,6 @@ export default function BurgerMenuOverlay({ dark }: { dark: boolean }) {
 					duration: 0.5,
 					ease: "power3.inOut",
 				});
-				setCurrentBg(null);
 			}
 		},
 		{ dependencies: [menuToggled] },
@@ -210,18 +207,16 @@ export default function BurgerMenuOverlay({ dark }: { dark: boolean }) {
 				/>
 
 
-				<div className="h-full w-full flex justify-center pt-[60px] md:pt-[4%] relative z-10">
+				<div className="h-full w-full flex justify-center pt-15 md:pt-[4%] relative z-10">
 					<div ref={linksRef} className="burgerMenuLinksHolder text-center">
 						{menuLinks.map((link, index) => (
 							<Fragment key={index}>
 								<div
 									className="flex items-center gap-4 py-5 md:pl-[33vw] cursor-pointer group"
 									onMouseEnter={() => {
-										setCurrentBg(link.bg.src);
 										changeBackground(link.bg.src);
 									}}
 									onMouseLeave={() => {
-										setCurrentBg(null);
 										changeBackground(null);
 									}}
 								>
