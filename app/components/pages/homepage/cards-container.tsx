@@ -44,7 +44,7 @@ export default function CardsContainer({ content }: { content: CardsType[] }) {
 										sizes="auto"
 										loading="eager"
 									/>
-									<p className={clsx(cardTagsClass)}>{content[0].title}</p>
+									<p className={clsx(cardTagsClass)}>{content[index].title}</p>
 								</div>
 							}
 						/>
