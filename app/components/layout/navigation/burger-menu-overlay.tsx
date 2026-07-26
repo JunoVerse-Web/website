@@ -226,13 +226,13 @@ export default function BurgerMenuOverlay({ dark }: { dark: boolean }) {
 									<CustomLink
 										scroll={false}
 										href={link.href}
-										className="block py-1! text-2xl font-medium text-black transition-colors hover:text-white! duration-300"
+										className="block py-1! text-2xl font-medium text-black group-hover:text-white transition-colors duration-300"
 										onClick={toggleMenu}
 									>
 										{link.name}
 									</CustomLink>
 								</div>
-								<hr className="border-black pointer-none:" />
+								<hr className="border-black pointer-events-none" />
 							</Fragment>
 						))}
 					</div>

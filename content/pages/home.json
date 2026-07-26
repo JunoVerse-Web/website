@@ -14,23 +14,28 @@
 		"cards": [
 			{
 				"title": "Our Philosophy",
-				"link": "/our-philosophy"
+				"link": "/our-philosophy",
+				"video": "/video/philosophy-video.webm"
 			},
 			{
 				"title": "Our Services",
-				"link": "/our-services"
+				"link": "/our-services",
+				"video": "/video/services-video.webm"
 			},
 			{
 				"title": "Our Creations",
-				"link": "/our-creations"
+				"link": "/our-creations",
+				"video": "/video/creations-video.webm"
 			},
 			{
 				"title": "Our World",
-				"link": "/our-world"
+				"link": "/our-world",
+				"video": "/video/world-video.webm"
 			},
 			{
 				"title": "Our Folks",
-				"link": "/our-folks"
+				"link": "/our-folks",
+				"video": "/video/folks-video.webm"
 			}
 		]
 	},

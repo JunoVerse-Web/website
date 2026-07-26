@@ -11,6 +11,7 @@ export interface Link {
 export type CardsType = {
 	link: string;
 	title: string;
+	video: string;
 };
 
 export type SlideCardsType = {
