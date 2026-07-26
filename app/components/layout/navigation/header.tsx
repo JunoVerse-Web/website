@@ -1,9 +1,4 @@
-import React from "react";
-import Link from "next/link";
-// import JunoLogo from "../../../../public/juno-logo.svg";
-import Image from "next/image";
 import BurgerMenuOverlay from "./burger-menu-overlay";
-import JunoLogo from "@/app/components/icons/juno-logo";
 
 export default function Header({dark} : {dark: boolean}) {
 	return (
