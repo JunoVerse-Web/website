@@ -1,13 +1,10 @@
 "use client";
 import clsx from "clsx";
-import Image from "next/image";
 import FlipCards from "../../animations/FlipCards";
 import { CardsType } from "@/types/global-types";
 
 export default function CardsContainer({ content }: { content: CardsType[] }) {
 	const cardsClass = "relative w-full h-full aspect-397/595 object-cover";
-
-	console.log(content);
 
 	return (
 		<div className="relative px-[7vw] pt-[2vw] pb-[3vw]">
