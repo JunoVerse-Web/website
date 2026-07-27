@@ -3,11 +3,11 @@
 import { useEffect, useState } from "react";
 import { useFormStore } from "@/store";
 import clsx from "clsx";
-import { CheckboxFieldType, FormData, RadioFieldType } from "@/types/global-types";
+import { FormData, RadioFieldType } from "@/types/global-types";
 import RadioButton from "./form/radio-button";
-// import Checkbox from "./form/checkbox";
 
-const EMPTYFORM = {
+const EMPTYFORM: FormData = {
+	formTitle: "",
 	title: "",
 	description: "",
 	radioFields: [],
@@ -18,37 +18,87 @@ const EMPTYFORM = {
 	pdpa: false,
 };
 
+// Merge formDetails over EMPTYFORM, but never let an `undefined` key
+// overwrite a defined default — that's what flips inputs from
+// controlled to uncontrolled.
+function mergeFormData(base: FormData, incoming: Partial<FormData>): FormData {
+	const merged = { ...base };
+	(Object.keys(incoming) as (keyof FormData)[]).forEach((key) => {
+		if (incoming[key] !== undefined) {
+			(merged[key] as FormData[keyof FormData]) = incoming[key]!;
+		}
+	});
+	return merged;
+}
+
 export default function ContactForm() {
 	const { isFormOpen, formDetails, closeForm } = useFormStore();
+	const [formData, setFormData] = useState<FormData>(EMPTYFORM);
+	const [errors, setErrors] = useState<Record<string, string>>({});
+	const [submitting, setSubmitting] = useState(false);
 
-	const [formData, setFormData] = useState(EMPTYFORM as FormData);
+	const errorClass = "text-red-600 sm:text-sm! md:text-[0.633vw]! m-0!";
 
-	useEffect(() => {
-		if (isFormOpen) {
-			// eslint-disable-next-line react-hooks/set-state-in-effect
-			setFormData({
-				title: formDetails.title,
-				description: formDetails.description,
-				radioFields: formDetails.radioFields,
-				selectedRadioboxes: formDetails.selectedRadioboxes,
-				name: formDetails.name,
-				email: formDetails.email,
-				phoneNumber: formDetails.phoneNumber,
-				pdpa: formDetails.pdpa,
-			});
-		} else {
-			setFormData(EMPTYFORM);
+	// Tracks the isFormOpen value we last synced formData/errors for.
+	const [syncedOpenState, setSyncedOpenState] = useState(isFormOpen);
+
+	// Adjusting state during render (React-recommended pattern) instead of
+	// useEffect — avoids the extra "render with stale data, then effect,
+	// then re-render" cascade. This only runs when isFormOpen actually
+	// changes, so it doesn't loop.
+	if (isFormOpen !== syncedOpenState) {
+		setSyncedOpenState(isFormOpen);
+		setFormData(isFormOpen ? mergeFormData(EMPTYFORM, formDetails) : EMPTYFORM);
+		setErrors({});
+	}
+
+	// Replace any existing selection for the same question (matched by
+	// question label), not just add — this is what was broken before.
+	function updateFormRadioState(field: RadioFieldType, radioItem: RadioFieldType["radioBoxes"][number]) {
+		setFormData((prev) => ({
+			...prev,
+			selectedRadioboxes: [...prev.selectedRadioboxes.filter((item) => item.label !== field.label), { ...radioItem, label: field.label }],
+		}));
+	}
+
+	function validate(): boolean {
+		const next: Record<string, string> = {};
+
+		formData.radioFields.forEach((field) => {
+			const answered = formData.selectedRadioboxes.some((r) => r.label === field.label);
+			if (!answered) next[field.label] = "Please select an option.";
+		});
+
+		if (!formData.name.trim()) next.name = "Name is required.";
+		if (!formData.email.trim()) {
+			next.email = "Email is required.";
+		} else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+			next.email = "Enter a valid email.";
 		}
-	}, [isFormOpen]);
+		if (!formData.phoneNumber.trim()) {
+			next.phoneNumber = "Phone number is required.";
+		} else if (!/^\+?[0-9\s-]{7,15}$/.test(formData.phoneNumber)) {
+			next.phoneNumber = "Enter a valid phone number.";
+		}
+		if (!formData.pdpa) next.pdpa = "You must agree to the PDPA statement.";
 
-	function updateFormRadioState(radioItem: RadioFieldType["radioBoxes"][number]) {
-		const hasItem = formData.selectedRadioboxes.some((item) => item.value === radioItem.value);
+		setErrors(next);
+		return Object.keys(next).length === 0;
+	}
 
-		if (!hasItem) {
-			setFormData((prevData) => ({
-				...prevData,
-				selectedRadioboxes: [...prevData.selectedRadioboxes, radioItem],
-			}));
+	async function handleSubmit(e: React.FormEvent) {
+		e.preventDefault();  
+		if (!validate()) return;
+
+		setSubmitting(true);
+		try {
+			// TODO: replace with your actual submit call
+			// await fetch("/api/contact", { method: "POST", body: JSON.stringify(formData) });
+			closeForm();
+		} catch (err) {
+			setErrors((prev) => ({ ...prev, form: "Something went wrong. Please try again." }));
+		} finally {
+			setSubmitting(false);
 		}
 	}
 
@@ -61,30 +111,35 @@ export default function ContactForm() {
 		>
 			<div
 				className={clsx(
-					"bg-[#e7e4d5] w-[90vw] max-h-[90vh] rounded-2xl px-[7.292vw] py-[3.25vw] shadow-2xl relative duration-300",
+					"bg-[#e7e4d5] w-[80vw] max-h-[90vh] overflow-y-auto rounded-2xl px-[7.292vw] py-[3.25vw] shadow-2xl relative duration-300",
 					isFormOpen ? "translate-y-0 delay-300" : "translate-y-[20%] opacity-0",
 				)}
 				onClick={(e) => e.stopPropagation()}
 			>
 				<button
 					onClick={closeForm}
+					aria-label="Close form"
 					className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-3xl leading-none"
 				>
 					&times;
 				</button>
 
-				<form className="space-y-5">
+				<form
+					className="space-y-5"
+					onSubmit={handleSubmit}
+					noValidate
+				>
 					<div className="text-center">
-						<h2 className="leading-[1]! text-[3.13vw]! mb-[1.2rem]! lg:mb-[2.08vw]!">{formData.title}</h2>
+						<h2 className="leading-[1]! text-[3.13vw]! mb-[1rem]! lg:mb-[1.48vw]!">{formData.title}</h2>
 						<p>{formData.description}</p>
 					</div>
 
-					<div className="flex">
+					<div className="flex flex-col lg:flex-row gap-6">
 						<div className="flex flex-col gap-4 flex-1">
 							{formData.radioFields.map((field, index) => (
 								<div
-									key={index}
-									className="grid gap-1"
+									key={`${field.label ?? "field"}-${index}`}
+									className="relative grid gap-1"
 								>
 									<label className="block text-md font-bold">
 										{index + 1}. {field.label}
@@ -93,55 +148,97 @@ export default function ContactForm() {
 									<div className="flex flex-col gap-1">
 										{field.radioBoxes.map((radio, radioIndex) => (
 											<div
-												key={radioIndex}
+												key={`${radio.value ?? "radio"}-${radioIndex}`}
 												className="flex items-center gap-2"
 											>
 												<RadioButton
 													name={field.label}
 													value={radio.value}
-													onClickFunction={() => {
-														updateFormRadioState(radio);
-													}}
+													checked={formData.selectedRadioboxes.some((r) => r.label === field.label && r.value === radio.value)}
+													onClickFunction={() => updateFormRadioState(field, radio)}
 												/>
 											</div>
 										))}
 									</div>
+									{errors[field.label] && <span className={clsx(errorClass, "absolute bottom-0 left-0 translate-y-[100%] !ml-[5%]")}>{errors[field.label]}</span>}
 								</div>
 							))}
 						</div>
 
 						{/* General Details */}
-						<div className="flex flex-col flex-1">
-							<input
-								type="text"
-								placeholder="Name"
-								className="input"
-							/>
-							<input
-								type="email"
-								placeholder="Email"
-								className="input"
-							/>
-							<input
-								type="text"
-								placeholder="Phone Number"
-								className="input"
-							/>
-							<RadioButton
-								name="pdpa"
-								value="pdpa"
-								onClickFunction={() => {
-									setFormData((prevData) => ({
-										...prevData,
-										pdpa: !prevData.pdpa,
-									}));
-								}}
-							/>
+						<div className="flex flex-col justify-between">
+							<div className="flex flex-col flex-1 ">
+								<div className="relative flex flex-col w-full gap-4">
+									<input
+										type="text"
+										placeholder="Name"
+										className="input"
+										required
+										value={formData.name ?? ""}
+										onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value }))}
+									/>
+									{errors.name && (
+										<span className={clsx(errorClass, "absolute bottom-0 left-0 -translate-y-[50%] !ml-[5%]")}>{errors.name}</span>
+									)}
+								</div>
+
+								<div className="relative flex flex-col w-full gap-4">
+									<input
+										type="email"
+										placeholder="Email"
+										className="input"
+										required
+										value={formData.email ?? ""}
+										onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
+									/>
+									{errors.email && (
+										<span className={clsx(errorClass, "absolute bottom-0 left-0 -translate-y-[50%] !ml-[5%]")}>{errors.email}</span>
+									)}
+								</div>
+
+								<div className="relative flex flex-col w-full gap-4">
+									<input
+										type="tel"
+										placeholder="Phone Number"
+										className="input"
+										required
+										pattern="^\+?[0-9\s-]{7,15}$"
+										value={formData.phoneNumber ?? ""}
+										onChange={(e) => setFormData((prev) => ({ ...prev, phoneNumber: e.target.value }))}
+									/>
+									{errors.phoneNumber && (
+										<span className={clsx(errorClass, "absolute bottom-0 left-0 -translate-y-[50%] !ml-[5%]")}>{errors.phoneNumber}</span>
+									)}
+								</div>
+
+								<div className="relative flex flex-col w-full gap-4">
+									<label
+										htmlFor="pdpa"
+										className="flex items-start gap-2 text-sm"
+									>
+										<input
+											type="checkbox"
+											id="pdpa"
+											name="pdpa"
+											required
+											checked={formData.pdpa ?? false}
+											onChange={() => setFormData((prev) => ({ ...prev, pdpa: !prev.pdpa }))}
+										/>
+										<span className="sm:text-sm! md:text-[0.633vw]! m-0!">
+											I agree to the collection and processing of my personal data in accordance with PDPA Malaysia
+										</span>
+									</label>
+									{errors.pdpa && <span className={clsx(errorClass, "absolute bottom-0 left-0 translate-y-[130%] !ml-[5%]")}>{errors.pdpa}</span>}
+								</div>
+
+								{errors.form && <span className={clsx(errorClass)}>{errors.form}</span>}
+							</div>
 							<button
 								type="submit"
-								className="w-full bg-black text-white py-4 rounded-xl font-medium hover:bg-gray-800 transition-colors"
+								disabled={submitting}
+								className="ml-auto w-fit bg-[#136cbc] text-md lg:text-[1.04vw] text-white py-4 px-7 lg:py-[0.83vw] lg:px-[1.67vw] rounded-xl font-medium hover:bg-gray-800 transition-colors disabled:opacity-50"
 							>
-								Submit
+								{submitting ? "Submitting..." : "Submit"}
 							</button>
 						</div>
 					</div>

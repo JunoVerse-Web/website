@@ -362,7 +362,7 @@ footer > div:first-child > div * {
 .grid-image-container > div:nth-child(1) {
 	grid-area: 1 / 1 / 3 / 5;
 }
-.grid-image-container > div:nth-child(2){
+.grid-image-container > div:nth-child(2) {
 	grid-area: 3 / 1 / 5 / 5;
 }
 .grid-image-container > div:nth-child(3) {
@@ -376,4 +376,14 @@ footer > div:first-child > div * {
 }
 .grid-image-container > div:nth-child(6) {
 	grid-area: 4 / 5 / 7 / 11;
+}
+
+/* Form */
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"] {
+	border: 1px solid black;
+	padding: 2% 5%;
+	border-radius: clamp(0.55rem, 0.533vw, 0.533vw);
+	margin-bottom: clamp(1rem, 1.56vw, 1.56vw);
 }

@@ -96,6 +96,7 @@
 				"text": ["My brand feels tired."],
 				"cardData": {
 					"id": "first-card",
+					"formTitle": "First Card Form",
 					"title": "Tell us where you are",
 					"description": "The more honest the picture, the sharper our reply. We read every brief and we replu within 48 hours.",
 					"radioFields": [
@@ -164,8 +165,68 @@
 				"text": ["We have something to launch."],
 				"cardData": {
 					"id": "second-card",
-					"title": "Second Card",
-					"description": "the Antidote to Mediocre"
+					"formTitle": "Second Card Form",
+					"title": "Tell us where you are",
+					"description": "The more honest the picture, the sharper our reply. We read every brief and we replu within 48 hours.",
+					"radioFields": [
+						{
+							"label": "What's the rough size of the business?",
+							"radioBoxes": [
+								{
+									"value": "Early-stage / Founder-led"
+								},
+								{
+									"value": "Growth-stage, RM 10-50M revenue"
+								},
+								{
+									"value": "Estalished, RM 50M+"
+								},
+								{
+									"value": "Multinational / Regional brand"
+								},
+								{
+									"value": "Prefer not to say"
+								}
+							]
+						},
+						{
+							"label": "What's driving the conversation right now?",
+							"radioBoxes": [
+								{
+									"value": "Groth has stalled and we need to figure out why"
+								},
+								{
+									"value": "A specific moment is coming - a launch, a milestone, a deadline"
+								},
+								{
+									"value": "Leadership disagrees on what needs to change"
+								},
+								{
+									"value": "We want a sharper perspective before a big decision"
+								},
+								{
+									"value": "Honestly, I'm still figuring it out"
+								}
+							]
+						},
+						{
+							"label": "How soon does this need to move",
+							"radioBoxes": [
+								{
+									"value": "This quarter"
+								},
+								{
+									"value": "Within 6 months"
+								},
+								{
+									"value": "This year, no fixed date"
+								},
+								{
+									"value": "No rush, we want to start with the thinking"
+								}
+							]
+						}
+					]
 				}
 			},
 			{
@@ -173,8 +234,68 @@
 				"text": ["The work is fine.", "The numbers aren't."],
 				"cardData": {
 					"id": "third-card",
-					"title": "Third Card",
-					"description": "the Antidote to Mediocre"
+					"formTitle": "third Card Form",
+					"title": "Tell us where you are",
+					"description": "The more honest the picture, the sharper our reply. We read every brief and we replu within 48 hours.",
+					"radioFields": [
+						{
+							"label": "What's the rough size of the business?",
+							"radioBoxes": [
+								{
+									"value": "Early-stage / Founder-led"
+								},
+								{
+									"value": "Growth-stage, RM 10-50M revenue"
+								},
+								{
+									"value": "Estalished, RM 50M+"
+								},
+								{
+									"value": "Multinational / Regional brand"
+								},
+								{
+									"value": "Prefer not to say"
+								}
+							]
+						},
+						{
+							"label": "What's driving the conversation right now?",
+							"radioBoxes": [
+								{
+									"value": "Groth has stalled and we need to figure out why"
+								},
+								{
+									"value": "A specific moment is coming - a launch, a milestone, a deadline"
+								},
+								{
+									"value": "Leadership disagrees on what needs to change"
+								},
+								{
+									"value": "We want a sharper perspective before a big decision"
+								},
+								{
+									"value": "Honestly, I'm still figuring it out"
+								}
+							]
+						},
+						{
+							"label": "How soon does this need to move",
+							"radioBoxes": [
+								{
+									"value": "This quarter"
+								},
+								{
+									"value": "Within 6 months"
+								},
+								{
+									"value": "This year, no fixed date"
+								},
+								{
+									"value": "No rush, we want to start with the thinking"
+								}
+							]
+						}
+					]
 				}
 			},
 			{
@@ -182,8 +303,68 @@
 				"text": ["I don't know what i need yet."],
 				"cardData": {
 					"id": "fourth-card",
-					"title": "Fourth Card",
-					"description": "the Antidote to Mediocre"
+					"formTitle": "Fourth Card Form",
+					"title": "Tell us where you are",
+					"description": "The more honest the picture, the sharper our reply. We read every brief and we replu within 48 hours.",
+					"radioFields": [
+						{
+							"label": "What's the rough size of the business?",
+							"radioBoxes": [
+								{
+									"value": "Early-stage / Founder-led"
+								},
+								{
+									"value": "Growth-stage, RM 10-50M revenue"
+								},
+								{
+									"value": "Estalished, RM 50M+"
+								},
+								{
+									"value": "Multinational / Regional brand"
+								},
+								{
+									"value": "Prefer not to say"
+								}
+							]
+						},
+						{
+							"label": "What's driving the conversation right now?",
+							"radioBoxes": [
+								{
+									"value": "Groth has stalled and we need to figure out why"
+								},
+								{
+									"value": "A specific moment is coming - a launch, a milestone, a deadline"
+								},
+								{
+									"value": "Leadership disagrees on what needs to change"
+								},
+								{
+									"value": "We want a sharper perspective before a big decision"
+								},
+								{
+									"value": "Honestly, I'm still figuring it out"
+								}
+							]
+						},
+						{
+							"label": "How soon does this need to move",
+							"radioBoxes": [
+								{
+									"value": "This quarter"
+								},
+								{
+									"value": "Within 6 months"
+								},
+								{
+									"value": "This year, no fixed date"
+								},
+								{
+									"value": "No rush, we want to start with the thinking"
+								}
+							]
+						}
+					]
 				}
 			}
 		]

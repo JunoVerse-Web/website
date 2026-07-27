@@ -1,13 +1,30 @@
 import React from "react";
 
-export default function RadioButton({value, name, onClickFunction}: {value: string; name: string; onClickFunction: () => void}) {
+interface RadioButtonProps {
+	value: string;
+	name: string;
+	checked: boolean;
+	onClickFunction: () => void;
+}
+
+export default function RadioButton({ value, name, checked, onClickFunction }: RadioButtonProps) {
+	// const groupSlug = name.trim().toLowerCase().replace(/\s+/g, "-");
+	// const inputId = `${groupSlug}-${value.trim().toLowerCase().replace(/\s+/g, "-")}`;
+	const groupSlug = name;
+	const inputId = `${groupSlug}-${value}`;
+
 	return (
-		<label className="flex gap-4 items-center" onClick={onClickFunction}>
+		<label
+			htmlFor={inputId}
+			className="flex gap-4 items-center cursor-pointer"
+		>
 			<input
 				type="radio"
-				id={value}
-				name={name.replace(" ", "-")}
+				id={inputId}
+				name={groupSlug}
 				value={value}
+				checked={checked}
+				onChange={onClickFunction}
 			/>
 			{value}
 		</label>

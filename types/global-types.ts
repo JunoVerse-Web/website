@@ -43,6 +43,7 @@ export type ServicesCardType = {
 
 export type CardData = {
 	id: string;
+	formTitle?: string;
 	title: string;
 	description: string;
 	checkboxFields: CheckboxFieldType[];
@@ -54,13 +55,14 @@ export type CardData = {
 
 // Form
 export type FormData = {
+	formTitle: string;
 	title: string;
 	description: string;
 	name: string;
 	email: string;
 	phoneNumber: string;
 	radioFields: RadioFieldType[];
-	selectedRadioboxes: RadioFieldType["radioBoxes"][number][];
+	selectedRadioboxes: SelectedRadioBox[];
 	pdpa: boolean;
 };
 
@@ -76,4 +78,9 @@ export type RadioFieldType = {
 	radioBoxes: {
 		value: string;
 	}[];
+};
+
+// Tracks which question (`label`) a selected option (`value`) answers.
+export type SelectedRadioBox = RadioFieldType["radioBoxes"][number] & {
+	label: string;
 };
