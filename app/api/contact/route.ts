@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { FormData } from "@/types/global-types";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.NEXT_PUBLIC_CONTACT_EMAIL_TO);
 
 function isValidEmail(email: string): boolean {
 	return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -48,7 +48,7 @@ export async function POST(request: Request) {
 	try {
 		const { error } = await resend.emails.send({
 			from: "Contact Form <onboarding@resend.dev>", // swap to your verified domain later
-			to: process.env.CONTACT_EMAIL_TO!,
+			to: process.env.NEXT_PUBLIC_CONTACT_EMAIL_TO!,
 			replyTo: body.email,
 			subject: `New submission: ${body.title || "Contact Form"}`,
 			html: `
