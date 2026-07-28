@@ -230,7 +230,7 @@ section[data-section="decision"] span[data-background="bottom"] {
 }
 
 .burgerMenuOverlayHolder {
-	@apply fixed inset-0 w-full h-full bg-yellow;
+	@apply fixed inset-0 md:min-w-115 w-full md:w-1/2 h-full bg-yellow ml-auto;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -386,4 +386,8 @@ form input[type="tel"] {
 	padding: 2% 5%;
 	border-radius: clamp(0.55rem, 0.533vw, 0.533vw);
 	margin-bottom: clamp(1rem, 1.56vw, 1.56vw);
+}
+
+div[data-container="success-container"] p {
+	font-size: clamp(1rem, 1.04vw, 1.04vw) !important;
 }

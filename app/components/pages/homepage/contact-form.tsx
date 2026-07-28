@@ -1,10 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useFormStore } from "@/store";
 import clsx from "clsx";
 import { FormData, RadioFieldType } from "@/types/global-types";
 import RadioButton from "./form/radio-button";
+import Image from "next/image";
+import MailImage from "../../../../public/general/mail-image.webp";
+import BlackArrowRight from "../../icons/black-arrow-right";
 
 const EMPTYFORM: FormData = {
 	formTitle: "",
@@ -36,6 +39,7 @@ export default function ContactForm() {
 	const [formData, setFormData] = useState<FormData>(EMPTYFORM);
 	const [errors, setErrors] = useState<Record<string, string>>({});
 	const [submitting, setSubmitting] = useState(false);
+	const [formSubmitted, setFormSubmitted] = useState(false);
 
 	const errorClass = "text-red-600 sm:text-sm! md:text-[0.633vw]! m-0!";
 
@@ -87,14 +91,29 @@ export default function ContactForm() {
 	}
 
 	async function handleSubmit(e: React.FormEvent) {
-		e.preventDefault();  
+		e.preventDefault();
 		if (!validate()) return;
 
 		setSubmitting(true);
 		try {
-			// TODO: replace with your actual submit call
-			// await fetch("/api/contact", { method: "POST", body: JSON.stringify(formData) });
-			closeForm();
+			const res = await fetch("/api/contact", {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(formData),
+			});
+
+			const data = await res.json();
+
+			if (!res.ok) {
+				setErrors((prev) => ({
+					...prev,
+					...(data.fieldErrors ?? {}),
+					form: data.error ?? "Something went wrong. Please try again.",
+				}));
+				return;
+			}
+
+			setFormSubmitted(true);
 		} catch (err) {
 			setErrors((prev) => ({ ...prev, form: "Something went wrong. Please try again." }));
 		} finally {
@@ -111,23 +130,27 @@ export default function ContactForm() {
 		>
 			<div
 				className={clsx(
-					"bg-[#e7e4d5] w-[80vw] max-h-[90vh] overflow-y-auto rounded-2xl px-[7.292vw] py-[3.25vw] shadow-2xl relative duration-300",
+					"  rounded-2xl px-[7.292vw] py-[3.25vw] shadow-2xl relative duration-300",
 					isFormOpen ? "translate-y-0 delay-300" : "translate-y-[20%] opacity-0",
+					formSubmitted ? "bg-yellow min-h-[70vh] flex flex-col items-center justify-center" : "bg-[#e7e4d5] w-[80vw] max-h-[90vh] overflow-y-auto",
 				)}
 				onClick={(e) => e.stopPropagation()}
 			>
 				<button
 					onClick={closeForm}
 					aria-label="Close form"
-					className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-3xl leading-none"
+					className="absolute top-[4%] right-[3%]  w-[2.6vw] aspect-square text-gray-500 hover:text-gray-800  leading-none cursor-pointer"
 				>
-					&times;
+					<div className="relative w-full h-full">
+						<BlackArrowRight className="absolute inset-0 w-full h-full object-contain -rotate-45" />
+						<BlackArrowRight className="absolute inset-0 w-full h-full object-contain -rotate-135" />
+					</div>
 				</button>
 
 				<form
-					className="space-y-5"
 					onSubmit={handleSubmit}
 					noValidate
+					className={clsx("space-y-5", formSubmitted ? "opacity-0 scale-50 pointer-events-none h-0 duration-300" : "opacity-100")}
 				>
 					<div className="text-center">
 						<h2 className="leading-[1]! text-[3.13vw]! mb-[1rem]! lg:mb-[1.48vw]!">{formData.title}</h2>
@@ -160,7 +183,9 @@ export default function ContactForm() {
 											</div>
 										))}
 									</div>
-									{errors[field.label] && <span className={clsx(errorClass, "absolute bottom-0 left-0 translate-y-[100%] !ml-[5%]")}>{errors[field.label]}</span>}
+									{errors[field.label] && (
+										<span className={clsx(errorClass, "absolute bottom-0 left-0 translate-y-[100%] !ml-[5%]")}>{errors[field.label]}</span>
+									)}
 								</div>
 							))}
 						</div>
@@ -228,7 +253,9 @@ export default function ContactForm() {
 											I agree to the collection and processing of my personal data in accordance with PDPA Malaysia
 										</span>
 									</label>
-									{errors.pdpa && <span className={clsx(errorClass, "absolute bottom-0 left-0 translate-y-[130%] !ml-[5%]")}>{errors.pdpa}</span>}
+									{errors.pdpa && (
+										<span className={clsx(errorClass, "absolute bottom-0 left-0 translate-y-[130%] !ml-[5%]")}>{errors.pdpa}</span>
+									)}
 								</div>
 
 								{errors.form && <span className={clsx(errorClass)}>{errors.form}</span>}
@@ -236,13 +263,31 @@ export default function ContactForm() {
 							<button
 								type="submit"
 								disabled={submitting}
-								className="ml-auto w-fit bg-[#136cbc] text-md lg:text-[1.04vw] text-white py-4 px-7 lg:py-[0.83vw] lg:px-[1.67vw] rounded-xl font-medium hover:bg-gray-800 transition-colors disabled:opacity-50"
+								className="ml-auto w-fit bg-[#136cbc] cursor-pointer text-md lg:text-[1.04vw] text-white py-4 px-7 lg:py-[0.83vw] lg:px-[1.67vw] rounded-xl font-medium hover:bg-gray-800 transition-colors disabled:opacity-50"
 							>
 								{submitting ? "Submitting..." : "Submit"}
 							</button>
 						</div>
 					</div>
 				</form>
+
+				{/* Form Submitted */}
+				<div
+					className={clsx("text-center", formSubmitted ? "opacity-100 scale-100 duration-300 delay-200" : "scale-50 opacity-0")}
+					data-container="success-container"
+				>
+					<Image
+						src={MailImage}
+						alt="Success Mail"
+						width={400}
+						height={250}
+						className={clsx(`min-w-60 w-[23.96vw] h-full object-contain mx-auto mb-2rem md:mb-[1.88vw]`)}
+					/>
+					<h2 className="text-2xl">Received. The thinking starts now.</h2>
+					<p className="md:max-w-[65%] mx-auto">
+						We read every brief ourselves. You&apos;ll hear from a human within 48 hours with a point of view, not a calendar link.
+					</p>
+				</div>
 			</div>
 		</div>
 	);

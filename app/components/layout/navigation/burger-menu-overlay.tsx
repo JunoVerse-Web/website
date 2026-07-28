@@ -92,7 +92,7 @@ export default function BurgerMenuOverlay({ dark }: { dark: boolean }) {
 			if (menuToggled) {
 				// Open animation
 				gsap.to(overlay, {
-					y: "0%",
+					x: "0%",
 					duration: 0.6,
 					ease: "power3.inOut",
 				});
@@ -115,7 +115,7 @@ export default function BurgerMenuOverlay({ dark }: { dark: boolean }) {
 			} else {
 				// Close animation
 				gsap.to(overlay, {
-					y: "-100%",
+					x: "100%",
 					duration: 0.5,
 					ease: "power3.inOut",
 				});
@@ -188,7 +188,7 @@ export default function BurgerMenuOverlay({ dark }: { dark: boolean }) {
 			<div
 				ref={overlayRef}
 				className={clsx(
-					"burgerMenuOverlayHolder fixed inset-0 -translate-y-full z-50 overflow-hidden",
+					"burgerMenuOverlayHolder fixed inset-0 translate-x-full z-50 overflow-hidden",
 					menuToggled ? "pointer-events-auto" : "pointer-events-none"
 				)}
 			>
@@ -212,7 +212,7 @@ export default function BurgerMenuOverlay({ dark }: { dark: boolean }) {
 						{menuLinks.map((link, index) => (
 							<Fragment key={index}>
 								<div
-									className="flex items-center gap-4 py-5 md:pl-[33vw] cursor-pointer group"
+									className="flex items-center gap-4 py-5 md:pl-[5vw] cursor-pointer group"
 									onMouseEnter={() => {
 										changeBackground(link.bg.src);
 									}}
