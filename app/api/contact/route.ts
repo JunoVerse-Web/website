@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { FormData } from "@/types/global-types";
 
-const resend = new Resend(process.env.NEXT_PUBLIC_CONTACT_EMAIL_TO);
+const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 
 function isValidEmail(email: string): boolean {
 	return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
