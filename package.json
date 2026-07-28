@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
+    "@mux/mux-player-react": "^3.13.2",
     "@studio-freight/react-lenis": "^0.0.47",
     "clsx": "^2.1.1",
     "gray-matter": "^4.0.3",

@@ -2,6 +2,7 @@ import { getPage } from "@/lib/content/getPage";
 import { HomePage } from "@/types/content";
 import { getSeo } from "@/lib/seo/getSeo";
 import type { Metadata } from "next";
+import PhilosophyInteractive from "@/app/components/pages/philosophy/philosophy-interactive";
 
 export async function generateMetadata(): Promise<Metadata> {
 	const page = await getPage("our-philosophy");
@@ -21,23 +22,11 @@ export default async function Home() {
 				className="px-[9.38vw] pt-[12vw] pb-[2vw] h-screen"
 			>
 				<div className="text-center">
-					<h1>{hero.title}</h1>
+					<h1 className="text-white md:mb-[8.33vw]!">{hero.title}</h1>
 				</div>
 
-				<div className="flex flex-col items-center max-w-[40%] ml-auto">
-					<PhilosophyButton title="What does JUNO actually believe?" />
-					<PhilosophyButton title="What makes JUNO different?" />
-					<PhilosophyButton title="Skip the philosophy. Show me the work." />
-				</div>
+				<PhilosophyInteractive />
 			</section>
 		</main>
-	);
-}
-
-function PhilosophyButton({ title }: { title: string }) {
-	return (
-		<div className="border-[1px] border-white rounded-md  w-full flex items-center px-[4.17vw] py-[0.833vw] mb-4">
-			<span className="font-light! text-[white] text-[1rem]! md:text-[1.1rem]! lg:text-[1.04vw]! m-0!">{title}</span>
-		</div>
 	);
 }

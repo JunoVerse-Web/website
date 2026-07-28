@@ -158,10 +158,15 @@ ul ol {
 /* .hero-section {
 	background: radial-gradient(circle at center 65%, #ffeb9e 0%, #f5c45c 25%, #d18f2e 45%, #4a2e7a 70%, #1e1b4b 85%, #0f0c2e 100%);
 } */
-section[data-section="home-hero"],
-section[data-section="philosophy-hero"] {
+section[data-section="home-hero"] {
 	background: url(../public/page-background/creations-bakcground-image.jpg) center center no-repeat;
 	background-size: cover;
+}
+
+section[data-section="philosophy-hero"] {
+	background: url(../public/philosophy/bg-image.webp) center center no-repeat;
+    background-size: cover;
+    background-position: 50% 65%;
 }
 
 /* Card Feed Holder  */
@@ -390,4 +395,8 @@ form input[type="tel"] {
 
 div[data-container="success-container"] p {
 	font-size: clamp(1rem, 1.04vw, 1.04vw) !important;
+}
+
+.philosophy-video {
+	--controls: none;
 }
