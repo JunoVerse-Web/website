@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import MuxPlayer from "@mux/mux-player-react";
 import WhiteArrowLeft from "../../icons/white-arrow-left";
 import SkipButtton from "../../icons/skip-button";
+import clsx from "clsx";
 
 // Mux playback IDs — the string after player.mux.com/ in your embed URL.
 // Replace VIDEO_2_PLAYBACK_ID with your second video's actual ID.
@@ -34,35 +35,38 @@ export default function PhilosophyInteractive() {
 				/>
 			</div>
 
-			{activeVideo && (
+			<div
+				// className="fixed! m-auto bottom-0 left-0 right-0 z-[1000] flex items-center justify-center bg-black/80 backdrop-blur-sm"
+				className={clsx(
+					"fixed! m-auto bottom-0 left-0 right-0 h-screen w-screen z-[99999999]! duration-300",
+					activeVideo ? "opacity-100 scale-100" : "opacity-0 pointer-events-none scale-75",
+				)}
+				onClick={() => setActiveVideo(null)}
+			>
 				<div
-					// className="fixed! m-auto bottom-0 left-0 right-0 z-[1000] flex items-center justify-center bg-black/80 backdrop-blur-sm"
-					className="fixed! m-auto bottom-0 left-0 right-0 h-screen w-screen z-[99999999]!"
-					onClick={() => setActiveVideo(null)}
+					className="relative w-full h-full "
+					onClick={(e) => e.stopPropagation()}
 				>
-					<div
-						className="relative w-full h-full "
-						onClick={(e) => e.stopPropagation()}
+					<button
+						onClick={() => setActiveVideo(null)}
+						aria-label="Close video"
+						className="absolute top-[10%] right-[15%] cursor-pointer"
 					>
-						<button
-							onClick={() => setActiveVideo(null)}
-							aria-label="Close video"
-							className="absolute top-[10%] right-[15%] cursor-pointer"
-						>
-							<div className="relative w-[50px] h-[50px] aspect-square z-[100] ">
-								<SkipButtton className="w-ful h-full object-contain" />
-							</div>
-						</button>
+						<div className="relative w-[50px] h-[50px] aspect-square z-[100] ">
+							<SkipButtton className="w-ful h-full object-contain" />
+						</div>
+					</button>
+					{activeVideo && (
 						<MuxPlayer
 							playbackId={VIDEO_PLAYBACK_IDS[activeVideo]}
 							metadata={{ video_title: activeVideo }}
 							autoPlay
-							className="w-full h-full aspect-video philosophy-video"
-                            
+                            thumbnailTime={1}
+							className={clsx("w-full h-full aspect-video philosophy-video", activeVideo ? "opacity-100" : "opacity-0 pointer-events-none",)}
 						/>
-					</div>
+					)}
 				</div>
-			)}
+			</div>
 		</>
 	);
 }

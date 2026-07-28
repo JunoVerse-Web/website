@@ -185,6 +185,7 @@ export default function BurgerMenuOverlay({ dark }: { dark: boolean }) {
 			</div>
 
 			{/* Overlay */}
+			<div className={clsx(menuToggled ? "opacity-80" : "pointer-events-none opacity-0", "fixed bg-black inset-0 m-auto! w-full h-full duration-300")}></div>
 			<div
 				ref={overlayRef}
 				className={clsx(
