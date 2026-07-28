@@ -3,16 +3,14 @@
 import BlurText from "../../animations/BlurText";
 import CardsContainer from "./cards-container";
 import { SlideCardsType } from "@/types/global-types";
+import { useTextFadeUpObserver } from "@/hooks/useTextFadeUpObserver";
+import { useRef } from "react";
 
-export default function HeroSection({
-	title,
-	description,
-	cards,
-}: {
-	title: string;
-	description: string[];
-	cards: SlideCardsType[];
-}) {
+export default function HeroSection({ title, description, cards }: { title: string; description: string[]; cards: SlideCardsType[] }) {
+	useTextFadeUpObserver();
+
+	const descriptionRef = useRef<HTMLDivElement>(null);
+
 	return (
 		<section
 			data-section="home-hero"
@@ -28,15 +26,18 @@ export default function HeroSection({
 						className="justify-center items-center"
 					/>
 				</h1>
-				<div className="flex flex-col items-center content-center font-medium mb-[1.25vw]">
-					{description.map((p, i) => (
-						<p
-							key={i}
-							className="mb-0! text-white"
-						>
-							{p}
-						</p>
-					))}
+
+				<div ref={descriptionRef}>
+					<div className="flex flex-col items-center content-center font-medium mb-[1.25vw]">
+						{description.map((p, i) => (
+							<p
+								key={i}
+								className="mb-0! text-white text-fade-up"
+							>
+								{p}
+							</p>
+						))}
+					</div>
 				</div>
 			</div>
 			<CardsContainer content={cards} />

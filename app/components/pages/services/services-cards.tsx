@@ -1,3 +1,5 @@
+"use client";
+
 import { ServicesCardType } from "@/types/global-types";
 import React from "react";
 import SingleFlipCards from "../../animations/SingleFlipCards";
@@ -5,122 +7,155 @@ import Image from "next/image";
 // import clsx from "clsx";'
 import FrontBlueCard from "../../../../public/general/Juno-blue-card.png";
 import MagicMakers from "../../../../public/general/magic-makers.png";
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
 export default function ServicesCards({ cards }: { cards: ServicesCardType[] }) {
+	const cardContainerRef = useRef<HTMLDivElement>(null);
+
+	useGSAP(
+		() => {
+			const items = gsap.utils.toArray<HTMLElement>(".tilt-card-item");
+			items.map((item) => gsap.set(item, { opacity: 0, yPercent: 8 }));
+
+			const st = ScrollTrigger.create({
+				trigger: cardContainerRef.current,
+				start: "top center",
+				once: true,
+				onEnter: () => {
+					gsap.fromTo(
+						items,
+						{
+							opacity: 0,
+							yPercent: 8,
+							stagger: 0.15,
+							duration: 0.6,
+							ease: "power2.out",
+						},
+						{
+							opacity: 1,
+							yPercent: 0,
+							stagger: 0.15,
+						},
+					);
+				},
+			});
+
+
+			return () => st.kill();
+		},
+		{ scope: cardContainerRef },
+	);
+
 	return (
 		<div className="relative pb-[19.27vw]">
 			<span className="absolute w-full h-[42.6vw] bottom-0 left-0 right-0 bg-yellow m-0!"></span>
-			<div className="grid grid-cols-3 px-[16.93vw] gap-4 md:gap-7 lg:gap-[1.88vw]">
-				<SingleFlipCards
-					front={
-						<FrontCardComponent
-							currentCard={cards[0]}
-						/>
-					}
-					back={
-						<BackCardComponent
-							cardImage={
-								<Image
-									src={MagicMakers}
-									alt={`Card Thumbnail`}
-									fill
-									sizes="(max-width: 768px) 100vw, 400px"
-									loading="eager"
-									className="object-cover"
-									priority
-								/>
-							}
-						/>
-					}
-				/>
-				<SingleFlipCards
-					front={
-						<FrontCardComponent
-							currentCard={cards[1]}
-						/>
-					}
-					back={
-						<BackCardComponent
-							cardImage={
-								<Image
-									src={MagicMakers}
-									alt={`Card Thumbnail`}
-									fill
-									sizes="(max-width: 768px) 100vw, 400px"
-									loading="eager"
-									className="object-cover"
-									priority
-								/>
-							}
-						/>
-					}
-				/>
-				<SingleFlipCards
-					front={
-						<FrontCardComponent
-							currentCard={cards[2]}
-						/>
-					}
-					back={
-						<BackCardComponent
-							cardImage={
-								<Image
-									src={MagicMakers}
-									alt={`Card Thumbnail`}
-									fill
-									sizes="(max-width: 768px) 100vw, 400px"
-									loading="eager"
-									className="object-cover"
-									priority
-								/>
-							}
-						/>
-					}
-				/>
-				<SingleFlipCards
-					front={
-						<FrontCardComponent
-							currentCard={cards[3]}
-						/>
-					}
-					back={
-						<BackCardComponent
-							cardImage={
-								<Image
-									src={MagicMakers}
-									alt={`Card Thumbnail`}
-									fill
-									sizes="(max-width: 768px) 100vw, 400px"
-									loading="eager"
-									className="object-cover"
-									priority
-								/>
-							}
-						/>
-					}
-				/>
-				<SingleFlipCards
-					front={
-						<FrontCardComponent
-							currentCard={cards[4]}
-						/>
-					}
-					back={
-						<BackCardComponent
-							cardImage={
-								<Image
-									src={MagicMakers}
-									alt={`Card Thumbnail`}
-									fill
-									sizes="(max-width: 768px) 100vw, 400px"
-									loading="eager"
-									className="object-cover"
-									priority
-								/>
-							}
-						/>
-					}
-				/>
+			<div
+				className="grid grid-cols-3 px-[16.93vw] gap-4 md:gap-7 lg:gap-[1.88vw]"
+				ref={cardContainerRef}
+			>
+				<div className="tilt-card-item">
+					<SingleFlipCards
+						front={<FrontCardComponent currentCard={cards[0]} />}
+						back={
+							<BackCardComponent
+								cardImage={
+									<Image
+										src={MagicMakers}
+										alt={`Card Thumbnail`}
+										fill
+										sizes="(max-width: 768px) 100vw, 400px"
+										loading="eager"
+										className="object-cover"
+										priority
+									/>
+								}
+							/>
+						}
+					/>
+				</div>
+				<div className="tilt-card-item">
+					<SingleFlipCards
+						front={<FrontCardComponent currentCard={cards[1]} />}
+						back={
+							<BackCardComponent
+								cardImage={
+									<Image
+										src={MagicMakers}
+										alt={`Card Thumbnail`}
+										fill
+										sizes="(max-width: 768px) 100vw, 400px"
+										loading="eager"
+										className="object-cover"
+										priority
+									/>
+								}
+							/>
+						}
+					/>
+				</div>
+				<div className="tilt-card-item">
+					<SingleFlipCards
+						front={<FrontCardComponent currentCard={cards[2]} />}
+						back={
+							<BackCardComponent
+								cardImage={
+									<Image
+										src={MagicMakers}
+										alt={`Card Thumbnail`}
+										fill
+										sizes="(max-width: 768px) 100vw, 400px"
+										loading="eager"
+										className="object-cover"
+										priority
+									/>
+								}
+							/>
+						}
+					/>
+				</div>
+				<div className="tilt-card-item">
+					<SingleFlipCards
+						front={<FrontCardComponent currentCard={cards[3]} />}
+						back={
+							<BackCardComponent
+								cardImage={
+									<Image
+										src={MagicMakers}
+										alt={`Card Thumbnail`}
+										fill
+										sizes="(max-width: 768px) 100vw, 400px"
+										loading="eager"
+										className="object-cover"
+										priority
+									/>
+								}
+							/>
+						}
+					/>
+				</div>
+				<div className="tilt-card-item">
+					<SingleFlipCards
+						front={<FrontCardComponent currentCard={cards[4]} />}
+						back={
+							<BackCardComponent
+								cardImage={
+									<Image
+										src={MagicMakers}
+										alt={`Card Thumbnail`}
+										fill
+										sizes="(max-width: 768px) 100vw, 400px"
+										loading="eager"
+										className="object-cover"
+										priority
+									/>
+								}
+							/>
+						}
+					/>
+				</div>
 			</div>
 		</div>
 	);
@@ -133,7 +168,7 @@ function FrontCardComponent({ currentCard }: { currentCard?: ServicesCardType })
 			{
 				<Image
 					src={FrontBlueCard}
-					alt={'Card Thumbnail'}
+					alt={"Card Thumbnail"}
 					sizes="(max-width: 768px) 100vw, 400px"
 					loading="eager"
 					className="object-cover absolute inset-0 w-full h-full z-0 pointer-events-none"

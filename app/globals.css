@@ -107,8 +107,9 @@ h1 * {
 	font-weight: 800 !important;
 }
 
-h2 {
-	@apply leading-normal font-bold text-[2.604vw] mb-(--paragraph-mb);
+h2,
+h2 * {
+	@apply font-bold! text-[2.604vw]! mb-(--paragraph-mb);
 }
 
 p,
@@ -165,8 +166,8 @@ section[data-section="home-hero"] {
 
 section[data-section="philosophy-hero"] {
 	background: url(../public/philosophy/bg-image.webp) center center no-repeat;
-    background-size: cover;
-    background-position: 50% 65%;
+	background-size: cover;
+	background-position: 50% 65%;
 }
 
 /* Card Feed Holder  */
@@ -399,4 +400,18 @@ div[data-container="success-container"] p {
 
 .philosophy-video {
 	--controls: none;
+}
+
+/* Global */
+.text-fade-up {
+	opacity: 0;
+	transform: translateY(1rem);
+	transition:
+		opacity 0.6s ease-out,
+		transform 0.6s ease-out;
+}
+
+.text-fade-up.active {
+	opacity: 1;
+	transform: translateY(0);
 }

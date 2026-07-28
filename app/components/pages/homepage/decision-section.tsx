@@ -1,3 +1,5 @@
+"use client";
+
 import { HomePage } from "@/types/content";
 import FlyingCards from "../../animations/FlyingCards";
 import Image from "next/image";
@@ -6,17 +8,60 @@ import Card1 from "../../../../public/general/JUNO-card-1.webp";
 import Card2 from "../../../../public/general/JUNO-card-2.webp";
 import Card3 from "../../../../public/general/JUNO-card-3.webp";
 import Card4 from "../../../../public/general/JUNO-card-4.webp";
+import { useRef } from "react";
+import { useTextFadeUpObserver } from "@/hooks/useTextFadeUpObserver";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function DecisionSection({ content }: { content: HomePage }) {
 	const { title, description, ctaDescription, ctaLink, cards } = content.decisionSection;
-
 	const backgroundImage = "absolute w-full h-full object-cover pointer-events-none z-0";
-
 	const cardImages = [Card1, Card2, Card3, Card4];
-	
+
+	const cardContainerRef = useRef<HTMLDivElement>(null);
+	const sectionRef = useRef<HTMLElement>(null);
+	useTextFadeUpObserver();
+
+	useGSAP(
+		() => {
+			const items = gsap.utils.toArray<HTMLElement>(".decision-card-item");
+			items.map((item) => gsap.set(item, { opacity: 0, yPercent: 8 }));
+
+			const st = ScrollTrigger.create({
+				trigger: cardContainerRef.current,
+				start: "top center",
+				once: true,
+				onEnter: () => {
+					gsap.fromTo(
+						items,
+						{ opacity: 0, yPercent: 8 },
+						{
+							opacity: 1,
+							yPercent: 0,
+							stagger: 0.15,
+							duration: 0.6,
+							ease: "power2.out",
+						},
+					);
+				},
+			});
+
+			const videos = cardContainerRef.current?.querySelectorAll("video") ?? [];
+			videos.forEach((video) => {
+				video.addEventListener("loadedmetadata", () => ScrollTrigger.refresh(), { once: true });
+			});
+
+			return () => st.kill();
+		},
+		{ scope: cardContainerRef },
+	);
 
 	return (
 		<section
+			ref={sectionRef}
 			data-section="decision"
 			className="relative pt-[11.46vw] px-[6.25vw] pb-[9.38vw] bg-[#052447]"
 		>
@@ -32,33 +77,40 @@ export default function DecisionSection({ content }: { content: HomePage }) {
 
 			{/* Top Content */}
 			<div className="relative z-10 text-center md-[1.4rem] lg:mb-[3.13vw]">
-				<h2 className="font-size-56 text-white">{title}</h2>
-				<p className="text-white">{description}</p>
+				<h2 className="font-size-56 text-white text-fade-up">{title}</h2>
+				<p className="text-white text-fade-up">{description}</p>
 			</div>
 
 			{/* Card Content */}
-			<div className="relative z-10 grid grid-cols-4 gap-[1.56vw] md:mb-12 lg:mb-[4.17vw]">
+			<div
+				className="relative z-10 grid grid-cols-4 gap-[1.56vw] md:mb-12 lg:mb-[4.17vw]"
+				ref={cardContainerRef}
+			>
 				{cards.map((card, index) => (
-					<FlyingCards
+					<div
 						key={index}
-						cardImage={
-							<Image
-								src={cardImages[index]}
-								alt={`Juno Card ${index + 1}`}
-								className={clsx(backgroundImage)}
-								sizes={"auto"}
-								fill
-								loading="eager"
-							/>
-						}
-						text={card.text}
-						cardData={card.cardData}
-					/>
+						className="decision-card-item"
+					>
+						<FlyingCards
+							cardImage={
+								<Image
+									src={cardImages[index]}
+									alt={`Juno Card ${index + 1}`}
+									className={clsx(backgroundImage)}
+									sizes={"auto"}
+									fill
+									loading="eager"
+								/>
+							}
+							text={card.text}
+							cardData={card.cardData}
+						/>
+					</div>
 				))}
 			</div>
 
 			{/* Bottom CTA Line */}
-			<div className="relative z-10 flex items-center justify-center gap-1.5">
+			<div className="relative z-10 flex items-center justify-center gap-1.5 text-fade-up">
 				<p className="text-white mb-0!">{ctaDescription}</p>
 				<a
 					href={ctaLink.link}

@@ -1,13 +1,12 @@
 "use client";
 
 import { useRef, useState } from "react";
-import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import HoodleLogo from "./hoodle-logo";
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+gsap.registerPlugin(ScrollTrigger);
 
 const TOTAL_IMAGES = 20;
 

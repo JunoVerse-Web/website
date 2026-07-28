@@ -1,6 +1,9 @@
+'use client';
+
 import { ServicesCardType } from "@/types/global-types";
 import React from "react";
 import ServicesCards from "./services-cards";
+import { useTextFadeUpObserver } from "@/hooks/useTextFadeUpObserver";
 
 export default function HeroSection({
 	title,
@@ -13,6 +16,8 @@ export default function HeroSection({
 	secondDescription: string;
 	cards: ServicesCardType[];
 }) {
+	useTextFadeUpObserver();
+
 	return (
 		<section
 			data-section="services-hero"
@@ -31,15 +36,13 @@ export default function HeroSection({
 				Your browser does not support the video tag.
 			</video>
 			<div className="flex flex-col text-center px-[25.75vw]">
-				<h1 className="text-white">{title}</h1>
-				<p className="text-white font-size-36 font-bold!">{mainDescription}</p>
-				<p className="text-white max-w-[87%] mx-auto">{secondDescription}</p>
+				<h1 className="text-white text-fade-up">{title}</h1>
+				<p className="text-white font-size-36 font-bold! text-fade-up">{mainDescription}</p>
+				<p className="text-white max-w-[87%] mx-auto text-fade-up">{secondDescription}</p>
 			</div>
 
 			{/* Cards */}
 			<ServicesCards cards={cards} />
-
-			
 		</section>
 	);
 }

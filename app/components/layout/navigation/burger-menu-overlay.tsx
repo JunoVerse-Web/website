@@ -17,8 +17,6 @@ import ServicesMenuBackground from "../../../../public/menu-bg/services-bg.webp"
 import WorldMenuBackground from "../../../../public/menu-bg/world-bg.webp";
 import FolksMenuBackground from "../../../../public/menu-bg/folks-bg.webp";
 
-gsap.registerPlugin(useGSAP);
-
 const MENU_LINKS = [
 	{ name: "Our Philosophy", href: "/our-philosophy", bg: PhilosophyMenuBackground },
 	{ name: "Our Services", href: "/our-services", bg: ServicesMenuBackground },

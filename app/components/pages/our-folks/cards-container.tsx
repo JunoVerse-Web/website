@@ -5,19 +5,62 @@ import { SlideCardsType } from "@/types/global-types";
 import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-
-gsap.registerPlugin(useGSAP);
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function CardsContainer({ content }: { content: SlideCardsType[] }) {
+	const cardContainerRef = useRef<HTMLDivElement>(null);
+
+	useGSAP(
+		() => {
+			const items = gsap.utils.toArray<HTMLElement>(".folks-card-item");
+			items.map((item) => gsap.set(item, { opacity: 0, yPercent: 8 }));
+
+			const st = ScrollTrigger.create({
+				trigger: cardContainerRef.current,
+				start: "top center",
+				once: true,
+				onEnter: () => {
+					gsap.fromTo(
+						items,
+						{
+							opacity: 0,
+							yPercent: 8,
+							stagger: 0.15,
+							duration: 0.6,
+							ease: "power2.out",
+						},
+						{
+							opacity: 1,
+							yPercent: 0,
+							stagger: 0.15,
+						},
+					);
+				},
+			});
+
+			const videos = cardContainerRef.current?.querySelectorAll("video") ?? [];
+			videos.forEach((video) => {
+				video.addEventListener("loadedmetadata", () => ScrollTrigger.refresh(), { once: true });
+			});
+
+			return () => st.kill();
+		},
+		{ scope: cardContainerRef },
+	);
+
 	return (
 		<div className="relative px-[7vw] pt-[2vw] pb-[3vw]">
-			<div className="grid grid-cols-3 gap-(--spacing-2)">
+			<div
+				className="grid grid-cols-3 gap-(--spacing-2)"
+				ref={cardContainerRef}
+			>
 				{content.map((card, index) => (
-					<Card
-						key={index}
-						card={card}
-						index={index}
-					/>
+					<div key={index} className="folks-card-item opacity-0">
+						<Card
+							card={card}
+							index={index}
+						/>
+					</div>
 				))}
 			</div>
 		</div>
