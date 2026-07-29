@@ -32,6 +32,11 @@ export default function BurgerMenuOverlay({ dark }: { dark: boolean }) {
 	const bg2Ref = useRef<HTMLDivElement>(null);
 	const linksRef = useRef<HTMLDivElement>(null);
 
+	// Tracks which layer is currently the "front" (visible) one — a fact we
+	// control explicitly, rather than inferring it from an inline opacity
+	// style that GSAP is actively animating (which caused the glitch).
+	const activeLayerIsBg1 = useRef(false);
+
 	const isFormOpen = useFormStore((state) => state.isFormOpen);
 	const darkState = useMenuStore((state) => state.dark);
 	const iconDark = dark && darkState;
@@ -45,18 +50,24 @@ export default function BurgerMenuOverlay({ dark }: { dark: boolean }) {
 		const bg1 = bg1Ref.current;
 		const bg2 = bg2Ref.current;
 
+		// Kill any in-flight tweens on both layers first — without this,
+		// hovering quickly between links starts a new tween on top of one
+		// still running, which is what caused the flicker.
+		gsap.killTweensOf([bg1, bg2]);
+
 		if (!newBg) {
-			gsap.to([bg1, bg2], { opacity: 0 });
+			gsap.to([bg1, bg2], { opacity: 0, duration: 0.3 });
 			return;
 		}
 
-		const useBg2 = bg1.style.opacity === "1" || bg1.style.opacity === "";
-		const activeLayer = useBg2 ? bg2 : bg1;
-		const inactiveLayer = useBg2 ? bg1 : bg2;
+		const nextLayer = activeLayerIsBg1.current ? bg2 : bg1;
+		const prevLayer = activeLayerIsBg1.current ? bg1 : bg2;
 
-		activeLayer.style.backgroundImage = `url(${newBg})`;
-		gsap.to(activeLayer, { opacity: 1, delay: 0.15, duration: 0.45 });
-		gsap.to(inactiveLayer, { opacity: 0, delay: 0.15, duration: 0.45 });
+		nextLayer.style.backgroundImage = `url(${newBg})`;
+		gsap.to(nextLayer, { opacity: 1, delay: 0.15, duration: 0.45 });
+		gsap.to(prevLayer, { opacity: 0, delay: 0.15, duration: 0.45 });
+
+		activeLayerIsBg1.current = !activeLayerIsBg1.current;
 	};
 
 	useGSAP(
@@ -107,7 +118,7 @@ export default function BurgerMenuOverlay({ dark }: { dark: boolean }) {
 	return (
 		<>
 			{/* Top Bar */}
-			<div className={clsx("burgerMenuTopHodler duration-300", isFormOpen && "-translate-y-full")}>
+			<div className={clsx("burgerMenuTopHodler duration-300 relative z-[60]", isFormOpen && "-translate-y-full")}>
 				<CustomLink
 					scroll={false}
 					href="/"
@@ -159,7 +170,7 @@ export default function BurgerMenuOverlay({ dark }: { dark: boolean }) {
 				}}
 				className={clsx(
 					menuToggled ? "opacity-80" : "pointer-events-none opacity-0",
-					"fixed bg-black inset-0 m-auto! w-full h-full duration-300",
+					"fixed bg-black inset-0 m-auto! w-full h-full duration-300 z-30",
 				)}
 			/>
 
