@@ -135,7 +135,7 @@ export default function BurgerMenuOverlay({ dark }: { dark: boolean }) {
 
 				<div className="overflow-hidden">
 					<div
-						className="burgerMenuIcon relative cursor-pointer flex flex-col items-center justify-center gap-1 w-[2.6vw] h-auto"
+						className="burgerMenuIcon relative cursor-pointer flex flex-col items-center justify-center gap-1 min-w-8 w-[2.6vw] h-auto"
 						onClick={toggleMenu}
 					>
 						{/* Burger lines */}

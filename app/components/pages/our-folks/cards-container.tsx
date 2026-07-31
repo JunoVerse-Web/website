@@ -49,9 +49,9 @@ export default function CardsContainer({ content }: { content: SlideCardsType[] 
 	);
 
 	return (
-		<div className="relative px-[7vw] pt-[2vw] pb-[3vw]">
+		<div className="relative lg:px-[7vw] pt-[2vw] pb-[3vw]">
 			<div
-				className="grid grid-cols-3 gap-(--spacing-2)"
+				className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-(--spacing-2)"
 				ref={cardContainerRef}
 			>
 				{content.map((card, index) => (

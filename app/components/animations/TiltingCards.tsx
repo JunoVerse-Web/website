@@ -51,7 +51,7 @@ export default function TiltingCards({ content, url = "#" }: { content: React.Re
 		<CustomLink
 			scroll={false}
 			href={url}
-			className="group relative w-full h-auto perspective-[1200px] cursor-pointer block"
+			className="group relative w-full h-auto perspective-[1200px] cursor-pointer block mb-0!"
 		>
 			<div
 				ref={cardRef}

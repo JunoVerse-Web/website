@@ -76,14 +76,14 @@ export default function DecisionSection({ content }: { content: HomePage }) {
 			></span>
 
 			{/* Top Content */}
-			<div className="relative z-10 text-center md-[1.4rem] lg:mb-[3.13vw]">
+			<div className="relative z-10 text-center mb-[2.4rem] lg:mb-[3.13vw]">
 				<h2 className="font-size-56 text-white text-fade-up">{title}</h2>
 				<p className="text-white text-fade-up">{description}</p>
 			</div>
 
 			{/* Card Content */}
 			<div
-				className="relative z-10 grid grid-cols-4 gap-[1.56vw] md:mb-12 lg:mb-[4.17vw]"
+				className="relative z-10 grid max-[565px]:px-4 max-[969px]:grid-cols-2 max-[969px]:px-[15%] grid-cols-4 gap-[1.56vw] mb-12 lg:mb-[4.17vw]"
 				ref={cardContainerRef}
 			>
 				{cards.map((card, index) => (
@@ -110,7 +110,7 @@ export default function DecisionSection({ content }: { content: HomePage }) {
 			</div>
 
 			{/* Bottom CTA Line */}
-			<div className="relative z-10 flex items-center justify-center gap-1.5 text-fade-up">
+			<div className="relative z-10 flex max-md:flex-col items-center justify-center md:gap-1.5 text-fade-up">
 				<p className="text-white mb-0!">{ctaDescription}</p>
 				<a
 					href={ctaLink.link}

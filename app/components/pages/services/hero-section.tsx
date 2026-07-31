@@ -35,7 +35,7 @@ export default function HeroSection({
 			>
 				Your browser does not support the video tag.
 			</video>
-			<div className="flex flex-col text-center px-[25.75vw]">
+			<div className="flex flex-col text-center px-4 md:px-[15vw] lg:px-[25.75vw]">
 				<h1 className="text-white text-fade-up">{title}</h1>
 				<p className="text-white font-size-36 font-bold! text-fade-up">{mainDescription}</p>
 				<p className="text-white max-w-[87%] mx-auto text-fade-up">{secondDescription}</p>

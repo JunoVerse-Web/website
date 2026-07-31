@@ -54,9 +54,9 @@ export default function CardsContainer({ content }: { content: CreationsCardType
 	);
 
 	return (
-		<div className="relative px-[16.93vw] pt-[2vw] pb-[3vw]">
+		<div className="relative px-4 md:px-[16.93vw] pt-[2vw] pb-20 md:pb-[10vw] lg:pb-[15vw]">
 			<div
-				className="grid grid-cols-3 gap-(--spacing-2)"
+				className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-(--spacing-2)"
 				ref={cardContainerRef}
 			>
 				<div className="creation-card-item opacity-0">

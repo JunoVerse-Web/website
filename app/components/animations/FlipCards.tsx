@@ -60,7 +60,7 @@ export default function FlipCards({ front, back, repeat = false, link }: { front
 		 	scroll={false}
 			href={link || "#"}
 			className={clsx(
-				"group relative grid content-center text-center bg-transparent w-full h-auto perspective-[1250px] cursor-pointer",
+				"group relative grid content-center text-center bg-transparent w-full h-auto perspective-[1250px] cursor-pointer max-md:mb-0!",
 				focused && "z-50",
 			)}
 			onMouseEnter={handleMouseEnter}

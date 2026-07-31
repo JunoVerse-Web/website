@@ -25,7 +25,7 @@ export default function CardFeedsSection({ content }: { content: HomePage["cardF
 	useTextFadeUpObserver();
 	return (
 		<section
-			className="relative z-10 bg-gray px-[10.4vw] text-center py-[7.2vw]"
+			className="relative z-10 bg-gray px-4 md:px-[10.4vw] text-center py-[7.2vw]"
 			ref={sectionRef}
 		>
 			<div className="relative flex items-center justify-center">
@@ -40,12 +40,12 @@ export default function CardFeedsSection({ content }: { content: HomePage["cardF
 				</h2>
 			</div>
 
-			<div className="text-fade-up">
+			<div className="text-fade-up mt-4 lg:mt-[1.17vw]">
 				<Swiper
-					spaceBetween={50}
-					slidesPerView={3}
+					spaceBetween={10}
+					slidesPerView={2}
 					breakpoints={{
-						480: { slidesPerView: 1, spaceBetween: 20 },
+						480: { slidesPerView: 2, spaceBetween: 20 },
 						768: { slidesPerView: 2, spaceBetween: 30 },
 						1024: { slidesPerView: 3, spaceBetween: 40 },
 						1280: { slidesPerView: 3, spaceBetween: 50 },
@@ -59,7 +59,7 @@ export default function CardFeedsSection({ content }: { content: HomePage["cardF
 						return (
 							<SwiperSlide
 								key={index}
-								className="relative flex flex-col items-center justify-center font-medium mb-[1.25vw] aspect-410/500 overflow-hidden rounded-[2.5vw] mt-8 md:mt-12 lg:mt-[4.17vw]"
+								className="relative flex flex-col items-center justify-center font-medium mb-[1.25vw] aspect-410/500 overflow-hidden rounded-[2.5vw]"
 							>
 								{/* Background Gradient Image */}
 								<Image
@@ -75,7 +75,7 @@ export default function CardFeedsSection({ content }: { content: HomePage["cardF
 								<Link
 									scroll={false}
 									href="#"
-									className="CardFeedHolder relative z-10 text-center px-[10%] pt-[25%] grid justify-center place-content-start w-fill h-full"
+									className="CardFeedHolder relative z-10 text-center px-[10%] max-[480px]:pt-[35%] pt-[30%] md:pt-[40%] lg:pt-[25%] grid justify-center place-content-start w-fill h-full"
 								>
 									<span>{card.topTitle}</span>
 									<h3>{card.mainTitle}</h3>
