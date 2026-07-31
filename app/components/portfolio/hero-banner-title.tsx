@@ -12,7 +12,7 @@ export default function HeroBannerTitle({ content }: { content: PortfolioPage['h
 					width={1200}
 					height={600}
 					className="w-full h-auto object-cover object-center"
-					loading="lazy"
+					loading="eager"
 				/>
 			</div>
 			<div>

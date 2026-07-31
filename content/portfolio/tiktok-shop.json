@@ -1,0 +1,40 @@
+{
+	"seo": {
+		"title": "JunoVerse | TikTok Shop",
+		"description": "Dive right into JunoVerse"
+	},
+
+	"hero": {
+		"title": "TikTok Shop",
+		"imageUrl": "/portfolio/tiktok-shop/tiktok-shop-hero-image.webp"
+	},
+
+	"descriptionSection": {
+		"title": "From Short-Term Wins to Lasting Impact",
+		"points": [
+			{
+				"title": "The Brief",
+				"description": "Another seasonal campaign."
+			},
+			{
+				"title": "The Reality",
+				"description": "A brand without a unifying story."
+			},
+			{
+				"title": "The Solve",
+				"description": "We built a scalable brand narrative engine designed to cascade across sub-brands."
+			}
+		]
+	},
+
+	"singleImage1": "/portfolio/tiktok-shop/tiktok-shop-discount.webp",
+	"galleryImages1": ["/portfolio/tiktok-shop/tiktok-shop-bottle-1.webp", "/portfolio/tiktok-shop/tiktok-shop-bottle-2.webp", "/portfolio/tiktok-shop/tiktok-shop-bottle-3.webp"],
+
+	"smallDescriptionSection": {
+		"title": "The Result",
+		"description": "Every campaign now reinforces one story —strengthening the brand with every execution."
+	},
+
+	"singleImage2": "/portfolio/tiktok-shop/tiktok-shop-hometown-market.webp",
+	"galleryImages2": ["/portfolio/tiktok-shop/tiktok-shop-red-cards.webp", "/portfolio/tiktok-shop/tiktok-shop-hometown-market-banner.webp"]
+}

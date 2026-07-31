@@ -1,16 +1,16 @@
 {
 	"seo": {
-		"title": "JunoVerse | Spritzer",
+		"title": "JunoVerse | MITI Malaysia",
 		"description": "Dive right into JunoVerse"
 	},
 
 	"hero": {
-		"title": "Spritzer",
-		"imageUrl": "/portfolio/spritzer/hero-banner.webp"
+		"title": "MITI MalaysiaShop",
+		"imageUrl": "/portfolio/miti-malaysia/miti-malaysia-hero-banner.webp"
 	},
 
 	"descriptionSection": {
-		"title": "From Scattered Campaigns to singular Brand Story",
+		"title": "From Internal Rebrand to Global Signal of Intent",
 		"points": [
 			{
 				"title": "The Brief",
@@ -27,13 +27,14 @@
 		]
 	},
 
-	"galleryImages1": ["/portfolio/spritzer/spritzer-3-people.webp", "/portfolio/spritzer/spritzer-in-water.webp"],
-
+	"singleImage1": "/portfolio/miti-malaysia/miti-malaysia-merch.webp",
+	"singleImage2": "/portfolio/miti-malaysia/miti-malaysia-patterns.webp",
+	
 	"smallDescriptionSection": {
 		"title": "The Result",
 		"description": "Every campaign now reinforces one story —strengthening the brand with every execution."
 	},
 
-	"singleImage1": "/portfolio/spritzer/spritzer-your-best-you.webp",
-	"galleryImages2": ["/portfolio/spritzer/spritzer-2-people.webp", "/portfolio/spritzer/hero-banner.webp"]
+	"galleryImages1": ["/portfolio/miti-malaysia/miti-malaysia-desktop-image.webp", "/portfolio/miti-malaysia/miti-malaysia-pin.webp"]
+
 }

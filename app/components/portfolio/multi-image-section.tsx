@@ -36,9 +36,11 @@ export default function MultiImageSection({ images, layout = "1-1-1", className 
 										<Image
 											src={src}
 											alt={`Gallery image ${index + 1}`}
-											fill
+											loading="eager"
+											quality={100}
 											className="object-cover transition-transform duration-500"
-											sizes="(max-width: 768px) 100vw, 33vw"
+											width={595}
+											height={595}
 										/>
 									</div>
 								);
@@ -56,14 +58,16 @@ export default function MultiImageSection({ images, layout = "1-1-1", className 
 									return (
 										<div
 											key={index}
-											className={clsx("relative overflow-hidden", index === 0 ? "col-start-1 col-end-3" : "col-start-3 aspect-square")}
+											className={clsx("relative overflow-hidden", index === 0 ? "col-start-1 col-end-3 aspect-[1200/595]" : "col-start-3 aspect-square")}
 										>
 											<Image
 												src={src}
 												alt={`Gallery image ${index + 1}`}
-												fill
+												loading="eager"
+												quality={100}
 												className="object-cover w-full h-full"
-												sizes="(max-width: 768px) 100vw, 50vw"
+												width={index === 0 ? 1200 : 595}
+												height={595}
 											/>
 										</div>
 									);
@@ -81,14 +85,16 @@ export default function MultiImageSection({ images, layout = "1-1-1", className 
 								return (
 									<div
 										key={index}
-										className={clsx("relative overflow-hidden", index === 0 ? "col-start-1 aspect-square" : "col-start-2 col-end-4")}
+										className={clsx("relative overflow-hidden", index === 0 ? "col-start-1 aspect-square" : "col-start-2 col-end-4 aspect-[1200/595]")}
 									>
 										<Image
 											src={src}
-											alt={`Gallery image ${index + 2}`}
-											fill
-											className="object-cover transition-transform duration-500"
-											sizes="(max-width: 768px) 100vw, 50vw"
+											alt={`Gallery image ${index + 1}`}
+											loading="eager"
+											quality={100}
+											className="object-cover w-full h-full"
+											width={index === 0 ? 595 : 1200}
+											height={595}
 										/>
 									</div>
 								);

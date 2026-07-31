@@ -1,16 +1,16 @@
 {
 	"seo": {
-		"title": "JunoVerse | Spritzer",
+		"title": "JunoVerse | Big Caring Group",
 		"description": "Dive right into JunoVerse"
 	},
 
 	"hero": {
-		"title": "Spritzer",
-		"imageUrl": "/portfolio/spritzer/hero-banner.webp"
+		"title": "Big Caring Group",
+		"imageUrl": "/portfolio/big-caring/big-caring-hero-banner.webp"
 	},
 
 	"descriptionSection": {
-		"title": "From Scattered Campaigns to singular Brand Story",
+		"title": "From Internal Rebrand to Global Signal of Intent",
 		"points": [
 			{
 				"title": "The Brief",
@@ -27,13 +27,14 @@
 		]
 	},
 
-	"galleryImages1": ["/portfolio/spritzer/spritzer-3-people.webp", "/portfolio/spritzer/spritzer-in-water.webp"],
-
+	"singleImage1": "/portfolio/big-caring/big-caring-document.webp",
+	"galleryImages1": ["/portfolio/big-caring/big-caring-join-the-stronger-side.webp", "/portfolio/big-caring/big-caring-small-habits-big-wins.webp"],
+	
 	"smallDescriptionSection": {
 		"title": "The Result",
 		"description": "Every campaign now reinforces one story —strengthening the brand with every execution."
 	},
 
-	"singleImage1": "/portfolio/spritzer/spritzer-your-best-you.webp",
-	"galleryImages2": ["/portfolio/spritzer/spritzer-2-people.webp", "/portfolio/spritzer/hero-banner.webp"]
+	"galleryImages2": ["/portfolio/big-caring/big-caring-wellness-thats-truly-yours.webp", "/portfolio/big-caring/big-caring-wellness-with-love.webp"]
+
 }

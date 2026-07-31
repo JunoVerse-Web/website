@@ -75,6 +75,7 @@ export default function CardsContainer({ content }: { content: CreationsCardType
 									src={SqritzerLogo}
 									alt="Sqritzer Logo"
 									className={logoSharedClass}
+									loading="eager"
 								/>
 							</div>
 						}
@@ -96,6 +97,7 @@ export default function CardsContainer({ content }: { content: CreationsCardType
 									src={BCGLogo}
 									alt="Sqritzer Logo"
 									className={logoSharedClass}
+									loading="eager"
 								/>
 							</div>
 						}
@@ -103,7 +105,7 @@ export default function CardsContainer({ content }: { content: CreationsCardType
 				</div>
 				<div className="creation-card-item opacity-0">
 					<TiltingCards
-						url={"#"}
+						url={"/our-creations/tiktok-shop"}
 						content={
 							<div className={clsx(cardsClass)}>
 								{/* Background Image */}
@@ -117,6 +119,7 @@ export default function CardsContainer({ content }: { content: CreationsCardType
 									src={TiktokLogo}
 									alt="Sqritzer Logo"
 									className={logoSharedClass}
+									loading="eager"
 								/>
 							</div>
 						}
@@ -124,7 +127,7 @@ export default function CardsContainer({ content }: { content: CreationsCardType
 				</div>
 				<div className="creation-card-item opacity-0">
 					<TiltingCards
-						url={"#"}
+						url={"/our-creations/miti-malaysia"}
 						content={
 							<div className={clsx(cardsClass)}>
 								{/* Background Image */}
@@ -138,6 +141,7 @@ export default function CardsContainer({ content }: { content: CreationsCardType
 									src={MitiLogo}
 									alt="Sqritzer Logo"
 									className={logoSharedClass}
+									loading="eager"
 								/>
 							</div>
 						}

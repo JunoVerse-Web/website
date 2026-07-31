@@ -9,32 +9,28 @@ import { PortfolioPage } from "@/types/content";
 import type { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
-	const page = await getPortfolio("big-caring");
+	const page = await getPortfolio("miti-malaysia");
 
 	return getSeo(page);
 }
 
 export default async function TiktokShopPortfolioPage() {
-	const content: PortfolioPage = await getPortfolio("big-caring");
+	const content: PortfolioPage = await getPortfolio("miti-malaysia");
 
 	return (
 		<>
 			<HeroBannerTitle content={content.hero} />
 			<DescriptionSection content={content.descriptionSection} />
-			<SingleImageSection content={content.singleImage1} />
-      <MultiImageSection
-        images={content.galleryImages1}
-        layout="1-2"
-        divider={false}
-      />
+			<SingleImageSection content={content.singleImage1} className="mb-4 md:mb-8 lg:mb-[2.34vw]"/>
+			<SingleImageSection content={content.singleImage2} className="mb-4 md:mb-8 lg:mb-[2.34vw]"/>
 			
 			<SmallDescriptionSection
 				className="py-4 md:py-8 lg:py-[2.34vw]"
 				content={content.smallDescriptionSection}
 			/>
 			<MultiImageSection
-				images={content.galleryImages2}
-				layout="2-1"
+				images={content.galleryImages1}
+				layout="1-2"
 				divider={false}
 				className="pb-40"
 			/>
