@@ -74,7 +74,8 @@ export default function CardFeedsSection({ content }: { content: HomePage["cardF
 								{/* Content Overlay */}
 								<Link
 									scroll={false}
-									href="#"
+									href={card.link.url}
+									target="_blank"
 									className="CardFeedHolder relative z-10 text-center px-[10%] max-[480px]:pt-[35%] pt-[30%] md:pt-[40%] lg:pt-[25%] grid justify-center place-content-start w-fill h-full"
 								>
 									<span>{card.topTitle}</span>

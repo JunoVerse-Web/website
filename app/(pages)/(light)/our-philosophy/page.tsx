@@ -19,7 +19,7 @@ export default async function Home() {
 		<main className="our-philosophy">
 			<section
 				data-section="philosophy-hero"
-				className="px-[9.38vw] pt-[12vw] pb-[2vw] h-screen"
+				className="px-[9.38vw] pt-[180px] md:pt-[220px] lg:pt-[12vw] pb-[2vw] h-screen flex flex-col max-md:gap-20 max-md:justify-between"
 			>
 				<div className="text-center">
 					<h1 className="text-white md:mb-[8.33vw]!">{hero.title}</h1>

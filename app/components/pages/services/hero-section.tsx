@@ -21,7 +21,7 @@ export default function HeroSection({
 	return (
 		<section
 			data-section="services-hero"
-			className="grid gap-y-[39.06vw] pt-24 md:pt-40 lg:pt-[14.58vw]"
+			className="grid gap-y-[39.06vw] pt-[180px] md:pt-[220px] lg:pt-[12vw]"
 		>
 			<video
 				className="absolute! top-0 left-0 right-0 m-auto pointer-events-none w-full object-contain scale-125 origin-top -translate-y-[10%]"

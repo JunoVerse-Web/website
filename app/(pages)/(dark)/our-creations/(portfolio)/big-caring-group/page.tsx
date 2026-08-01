@@ -22,21 +22,21 @@ export default async function TiktokShopPortfolioPage() {
 			<HeroBannerTitle content={content.hero} />
 			<DescriptionSection content={content.descriptionSection} />
 			<SingleImageSection content={content.singleImage1} />
-      <MultiImageSection
-        images={content.galleryImages1}
-        layout="1-2"
-        divider={false}
-      />
-			
+			<MultiImageSection
+				images={content.galleryImages1}
+				layout="1-2"
+				divider={false}
+			/>
+
 			<SmallDescriptionSection
-				className="py-4 md:py-8 lg:py-[2.34vw]"
+				className="pb-6 pt-10 min-[766px]:py-[2.34vw]"
 				content={content.smallDescriptionSection}
 			/>
 			<MultiImageSection
 				images={content.galleryImages2}
 				layout="2-1"
 				divider={false}
-				className="pb-40"
+				className="pb-25"
 			/>
 		</>
 	);

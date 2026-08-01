@@ -21,7 +21,7 @@ export default function MultiImageSection({ images, layout = "1-1-1", className 
 		<section className={`w-full ${className}`}>
 			{divider && dividerPosition === "top" && <Divider />}
 
-			<div className="px-4 md:px-8 lg:px-[2.34vw] py-4 md:py-8 lg:py-[2.34vw]">
+			<div className="px-4 md:px-8 lg:px-[2.34vw] max-md:pt-[8px] py-4 md:py-8 lg:py-[2.34vw]">
 				{layout === "1-1-1" && (
 					<div className="grid md:grid-cols-3 gap-4 md:gap-[0.83vw]">
 						{images.map((src, index) => {
@@ -51,14 +51,14 @@ export default function MultiImageSection({ images, layout = "1-1-1", className 
 
 				{layout === "2-1" && (
 					<div className="space-y-4">
-						<div className="grid grid-cols-3 gap-4">
+						<div className="grid grid-cols-3 md:gap-4 gap-[8px]">
 							{images.map((src, index) => {
 								if (index >= 2) return null;
 								if (src) {
 									return (
 										<div
 											key={index}
-											className={clsx("relative overflow-hidden", index === 0 ? "col-start-1 col-end-3 aspect-[1200/595]" : "col-start-3 aspect-square")}
+											className={clsx("relative overflow-hidden", index === 0 ? "col-start-1 col-end-3 aspect-[1200/595]" : "col-start-3")}
 										>
 											<Image
 												src={src}
@@ -79,13 +79,13 @@ export default function MultiImageSection({ images, layout = "1-1-1", className 
 
 				{layout === "1-2" && (
 					<div className="space-y-4">
-						<div className="grid grid-cols-3 gap-4">
+						<div className="grid grid-cols-3 md:gap-4 gap-[8px]">
 							{images.map((src, index) => {
 								if (index >= 2) return null;
 								return (
 									<div
 										key={index}
-										className={clsx("relative overflow-hidden", index === 0 ? "col-start-1 aspect-square" : "col-start-2 col-end-4 aspect-[1200/595]")}
+										className={clsx("relative overflow-hidden", index === 0 ? "col-start-1" : "col-start-2 col-end-4 aspect-[1200/595]")}
 									>
 										<Image
 											src={src}

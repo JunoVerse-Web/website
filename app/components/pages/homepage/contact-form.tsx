@@ -130,9 +130,9 @@ export default function ContactForm() {
 		>
 			<div
 				className={clsx(
-					"rounded-2xl px-[7.292vw] py-[40px] md:py-[3.25vw] shadow-2xl relative duration-300",
+					"rounded-2xl px-[7.292vw] py-[40px] md:py-[3.25vw] shadow-2xl relative duration-300 w-[95vw] md:w-[80vw] max-h-[90vh]",
 					isFormOpen ? "translate-y-0 delay-300" : "translate-y-[20%] opacity-0",
-					formSubmitted ? "bg-yellow min-h-[70vh] flex flex-col items-center justify-center" : "bg-[#e7e4d5] w-[95vw] md:w-[80vw] max-h-[90vh] overflow-y-auto",
+					formSubmitted ? "bg-yellow min-h-[70vh] flex flex-col items-center justify-center" : "bg-[#e7e4d5] overflow-y-auto",
 				)}
 				onClick={(e) => e.stopPropagation()}
 			>

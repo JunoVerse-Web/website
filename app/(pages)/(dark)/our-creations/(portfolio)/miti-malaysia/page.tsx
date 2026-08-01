@@ -25,14 +25,14 @@ export default async function TiktokShopPortfolioPage() {
 			<SingleImageSection content={content.singleImage2} className="mb-4 md:mb-8 lg:mb-[2.34vw]"/>
 			
 			<SmallDescriptionSection
-				className="py-4 md:py-8 lg:py-[2.34vw]"
+				className="pb-6 pt-10 min-[766px]:py-[2.34vw]"
 				content={content.smallDescriptionSection}
 			/>
 			<MultiImageSection
 				images={content.galleryImages1}
 				layout="1-2"
 				divider={false}
-				className="pb-40"
+				className="pb-25"
 			/>
 		</>
 	);

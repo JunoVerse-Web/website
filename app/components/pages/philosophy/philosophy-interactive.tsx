@@ -139,7 +139,7 @@ export default function PhilosophyInteractive() {
 
 	return (
 		<>
-			<div className="flex flex-col items-center min-w-100 max-w-[35%] ml-auto">
+			<div className="flex flex-col items-center min-[1024px]:min-w-100 max-w-[60%] min-[1024px]:max-w-[35%] ml-auto max-md:max-w-full max-md:mx-auto max-md:mb-20">
 				<PhilosophyButton ref={firstButtonRef} title="What does JUNO actually believe?" onClick={handleFirstClick} className={"opacity-0"} />
 				<PhilosophyButton ref={secondButtonRef} title="What makes JUNO different?" onClick={handleSecondClick} className={"opacity-0"} />
 				<PhilosophyButton ref={thirdButtonRef} title="Skip the philosophy. Show me the work." onClick={handleThirdClick} className={"opacity-0"} />
@@ -155,8 +155,8 @@ export default function PhilosophyInteractive() {
 			>
 				<div className="relative w-full h-full" onClick={(e) => e.stopPropagation()}>
 					<button onClick={() => resetAll()} aria-label="Close video" className="absolute top-[10%] right-[15%] cursor-pointer">
-						<div className="relative w-[50px] h-[50px] aspect-square z-[100]">
-							<SkipButtton className="w-ful h-full object-contain hover:-translate-x-4 duration-300" />
+						<div className="relative w-auto h-[30px] md:h-[50px] aspect-square z-[100]">
+							<SkipButtton className="w-auto h-full object-contain hover:-translate-x-4 duration-300" />
 						</div>
 					</button>
 
@@ -203,18 +203,18 @@ const PhilosophyButton = forwardRef<
 		<button
 			ref={ref}
 			onClick={onClick}
-			className={clsx(className, "group relative border border-white rounded-md w-full flex items-center justify-center pl-[10%] pr-[15%] py-[0.833vw] mb-4 text-left hover:bg-white/10 transition-colors cursor-pointer")}
+			className={clsx(className, "philosophy-button group relative border border-white rounded-md w-full flex items-center justify-center mb-4 text-left hover:bg-white/10 transition-colors cursor-pointer")}
 			{...props}
 		>
 			<span
 				className="text-white m-0! text-center"
-				style={{ fontSize: "clamp(1rem, 0.83vw, 0.83vw)" }}
+				style={{ fontSize: "clamp(1rem, 0.938vw, 0.938vw)" }}
 			>
 				{title}
 			</span>
 			<WhiteArrowLeft
 				dark={true}
-				className="rotate-180 absolute right-4 w-[10%]! translate-x-[-50%] group-hover:translate-x-0 duration-300"
+				className="rotate-180 absolute right-4 w-[10%]! translate-x-[-50%] group-hover:translate-x-0 duration-300 max-md:opacity-0"
 			/>
 		</button>
 	);

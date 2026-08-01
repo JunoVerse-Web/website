@@ -5,13 +5,13 @@ import Divider from "../shared/divider";
 export default function HeroBannerTitle({ content }: { content: PortfolioPage['hero'] }) {
 	return (
 		<section>
-			<div className="relative w-full aspect-1920/660 overflow-hidden bg-black flex items-center justify-center">
+			<div className="relative w-full aspect-1080/660 md:aspect-1460/660 lg:aspect-1920/660 overflow-hidden bg-black flex items-center justify-center">
 				<Image
 					src={content.imageUrl}
 					alt="Hero Banner Image"
 					width={1200}
 					height={600}
-					className="w-full h-auto object-cover object-center"
+					className="w-full h-full object-cover object-center"
 					loading="eager"
 				/>
 			</div>

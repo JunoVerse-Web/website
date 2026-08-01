@@ -37,7 +37,7 @@ export default function HeroSection({
 	return (
 		<section
 			data-section="home-hero"
-			className="hero-section px-4 md:px-[9.38vw] text-center pt-30 md:pt-[12vw] md:pb-[2vw] pb-20"
+			className="hero-section px-4 md:px-[9.38vw] text-center md:pb-[2vw] pb-20 pt-[180px] md:pt-[220px] lg:pt-[12vw]"
 		>
 			<div>
 				<h1 className="text-center font-bold text-white">

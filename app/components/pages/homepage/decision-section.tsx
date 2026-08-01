@@ -83,7 +83,7 @@ export default function DecisionSection({ content }: { content: HomePage }) {
 
 			{/* Card Content */}
 			<div
-				className="relative z-10 grid max-[565px]:px-4 max-[969px]:grid-cols-2 max-[969px]:px-[15%] grid-cols-4 gap-[1.56vw] mb-12 lg:mb-[4.17vw]"
+				className="relative z-10 grid max-[565px]:px-0 max-[969px]:grid-cols-2 max-[969px]:px-[15%] grid-cols-4 gap-4 lg:gap-[1.56vw] mb-12 lg:mb-[4.17vw]"
 				ref={cardContainerRef}
 			>
 				{cards.map((card, index) => (

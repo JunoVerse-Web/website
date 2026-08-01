@@ -448,6 +448,15 @@ div[data-container="success-container"] p {
 	transform: translateY(0);
 }
 
+
+
+/* Philosophy Button */
+.philosophy-button {
+	padding: clamp(1rem, 0.833vw, 0.833vw) clamp(1.25rem, 1.67vw, 1.67vw);
+	padding-right: clamp(1.2rem, 2.67vw, 2.67vw);
+}
+
+
 /* Media Queries */
 @media (max-width: 1024px) {
 	h1,
