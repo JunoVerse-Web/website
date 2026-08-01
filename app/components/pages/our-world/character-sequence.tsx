@@ -72,7 +72,6 @@ export default function CharacterSequence() {
 							start: "80% center",
 							end: "80% center",
 							scrub: 0.7,
-							markers: true,
 						},
 					}).to(slideRef.current, { opacity: 0 });
 				}
@@ -93,7 +92,7 @@ export default function CharacterSequence() {
 				}
 
 				if (desktopRange) {
-					const tl = gsap.timeline({
+					gsap.timeline({
 						scrollTrigger: {
 							trigger: ".content-section",
 							start: "10% 60%",
@@ -121,7 +120,7 @@ export default function CharacterSequence() {
 	const characterWidth = "w-[140px] max-[565px]:w-[85px] min-[970px]:w-[11.46vw]";
 	const characterPos = "mx-auto my-auto min-[566px]:top-0 min-[566px]:right-0 min-[566px]:left-0 min-[566px]:bottom-0 right-4 bottom-4";
 	const characterPosTranslate = "max-[969px]:translate-x-[250%] max-[565px]:translate-y-[70%]! max-[565px]:translate-x-[130%]!";
-	const mobile = " max-[565px]:translate-none! max-[565px]:px-4 max-[565px]:py-4 max-[565px]:bg-[#6901d2] max-[565px]:rounded-[1rem]";
+	const mobile = " max-[565px]:translate-none! max-[565px]:px-2 max-[565px]:py-2 max-[565px]:bg-[#6901d2] max-[565px]:rounded-[1rem]";
 
 	return (
 		<div

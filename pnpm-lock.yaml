@@ -11,6 +11,9 @@ importers:
       '@gsap/react':
         specifier: ^2.1.2
         version: 2.1.2(gsap@3.15.0)(react@19.2.4)
+      '@mux/mux-player':
+        specifier: ^3.13.2
+        version: 3.13.2(react@19.2.4)
       '@mux/mux-player-react':
         specifier: ^3.13.2
         version: 3.13.2(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
