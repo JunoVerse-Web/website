@@ -25,7 +25,7 @@ export default function CardFeedsSection({ content }: { content: HomePage["cardF
 	useTextFadeUpObserver();
 	return (
 		<section
-			className="relative z-10 bg-gray px-4 md:px-[10.4vw] text-center py-[7.2vw]"
+			className="relative z-10 bg-gray px-4 md:px-[10.4vw] text-center md:py-[7.2vw] py-15"
 			ref={sectionRef}
 		>
 			<div className="relative flex items-center justify-center">

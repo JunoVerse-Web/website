@@ -193,7 +193,7 @@ export default function BurgerMenuOverlay({ dark }: { dark: boolean }) {
 					style={{ backgroundImage: "none", opacity: 0 }}
 				/>
 
-				<div className="h-full w-full flex justify-center pt-15 md:pt-[4%] relative z-10">
+				<div className="h-full w-full flex justify-center pt-20 md:pt-[4%] relative z-10">
 					<div
 						ref={linksRef}
 						className="burgerMenuLinksHolder text-center"

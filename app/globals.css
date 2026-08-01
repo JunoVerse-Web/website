@@ -230,7 +230,8 @@ section[data-section="decision"] span[data-background="bottom"] {
 	margin: auto;
 }
 
-section[data-section="decision"] p {
+section[data-section="decision"] p,
+section[data-section="decision"] a {
 	font-size: clamp(1rem, 1.25vw, 1.25vw) !important;
 }
 
@@ -262,7 +263,7 @@ section[data-section="decision"] p {
 
 .burgerMenuTopHodler {
 	position: fixed;
-	padding-top: clamp(1rem, 2.6vw, 2.6vw);
+	padding-top: clamp(2rem, 2.6vw, 2.6vw);
 	padding-left: clamp(1rem, 4.69vw, 4.69vw);
 	padding-right: clamp(1rem, 4.69vw, 4.69vw);
 	display: flex;
@@ -394,9 +395,35 @@ form input[type="text"],
 form input[type="email"],
 form input[type="tel"] {
 	border: 1px solid black;
-	padding: 2% 5%;
+	padding: clamp(0.75rem, 2%, 2%) clamp(1rem, 5%, 5%);
 	border-radius: clamp(0.55rem, 0.533vw, 0.533vw);
 	margin-bottom: clamp(1rem, 1.56vw, 1.56vw);
+}
+
+form p,
+form label,
+form input,
+form label > *,
+form .error-text {
+	font-size: clamp(0.85rem, 0.833vw, 0.833vw) !important;
+}
+
+form .error-text {
+	font-size: clamp(0.65rem, 0.633vw, 0.633vw) !important;
+}
+
+form *:has(+ .error-text) {
+	margin-bottom: 1.2rem !important;
+}
+
+form h2,
+form h2 > * {
+	font-size: clamp(36px, 2.604vw, 2.604vw) !important;
+}
+
+form button[type="submit"] {
+	font-size: clamp(1rem, 1.04vw, 1.04vw) !important;
+	padding: clamp(0.85rem, 0.833vw, 0.833vw) clamp(1.25rem, 1.67vw, 1.67vw) !important;
 }
 
 div[data-container="success-container"] p {
@@ -437,8 +464,14 @@ div[data-container="success-container"] p {
 }
 
 @media (max-width: 565px) {
-	section[data-section="decision"] p {
+	section[data-section="decision"] p,
+	section[data-section="decision"] a {
 		font-size: 0.8rem !important;
+	}
+
+	form h2,
+	form h2 > * {
+		font-size: 28px !important;
 	}
 }
 

@@ -41,7 +41,7 @@ export default function ContactForm() {
 	const [submitting, setSubmitting] = useState(false);
 	const [formSubmitted, setFormSubmitted] = useState(false);
 
-	const errorClass = "text-red-600 sm:text-sm! md:text-[0.633vw]! m-0!";
+	const errorClass = "text-red-600 m-0!";
 
 	// Tracks the isFormOpen value we last synced formData/errors for.
 	const [syncedOpenState, setSyncedOpenState] = useState(isFormOpen);
@@ -130,16 +130,16 @@ export default function ContactForm() {
 		>
 			<div
 				className={clsx(
-					"  rounded-2xl px-[7.292vw] py-[3.25vw] shadow-2xl relative duration-300",
+					"rounded-2xl px-[7.292vw] py-[40px] md:py-[3.25vw] shadow-2xl relative duration-300",
 					isFormOpen ? "translate-y-0 delay-300" : "translate-y-[20%] opacity-0",
-					formSubmitted ? "bg-yellow min-h-[70vh] flex flex-col items-center justify-center" : "bg-[#e7e4d5] w-[80vw] max-h-[90vh] overflow-y-auto",
+					formSubmitted ? "bg-yellow min-h-[70vh] flex flex-col items-center justify-center" : "bg-[#e7e4d5] w-[95vw] md:w-[80vw] max-h-[90vh] overflow-y-auto",
 				)}
 				onClick={(e) => e.stopPropagation()}
 			>
 				<button
 					onClick={closeForm}
 					aria-label="Close form"
-					className="absolute top-[4%] right-[3%]  w-[2.6vw] aspect-square text-gray-500 hover:text-gray-800  leading-none cursor-pointer"
+					className="absolute top-[4%] right-[3%] min-w-10 w-[2.6vw] aspect-square text-gray-500 hover:text-gray-800  leading-none cursor-pointer"
 				>
 					<div className="relative w-full h-full">
 						<BlackArrowRight className="absolute inset-0 w-full h-full object-contain -rotate-45" />
@@ -152,8 +152,8 @@ export default function ContactForm() {
 					noValidate
 					className={clsx("space-y-5", formSubmitted ? "opacity-0 scale-50 pointer-events-none h-0 duration-300" : "opacity-100")}
 				>
-					<div className="text-center">
-						<h2 className="leading-[1]! text-[3.13vw]! mb-[1rem]! lg:mb-[1.48vw]!">{formData.title}</h2>
+					<div className="text-center mb-10">
+						<h2 className="leading-[1]! mb-[1rem]! lg:mb-[1.48vw]!">{formData.title}</h2>
 						<p>{formData.description}</p>
 					</div>
 
@@ -184,14 +184,14 @@ export default function ContactForm() {
 										))}
 									</div>
 									{errors[field.label] && (
-										<span className={clsx(errorClass, "absolute bottom-0 left-0 translate-y-[100%] !ml-[5%]")}>{errors[field.label]}</span>
+										<span className={clsx(errorClass, "error-text absolute bottom-0.5 left-0 !ml-[5%]")}>{errors[field.label]}</span>
 									)}
 								</div>
 							))}
 						</div>
 
 						{/* General Details */}
-						<div className="flex flex-col justify-between">
+						<div className="flex flex-col flex-1 justify-between">
 							<div className="flex flex-col flex-1 ">
 								<div className="relative flex flex-col w-full gap-4">
 									<input
@@ -203,7 +203,7 @@ export default function ContactForm() {
 										onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value }))}
 									/>
 									{errors.name && (
-										<span className={clsx(errorClass, "absolute bottom-0 left-0 -translate-y-[50%] !ml-[5%]")}>{errors.name}</span>
+										<span className={clsx(errorClass, "error-text absolute bottom-0.5 left-0 !ml-[5%]")}>{errors.name}</span>
 									)}
 								</div>
 
@@ -217,7 +217,7 @@ export default function ContactForm() {
 										onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
 									/>
 									{errors.email && (
-										<span className={clsx(errorClass, "absolute bottom-0 left-0 -translate-y-[50%] !ml-[5%]")}>{errors.email}</span>
+										<span className={clsx(errorClass, "error-text absolute bottom-0.5 left-0 !ml-[5%]")}>{errors.email}</span>
 									)}
 								</div>
 
@@ -232,14 +232,14 @@ export default function ContactForm() {
 										onChange={(e) => setFormData((prev) => ({ ...prev, phoneNumber: e.target.value }))}
 									/>
 									{errors.phoneNumber && (
-										<span className={clsx(errorClass, "absolute bottom-0 left-0 -translate-y-[50%] !ml-[5%]")}>{errors.phoneNumber}</span>
+										<span className={clsx(errorClass, "error-text absolute bottom-0.5 left-0 !ml-[5%]")}>{errors.phoneNumber}</span>
 									)}
 								</div>
 
-								<div className="relative flex flex-col w-full gap-4">
+								<div className={clsx(`relative flex flex-col w-full gap-4`, errors.phoneNumber ? "mt-6" : "")}>
 									<label
 										htmlFor="pdpa"
-										className="flex items-start gap-2 text-sm"
+										className="flex items-start gap-1 md:gap-2 text-sm"
 									>
 										<input
 											type="checkbox"
@@ -248,22 +248,23 @@ export default function ContactForm() {
 											required
 											checked={formData.pdpa ?? false}
 											onChange={() => setFormData((prev) => ({ ...prev, pdpa: !prev.pdpa }))}
+											className="mt-[3px]"
 										/>
-										<span className="sm:text-sm! md:text-[0.633vw]! m-0!">
+										<span className="m-0!">
 											I agree to the collection and processing of my personal data in accordance with PDPA Malaysia
 										</span>
 									</label>
 									{errors.pdpa && (
-										<span className={clsx(errorClass, "absolute bottom-0 left-0 translate-y-[130%] !ml-[5%]")}>{errors.pdpa}</span>
+										<span className={clsx(errorClass, "error-text absolute bottom-0.5 left-0 !ml-[5%]")}>{errors.pdpa}</span>
 									)}
 								</div>
 
-								{errors.form && <span className={clsx(errorClass)}>{errors.form}</span>}
+								{errors.form && <span className={clsx(errorClass, "error-text ")}>{errors.form}</span>}
 							</div>
 							<button
 								type="submit"
 								disabled={submitting}
-								className="ml-auto w-fit bg-[#136cbc] cursor-pointer text-md lg:text-[1.04vw] text-white py-4 px-7 lg:py-[0.83vw] lg:px-[1.67vw] rounded-xl font-medium hover:bg-gray-800 transition-colors disabled:opacity-50"
+								className="max-lg:mx-auto lg:ml-auto mt-6 w-fit bg-[#136cbc] cursor-pointer text-white rounded-xl font-medium hover:bg-gray-800 transition-colors disabled:opacity-50"
 							>
 								{submitting ? "Submitting..." : "Submit"}
 							</button>
@@ -273,7 +274,7 @@ export default function ContactForm() {
 
 				{/* Form Submitted */}
 				<div
-					className={clsx("text-center", formSubmitted ? "opacity-100 scale-100 duration-300 delay-200" : "scale-50 opacity-0")}
+					className={clsx("text-center", formSubmitted ? "opacity-100 scale-100 duration-300 delay-200" : "absolute inset-0 pointer-events-none scale-50 opacity-0")}
 					data-container="success-container"
 				>
 					<Image

@@ -14,7 +14,7 @@ export default function HeroSection({ title, description, cards }: { title: stri
 	return (
 		<section
 			data-section="home-hero"
-			className="hero-section px-4 md:px-[9.38vw] text-center pt-30 md:pt-[12vw] pb-[2vw]"
+			className="hero-section px-4 md:px-[9.38vw] text-center pt-30 md:pt-[12vw] md:pb-[2vw] pb-20"
 		>
 			<div>
 				<h1 className="text-center font-bold text-white">
