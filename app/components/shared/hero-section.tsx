@@ -17,8 +17,8 @@ export default function HeroSection({
 			data-section="shared-hero"
 			className="hero-section px-4 md:px-[9.38vw] text-center pt-30 md:pt-[12vw] pb-[2vw]"
 		>
-			<div>
-				<h1 className="text-center font-bold text-white">
+			<div className="mb-6 md:mb-[1.042vw]">
+				<h1 className="text-center font-bold text-white mb-0!">
 					<BlurText
 						text={title}
 						delay={100}

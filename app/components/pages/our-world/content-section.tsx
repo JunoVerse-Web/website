@@ -9,10 +9,11 @@ export default function ContentSection({ box2, box3 }: { box2: OurWorldPage["box
 	return (
 		<>
 			{/* Green Box 1 */}
-			<section className={clsx("px-4 md:px-8 lg:px-[7.29vw] pb-20 md:pb-[15.63vw] lg:pb-[14.58vw] content-section")}>
-				<div className="max-w-[40%]">
-					<div className="bg-[#d8ff00] rounded-4xl sm:px-4 sm:py-1.5 md:p-[6%]">
-						<div className="mb-10">
+			<section className={clsx("px-4 md:px-8 lg:px-[7.29vw] pb-[160px] sm:pb-[240px] min-[969px]:pb-[15.63vw] lg:pb-[14.58vw] content-section")}>
+				
+				<div className="min-[566px]:max-w-[75%] min-[969px]:max-w-[40%]">
+					<div className="bg-[#d8ff00] rounded-4xl px-6 py-8 min-[969px]:p-[6%]">
+						<div className="mb-5 min-[969px]:mb-10">
 							<h2 className="uppercase leading-[1.2]!">
 								Hoodle,
 								<br />
@@ -33,19 +34,17 @@ export default function ContentSection({ box2, box3 }: { box2: OurWorldPage["box
 						<Image
 							src={HoodleFandom}
 							alt="Hoodle Fandom"
-							className="scale-[1.3] origin-top"
+							className="max-[969px]:mb-[-30%] min-[969px]:scale-[1.3] origin-top"
 							loading="lazy"
 							quality={70}
 						/>
 					</div>
 				</div>
 
-				<CharacterSequence />
-                
 				{/* Green Box 2 */}
-				<div className="max-w-[40%] ml-auto -mt-[10%]">
-					<div className="bg-[#d8ff00] rounded-4xl sm:px-4 sm:py-1.5 md:p-[6%]">
-						<div className="mb-10">
+				<div className="min-[566px]:max-w-[75%] min-[969px]:max-w-[40%] ml-auto mt-[35%] min-[969px]:mt-[-10%]">
+					<div className="bg-[#d8ff00] rounded-4xl px-6 py-8 min-[969px]:p-[6%]">
+						<div className="mb-5 min-[969px]:mb-10">
 							<h2 className="uppercase leading-[1.2]!">Off The Record</h2>
 							<p className="font-size-16 mb-2!">
 								The honest version of the story you heard. A speaker series that skips the polished &quot;making it&quot; narrative for what
@@ -59,20 +58,21 @@ export default function ContentSection({ box2, box3 }: { box2: OurWorldPage["box
 							image4={box2.image4}
 							image5={box2.image5}
 							image6={box2.image6}
+							className={`max-[969px]:scale-100! max-[969px]:mb-[-30%]`}
 						/>
 					</div>
 				</div>
 
 				{/* Green Box 3 */}
-				<div className="max-w-[40%] -mt-[10%]">
-					<div className="bg-[#d8ff00] rounded-4xl sm:px-4 sm:py-1.5 md:p-[6%]">
-						<div className="mb-10">
+				<div className="min-[566px]:max-w-[75%] min-[969px]:max-w-[40%] mt-[35%] min-[969px]:mt-[-10%]">
+					<div className="bg-[#d8ff00] rounded-4xl px-6 py-8 min-[969px]:p-[6%]">
+						<div className="mb-5 min-[969px]:mb-10">
 							<p className="font-size-16 mb-2!">Youth get heard. Brands get the truth.</p>
 							<p className="font-size-16 mb-2!">
 								Honest youth opinions turned into insight brands can actually use. No panels selling secondhand answers.
 							</p>
 						</div>
-						<div className="flex flex-wrap scale-[1.3] origin-top">
+						<div className="flex flex-wrap max-[969px]:mb-[-30%] min-[969px]:scale-[1.3] origin-top">
 							{Array.from({ length: 6 }).map((_, i) => {
 								const currentImage = [box3.image1, box3.image2, box3.image3, box3.image4, box3.image5, box3.image6];
 								return (
@@ -95,6 +95,8 @@ export default function ContentSection({ box2, box3 }: { box2: OurWorldPage["box
 						</div>
 					</div>
 				</div>
+
+				<CharacterSequence />
 			</section>
 		</>
 	);

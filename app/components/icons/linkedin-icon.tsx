@@ -1,8 +1,13 @@
-const LinkedinIcon = ({ link = "#w" }: { link?: string }) => (
+import clsx from "clsx";
+
+const LinkedinIcon = ({ link = "#", className }: { link?: string; className?: string; }) => (
 	<a
 		href={link}
 		target="_blank"
-		className="cursor-pointer bg-black rounded-full flex justify-center items-center w-12 lg:w-[2.86vw] h-auto aspect-square p-[11%] mb-0!"
+		className={clsx(
+			"cursor-pointer bg-black rounded-full flex justify-center items-center w-12 lg:w-[2.86vw] h-auto aspect-square p-[11%] mb-0!",
+			className
+		)}
 	>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"

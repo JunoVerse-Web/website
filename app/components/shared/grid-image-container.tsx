@@ -9,6 +9,7 @@ export default function GridImageContainer({
 	image4,
 	image5,
 	image6,
+	className
 }: {
 	image1: string;
 	image2: string;
@@ -16,9 +17,10 @@ export default function GridImageContainer({
 	image4: string;
 	image5: string;
 	image6: string;
+	className?: string;
 }) {
 	return (
-		<div className="grid-image-container">
+		<div className={clsx(`grid-image-container`, className)}>
 			{Array.from({ length: 6 }).map((_, i) => {
 				const currentImage = [image1, image2, image3, image4, image5, image6];
 				return (
