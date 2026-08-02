@@ -49,7 +49,6 @@ export default function MultiImageSection({ images, layout = "1-1-1", className 
 					if (!targetImg) return;
 
 					tl.fromTo(wrapper, { yPercent: 10 * (i + 1) }, { yPercent: -10 * (i + 1), ease: "none" }, 0);
-					// tl.fromTo(targetImg, { yPercent: 5 }, { yPercent: -5, ease: "none" }, "<");
 				});
 
 				return () => {

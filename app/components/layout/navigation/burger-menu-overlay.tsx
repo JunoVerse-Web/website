@@ -25,8 +25,14 @@ const MENU_LINKS = [
 	{ name: "Our Folks", href: "/our-folks", bg: FolksMenuBackground },
 ];
 
+// Tuning knobs for the hide-on-scroll behavior
+const SCROLL_HIDE_THRESHOLD = 10; // px of movement before we act — avoids flicker on tiny/jittery scroll events
+const SCROLL_TOP_REVEAL_ZONE = 80; // always show the bar near the very top of the page
+const SCROLL_STOP_DELAY = 200; // ms of no scroll events before we treat it as "stopped" and reveal
+
 export default function BurgerMenuOverlay({ dark }: { dark: boolean }) {
 	const [menuToggled, setMenuToggled] = useState(false);
+	const [topBarHidden, setTopBarHidden] = useState(false);
 	const overlayRef = useRef<HTMLDivElement>(null);
 	const bg1Ref = useRef<HTMLDivElement>(null);
 	const bg2Ref = useRef<HTMLDivElement>(null);
@@ -98,6 +104,55 @@ export default function BurgerMenuOverlay({ dark }: { dark: boolean }) {
 		useMenuStore.setState({ dark });
 	}, [dark, pathname]);
 
+	// Hide the top bar on scroll-down, reveal on scroll-up or once scrolling
+	// stops. Suspended entirely while the menu overlay is open — the bar
+	// should stay put and visible in that state regardless of scroll.
+	useEffect(() => {
+		if (menuToggled) {
+			// eslint-disable-next-line react-hooks/set-state-in-effect
+			setTopBarHidden(false);
+			return;
+		}
+
+		let lastScrollY = window.scrollY;
+		let ticking = false;
+		let stopTimer: ReturnType<typeof setTimeout>;
+
+		const evaluate = () => {
+			const currentY = window.scrollY;
+			const delta = currentY - lastScrollY;
+
+			if (currentY <= SCROLL_TOP_REVEAL_ZONE) {
+				setTopBarHidden(false);
+			} else if (delta > SCROLL_HIDE_THRESHOLD) {
+				setTopBarHidden(true);
+			} else if (delta < -SCROLL_HIDE_THRESHOLD) {
+				setTopBarHidden(false);
+			}
+
+			lastScrollY = currentY;
+
+			// "Stopped scrolling" — reveal after a short quiet period with no events
+			clearTimeout(stopTimer);
+			stopTimer = setTimeout(() => setTopBarHidden(false), SCROLL_STOP_DELAY);
+
+			ticking = false;
+		};
+
+		const onScroll = () => {
+			if (!ticking) {
+				window.requestAnimationFrame(evaluate);
+				ticking = true;
+			}
+		};
+
+		window.addEventListener("scroll", onScroll, { passive: true });
+		return () => {
+			window.removeEventListener("scroll", onScroll);
+			clearTimeout(stopTimer);
+		};
+	}, [menuToggled]);
+
 	const toggleMenu = () => {
 		setMenuToggled((prev) => !prev);
 		useMenuStore.setState((state) => ({ dark: !state.dark }));
@@ -118,7 +173,12 @@ export default function BurgerMenuOverlay({ dark }: { dark: boolean }) {
 	return (
 		<>
 			{/* Top Bar */}
-			<div className={clsx("burgerMenuTopHodler duration-300 relative z-[60]", isFormOpen && "-translate-y-full")}>
+			<div
+				className={clsx(
+					"burgerMenuTopHodler duration-300 relative z-[60]",
+					(isFormOpen || topBarHidden) && "-translate-y-full",
+				)}
+			>
 				<CustomLink
 					scroll={false}
 					href="/"
