@@ -15,6 +15,7 @@ import ArrowButton from "../../shared/arrow-button";
 import BlurText from "../../animations/BlurText";
 import { useRef } from "react";
 import { useTextFadeUpObserver } from "@/hooks/useTextFadeUpObserver";
+import clsx from "clsx";
 
 const gradients = [GradientOne, GradientTwo, GradientThree];
 
@@ -43,9 +44,9 @@ export default function CardFeedsSection({ content }: { content: HomePage["cardF
 			<div className="text-fade-up mt-4 lg:mt-[1.17vw]">
 				<Swiper
 					spaceBetween={10}
-					slidesPerView={2}
+					slidesPerView={2.2}
 					breakpoints={{
-						480: { slidesPerView: 2, spaceBetween: 20 },
+						480: { slidesPerView: 2.2, spaceBetween: 20 },
 						768: { slidesPerView: 2, spaceBetween: 30 },
 						1024: { slidesPerView: 3, spaceBetween: 40 },
 						1280: { slidesPerView: 3, spaceBetween: 50 },
@@ -76,11 +77,13 @@ export default function CardFeedsSection({ content }: { content: HomePage["cardF
 									scroll={false}
 									href={card.link.url}
 									target="_blank"
-									className="CardFeedHolder relative z-10 text-center px-[10%] max-[480px]:pt-[35%] pt-[30%] md:pt-[40%] lg:pt-[25%] grid justify-center place-content-start w-fill h-full"
+									className={clsx("title-pos-" + card.bigLetterPosition , "CardFeedHolder relative z-10 text-center px-[10%] max-[480px]:pt-[35%] pt-[30%] md:pt-[40%] lg:pt-[25%] grid justify-center place-content-start w-fill h-full")}
 								>
 									<span>{card.topTitle}</span>
 									<h3>{card.mainTitle}</h3>
 									<p>{card.description}</p>
+									<p>{card.bottomDescription}</p>
+									
 								</Link>
 
 								{/* Card Frame */}

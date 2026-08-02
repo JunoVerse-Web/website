@@ -47,6 +47,8 @@
 				"topTitle": "EP1:",
 				"mainTitle": "MAGIC,",
 				"description": "the Antidote to Mediocre",
+				"bottomDescription": "",
+				"bigLetterPosition": "top",
 				"link": {
 					"name": "Read More",
 					"url": "https://www.linkedin.com/posts/themagicmakers_defying-the-status-quo-means-defying-okay-activity-7209760408776163329-sfBC/?utm_source=share&utm_medium=member_desktop"
@@ -54,8 +56,10 @@
 			},
 			{
 				"topTitle": "EP2:",
-				"mainTitle": "MAGIC,",
-				"description": "the Antidote to Mediocre",
+				"mainTitle": "Meidiocrity",
+				"description": "The Macroeconomics of",
+				"bottomDescription": "",
+				"bigLetterPosition": "bottom",
 				"link": {
 					"name": "Read More",
 					"url": "https://www.linkedin.com/posts/we-passed-the-tipping-point-ages-ago-how-ugcPost-7218974267873378304-do6C/?utm_source=share&utm_medium=member_desktop"
@@ -63,20 +67,13 @@
 			},
 			{
 				"topTitle": "EP3:",
-				"mainTitle": "MAGIC,",
-				"description": "the Antidote to Mediocre",
+				"mainTitle": "Mediocre",
+				"description": "The perils of",
+				"bottomDescription": "Marketing",
+				"bigLetterPosition": "middle",
 				"link": {
 					"name": "Read More",
 					"url": "https://www.linkedin.com/posts/weve-got-99-problems-and-your-latest-marketing-ugcPost-7232701452182241280-FRD4/?utm_source=share&utm_medium=member_desktop"
-				}
-			},
-			{
-				"topTitle": "EP4:",
-				"mainTitle": "MAGIC,",
-				"description": "the Antidote to Mediocre",
-				"link": {
-					"name": "Read More",
-					"url": "https://junoverse.io/future-of-commerce"
 				}
 			}
 		]

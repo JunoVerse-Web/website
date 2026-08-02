@@ -33,6 +33,8 @@ export interface CardFeeds {
 	topTitle: string;
 	mainTitle: string;
 	description: string;
+	bottomDescription: string;
+	bigLetterPosition: "top" | "middle" |"bottom";
 	link: Link;
 }
 
@@ -49,9 +51,6 @@ export type CardData = {
 	checkboxFields: CheckboxFieldType[];
 	radioFields: RadioFieldType[];
 };
-
-
-
 
 // Form
 export type FormData = {

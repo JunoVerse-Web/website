@@ -2,6 +2,7 @@ import DescriptionSection from "@/app/components/portfolio/description-section";
 import HeroBannerTitle from "@/app/components/portfolio/hero-banner-title";
 import MultiImageSection from "@/app/components/portfolio/multi-image-section";
 import SingleImageSection from "@/app/components/portfolio/single-image-section";
+import SingleVideoSection from "@/app/components/portfolio/single-video-section";
 import SmallDescriptionSection from "@/app/components/portfolio/small-description-section";
 import { getPortfolio } from "@/lib/content/getPage";
 import { getSeo } from "@/lib/seo/getSeo";
@@ -21,6 +22,8 @@ export default async function SpritzerPortfolioPage() {
 		<>
 			<HeroBannerTitle content={content.hero} />
 			<DescriptionSection content={content.descriptionSection} />
+
+			<SingleVideoSection playbackId={"9Mr9g7SJGbZ3BtsGQQt02qWMQ4CfUwOSo66R14ULJSm8"} />
 			<MultiImageSection
 				images={content.galleryImages1}
 				layout="2-1"

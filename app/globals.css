@@ -174,11 +174,53 @@ section[data-section="philosophy-hero"] {
 /* Card Feed Holder  */
 .CardFeedHolder h3 {
 	font-size: clamp(1.65rem, 2.4vw, 2.4vw) !important;
-	line-height: 1;
+	line-height: 1.3;
 	font-weight: 700;
 	margin-bottom: 0;
 	color: white;
-	margin-bottom: clamp(0.65rem, 0.83vw, 0.83vw);
+}
+
+.CardFeedHolder span {
+	order: 0 !important;
+}
+
+/* Letter Positions */
+.CardFeedHolder.title-pos-top h3 {
+	order: 1;
+}
+
+.CardFeedHolder.title-pos-top p:nth-child(3) {
+	order: 2;
+}
+
+.CardFeedHolder.title-pos-top p:nth-child(3) {
+	order: 3;
+}
+
+/* Letter Positions */
+.CardFeedHolder.title-pos-middle h3 {
+	order: 2;
+}
+
+.CardFeedHolder.title-pos-middle p:nth-child(3) {
+	order: 1;
+}
+
+.CardFeedHolder.title-pos-middle p:nth-child(3) {
+	order: 3;
+}
+
+/* Letter Positions */
+.CardFeedHolder.title-pos-bottom h3 {
+	order: 3;
+}
+
+.CardFeedHolder.title-pos-bottom p:nth-child(3) {
+	order: 1;
+}
+
+.CardFeedHolder.title-pos-bottom p:nth-child(3) {
+	order: 2;
 }
 
 .CardFeedHolder p,
@@ -206,10 +248,10 @@ main.creations-page {
 	background-size: cover;
 }
 
-section[data-section="portfolio-hero-section"] h1, section[data-section="portfolio-hero-section"] h1 * {
+section[data-section="portfolio-hero-section"] h1,
+section[data-section="portfolio-hero-section"] h1 * {
 	font-size: clamp(33px, 5.21vw, 5.21vw) !important;
 }
-
 
 /* Our World Page */
 main.our-world-page {
@@ -439,6 +481,14 @@ div[data-container="success-container"] p {
 	--controls: none;
 }
 
+.single-video-section {
+	--controls: "none";
+	--media-object-fit: "cover";
+	--media-object-position: "center";
+	width: "100%";
+	height: "100%";
+}
+
 /* Global */
 .text-fade-up {
 	opacity: 0;
@@ -453,19 +503,16 @@ div[data-container="success-container"] p {
 	transform: translateY(0);
 }
 
-.split-line-mask, .split-line {
+.split-line-mask,
+.split-line {
 	margin-bottom: 0 !important;
 }
-
-
-
 
 /* Philosophy Button */
 .philosophy-button {
 	padding: clamp(1rem, 0.833vw, 0.833vw) clamp(1.25rem, 1.67vw, 1.67vw);
 	padding-right: clamp(1.2rem, 2.67vw, 2.67vw);
 }
-
 
 /* Media Queries */
 @media (max-width: 1024px) {
