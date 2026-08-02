@@ -236,7 +236,6 @@ section[data-section="philosophy-hero"] {
 	margin-bottom: clamp(1.2rem, 2.86vw, 2.86vw);
 }
 
-
 /* Services Page */
 /* main.services-page {
 	background: url(../public/page-background/services-background-image.webp) center -50% no-repeat var(--yellow);
@@ -483,11 +482,10 @@ div[data-container="success-container"] p {
 }
 
 .single-video-section {
-	--controls: "none";
-	--media-object-fit: "cover";
-	--media-object-position: "center";
-	width: "100%";
-	height: "100%";
+	--controls: none;
+	--media-object-position: center;
+	width: 100%;
+	height: 100%;
 }
 
 /* Global */
@@ -555,11 +553,11 @@ div[data-container="success-container"] p {
 	.CardFeedHolder span {
 		font-size: 0.8rem !important;
 	}
-	
+
 	.CardFeedHolder p {
 		margin-bottom: 0 !important;
 	}
-	
+
 	.CardFeedHolder span {
 		margin-bottom: 1rem !important;
 	}

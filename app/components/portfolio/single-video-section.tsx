@@ -31,7 +31,7 @@ export default function SingleVideoSection({ playbackId, className }: { playback
 
 	return (
 		<section className={clsx("px-4 md:px-8 lg:px-[2.34vw]", className)} ref={sectionRef}>
-			<div className="relative w-full aspect-[1920/690] overflow-hidden flex items-center justify-center pointer-events-none">
+			<div className="relative w-full aspect-[920/690] md:aspect-[1920/690] overflow-hidden flex items-center justify-center pointer-events-none">
 				<MuxPlayer
 					ref={playerRef}
 					playbackId={playbackId}
@@ -43,7 +43,7 @@ export default function SingleVideoSection({ playbackId, className }: { playback
 					preload="auto"
 					disablePictureInPicture
 					poster={`https://image.mux.com/${playbackId}/thumbnail.jpg?time=0`}
-					className="w-full h-full scale-160 origin-center single-video-section"
+					className="w-full h-full object-cover scale-160 origin-center single-video-section"
 					aria-hidden="true"
 				/>
 			</div>
