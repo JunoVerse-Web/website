@@ -5,7 +5,7 @@ const LinkedinIcon = ({ link = "#", className }: { link?: string; className?: st
 		href={link}
 		target="_blank"
 		className={clsx(
-			"cursor-pointer bg-black rounded-full flex justify-center items-center w-12 lg:w-[2.86vw] h-auto aspect-square p-[11%] mb-0!",
+			"cursor-pointer bg-black rounded-full flex justify-center items-center h-12 lg:h-[2.86vw] w-auto aspect-square p-[11%] mb-0!",
 			className
 		)}
 	>
