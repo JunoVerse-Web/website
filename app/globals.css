@@ -548,12 +548,18 @@ div[data-container="success-container"] p {
 		font-weight: 700;
 		margin-bottom: 0;
 		color: white;
-		margin-bottom: clamp(0.65rem, 0.83vw, 0.83vw);
 	}
 
 	.CardFeedHolder p,
 	.CardFeedHolder span {
 		font-size: 0.8rem !important;
+	}
+	
+	.CardFeedHolder p {
 		margin-bottom: 0 !important;
+	}
+	
+	.CardFeedHolder span {
+		margin-bottom: 1rem !important;
 	}
 }
