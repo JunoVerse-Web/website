@@ -8,7 +8,7 @@ import { useFormStore } from "@/store";
 const TRANSITION = "transform 1.1s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.9s, scale 0.3s ease-out";
 
 export default function FlyingCards({ cardImage, text, cardData }: { cardImage: React.ReactNode; text?: string[]; cardData: CardData }) {
-	const sharedClass = "relative w-full h-full aspect-397/595 object-cover bg-white rounded-[1.04vw] overflow-hidden";
+	const sharedClass = "relative w-full h-full aspect-397/595 object-cover bg-white rounded-[6px] md:rounded-[1.04vw] overflow-hidden";
 
 	const [isFlying, setIsFlying] = useState(false);
 	const cardRef = useRef<HTMLDivElement>(null);

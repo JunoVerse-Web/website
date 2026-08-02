@@ -153,7 +153,7 @@ export default function ContactForm() {
 					className={clsx("space-y-5", formSubmitted ? "opacity-0 scale-50 pointer-events-none h-0 duration-300" : "opacity-100")}
 				>
 					<div className="text-center mb-10">
-						<h2 className="leading-[1]! mb-[1rem]! lg:mb-[1.48vw]!">{formData.title}</h2>
+						<h2 className="leading-[1]! mb-[1rem]! lg:mb-[1.48vw]! max-[480px]:max-w-[70%] mx-auto">{formData.title}</h2>
 						<p>{formData.description}</p>
 					</div>
 

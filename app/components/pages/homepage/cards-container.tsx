@@ -11,7 +11,7 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function CardsContainer({ content }: { content: CardsType[] }) {
-	const cardsClass = "relative w-full h-full aspect-397/595 object-cover";
+	const cardsClass = "relative w-full h-full aspect-397/595 object-cover rounded-[6px] md:rounded-[1.04vw] overflow-hidden";
 
 	const cardContainerRef = useRef<HTMLDivElement>(null);
 
