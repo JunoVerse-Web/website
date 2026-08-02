@@ -5,7 +5,7 @@ const InstagramIcon = ({ link = "#", className }: { link?: string; className?: s
 		href={link}
 		target="_blank"
 		className={clsx(
-			"cursor-pointer bg-black rounded-full flex justify-center items-center h-12 lg:h-[2.86vw] w-full aspect-square p-[11%] mb-0!",
+			"cursor-pointer bg-black rounded-full flex justify-center items-center h-12 w-12 lg:h-[2.86vw] lg:w-[2.86vw] aspect-square p-[11%] mb-0!",
 			className
 		)}
 	>
