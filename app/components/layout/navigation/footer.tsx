@@ -32,8 +32,8 @@ export default function Footer() {
 			<div className="flex gap-5 items-center max-[1390px]:gap-1 max-[1390px]:flex-col max-[1390px]:justify-center max-[1390px]:items-center">
 				<p className="mb-0! max-md:text-center max-sm:text-[12px]!">Let&apos;s Look Deeper. Plays into our theme of all-seeing, and our eye logo.</p>
 				<div className="flex items-center justify-center gap-5 max-sm:mt-4">
-					<InstagramIcon className="max-sm:w-10" link={"#"} />
-					<LinkedinIcon className="max-sm:w-10" link={"#"} />
+					<InstagramIcon link={"#"} />
+					<LinkedinIcon link={"#"} />
 				</div>
 			</div>
 		</footer>
