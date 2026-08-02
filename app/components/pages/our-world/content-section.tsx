@@ -12,8 +12,8 @@ import GridImageContainer from "@/app/components/shared/grid-image-container";
 import { OurWorldPage } from "@/types/content";
 import CharacterSequence from "./character-sequence";
 
-import OffTheRecords from "../../../../public/our-world/off-the-records.svg"
-import HiveMind from "../../../../public/our-world/hive-mind.svg"
+import OffTheRecords from "../../../../public/our-world/off-the-records.svg";
+import HiveMind from "../../../../public/our-world/hive-mind.svg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -43,15 +43,13 @@ export default function ContentSection({ box2, box3 }: { box2: OurWorldPage["box
 				gsap.set(items, { opacity: 0, yPercent: 8 });
 
 				const enterBox = () => {
-					gsap
-						.timeline()
+					gsap.timeline()
 						.fromTo(box, { opacity: 0, xPercent: fromX }, { opacity: 1, xPercent: 0, duration: 0.4, ease: "power2.out" })
 						.to(items, { opacity: 1, yPercent: 0, stagger: 0.05, duration: 0.4, ease: "power2.out" }, "<0.1");
 				};
 
 				const exitBox = () => {
-					gsap
-						.timeline()
+					gsap.timeline()
 						.fromTo(box, { opacity: 1, xPercent: 0 }, { opacity: 0, xPercent: fromX, duration: 0.4, ease: "power2.out" })
 						.to(items, { opacity: 0, yPercent: 8, stagger: 0.05, duration: 0.4, ease: "power2.out" }, "<0.1");
 				};
@@ -61,7 +59,6 @@ export default function ContentSection({ box2, box3 }: { box2: OurWorldPage["box
 						trigger: box,
 						start: "top 40%",
 						end: "90% 40%",
-						markers: true,
 						onEnter: enterBox,
 						onLeave: exitBox,
 						onEnterBack: enterBox,
@@ -70,15 +67,11 @@ export default function ContentSection({ box2, box3 }: { box2: OurWorldPage["box
 				);
 			});
 
-			// Runs when the media query stops matching (e.g. resize below
-			// 969px), or when the outer cleanup below calls mm.revert().
 			return () => {
 				triggers.forEach((trigger) => trigger.kill());
 			};
 		});
 
-		// Runs on unmount — reverts matchMedia, killing every ScrollTrigger
-		// and tween it created.
 		return () => {
 			mm.revert();
 		};
@@ -128,7 +121,14 @@ export default function ContentSection({ box2, box3 }: { box2: OurWorldPage["box
 				>
 					<div className="bg-[#d8ff00] rounded-4xl px-6 py-8 min-[969px]:p-[6%]">
 						<div className="mb-5 min-[969px]:mb-10">
-							<Image src={OffTheRecords} className={`h-[4.69vw] min-h-14.25 w-auto object-contain mb-7`} width={423} height={110} alt={`Off The Records`} />
+							<Image
+								src={OffTheRecords}
+								className={`h-[4.69vw] min-h-14.25 w-auto object-contain mb-7`}
+								width={423}
+								height={110}
+								alt={`Off The Records`}
+								loading="eager"
+							/>
 							<p className="font-size-16 mb-2! max-w-[80%]">
 								The honest version of the story you heard. A speaker series that skips the polished &quot;making it&quot; narrative for what
 								almost didn&apos;t work. No motivational gloss. Real people, saying what they&apos;d only say off the record.
@@ -153,7 +153,14 @@ export default function ContentSection({ box2, box3 }: { box2: OurWorldPage["box
 				>
 					<div className="bg-[#d8ff00] rounded-4xl px-6 py-8 min-[969px]:p-[6%]">
 						<div className="mb-5 min-[969px]:mb-10">
-							<Image src={HiveMind} className={`h-[6.73vw] min-h-20.25 w-auto object-contain mb-7`} width={110} height={110} alt={`Hive Mind`} />
+							<Image
+								src={HiveMind}
+								className={`h-[6.73vw] min-h-20.25 w-auto object-contain mb-7`}
+								width={110}
+								height={110}
+								alt={`Hive Mind`}
+								loading="eager"
+							/>
 							<p className="font-size-16 mb-2!">Youth get heard. Brands get the truth.</p>
 							<p className="font-size-16 mb-2!">
 								Honest youth opinions turned into insight brands can actually use. No panels selling secondhand answers.
