@@ -30,28 +30,36 @@ export default function MultiImageSection({ images, layout = "1-1-1", className 
 			const imageWrap = imageWrapRef.current;
 			if (!imageWrap) return;
 
-			const galleryImagesWrap = gsap.utils.toArray<HTMLElement>(imageWrap.querySelectorAll(".gallery-image"));
+			const mm = gsap.matchMedia();
 
-			const tl = gsap.timeline({
-				scrollTrigger: {
-					trigger: imageWrap,
-					start: "top 80%",
-					end: "bottom 20%",
-					scrub: 0.1,
-				},
-			});
+			mm.add("(min-width: 767px)", () => {
+				const galleryImagesWrap = gsap.utils.toArray<HTMLElement>(imageWrap.querySelectorAll(".gallery-image"));
 
-			galleryImagesWrap.forEach((wrapper, i) => {
-				const targetImg = wrapper.querySelector("img");
-				if (!targetImg) return;
+				const tl = gsap.timeline({
+					scrollTrigger: {
+						trigger: imageWrap,
+						start: "top 80%",
+						end: "bottom 20%",
+						scrub: 0.1,
+					},
+				});
 
-				tl.fromTo(wrapper, { yPercent: 10 * (i + 1) }, { yPercent: -10 * (i + 1), ease: "none" }, 0);
-				// tl.fromTo(targetImg, { yPercent: 5 }, { yPercent: -5, ease: "none" }, "<");
+				galleryImagesWrap.forEach((wrapper, i) => {
+					const targetImg = wrapper.querySelector("img");
+					if (!targetImg) return;
+
+					tl.fromTo(wrapper, { yPercent: 10 * (i + 1) }, { yPercent: -10 * (i + 1), ease: "none" }, 0);
+					// tl.fromTo(targetImg, { yPercent: 5 }, { yPercent: -5, ease: "none" }, "<");
+				});
+
+				return () => {
+					tl.scrollTrigger?.kill();
+					tl.kill();
+				};
 			});
 
 			return () => {
-				tl.scrollTrigger?.kill();
-				tl.kill();
+				mm.revert();
 			};
 		},
 		{ scope: imageWrapRef },
