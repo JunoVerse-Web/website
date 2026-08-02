@@ -1,5 +1,6 @@
 "use client";
 
+import { useTextFadeUpObserver } from "@/hooks/useTextFadeUpObserver";
 import BlurText from "../animations/BlurText";
 
 export default function HeroSection({
@@ -11,6 +12,9 @@ export default function HeroSection({
 	description: string[];
 	bottomDescription?: string;
 }) {
+
+	useTextFadeUpObserver();
+	
 	return (
 		<section
 			data-section="shared-hero"
@@ -30,7 +34,7 @@ export default function HeroSection({
 					{description.map((p, i) => (
 						<p
 							key={i}
-							className="mb-0! text-white"
+							className="mb-0! text-white text-fade-up"
 						>
 							{p}
 						</p>
