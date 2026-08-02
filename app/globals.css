@@ -509,8 +509,8 @@ div[data-container="success-container"] p {
 
 /* Philosophy Button */
 .philosophy-button {
-	padding: clamp(1rem, 0.833vw, 0.833vw) clamp(1.25rem, 1.67vw, 1.67vw);
-	padding-right: clamp(1.2rem, 2.67vw, 2.67vw);
+	padding: clamp(1rem, 0.833vw, 0.833vw) clamp(2rem, 1.67vw, 1.67vw);
+	padding-right: clamp(2rem, 6vw, 6vw);
 }
 
 /* Media Queries */
