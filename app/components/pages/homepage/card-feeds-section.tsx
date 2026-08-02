@@ -77,7 +77,7 @@ export default function CardFeedsSection({ content }: { content: HomePage["cardF
 									scroll={false}
 									href={card.link.url}
 									target="_blank"
-									className={clsx("title-pos-" + card.bigLetterPosition , "CardFeedHolder relative z-10 text-center px-[10%] max-[480px]:pt-[35%] pt-[30%] md:pt-[40%] lg:pt-[25%] grid justify-center place-content-start w-fill h-full")}
+									className={clsx("title-pos-" + card.bigLetterPosition , "CardFeedHolder relative z-10 text-center px-[10%] max-[480px]:pt-[30%] pt-[30%] md:pt-[40%] lg:pt-[25%] grid justify-center place-content-start w-fill h-full")}
 								>
 									<span>{card.topTitle}</span>
 									<h3>{card.mainTitle}</h3>
