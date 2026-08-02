@@ -193,7 +193,7 @@ section[data-section="philosophy-hero"] {
 	order: 2;
 }
 
-.CardFeedHolder.title-pos-top p:nth-child(3) {
+.CardFeedHolder.title-pos-top p:nth-child(4) {
 	order: 3;
 }
 
@@ -206,7 +206,7 @@ section[data-section="philosophy-hero"] {
 	order: 1;
 }
 
-.CardFeedHolder.title-pos-middle p:nth-child(3) {
+.CardFeedHolder.title-pos-middle p:nth-child(4) {
 	order: 3;
 }
 
@@ -219,7 +219,7 @@ section[data-section="philosophy-hero"] {
 	order: 1;
 }
 
-.CardFeedHolder.title-pos-bottom p:nth-child(3) {
+.CardFeedHolder.title-pos-bottom p:nth-child(4) {
 	order: 2;
 }
 
@@ -235,6 +235,7 @@ section[data-section="philosophy-hero"] {
 .CardFeedHolder span {
 	margin-bottom: clamp(1.2rem, 2.86vw, 2.86vw);
 }
+
 
 /* Services Page */
 /* main.services-page {
