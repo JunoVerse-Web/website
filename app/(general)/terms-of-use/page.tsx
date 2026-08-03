@@ -22,7 +22,7 @@ export default function TermOfUsePage() {
 				<div>
 					<p>Introduction</p>
 					<p>
-						Welcome to Junoverse.jo a service owned and operated and managed by Rekalabs Sdn Bhd (&quot;JUNO&quot;), a company incorporated in
+						Welcome to Junoverse.io a service owned and operated and managed by Rekalabs Sdn Bhd (&quot;JUNO&quot;), a company incorporated in
 						Malaysia, with Business Registration Number 202001042890 (1399211-A). By accessing or using our platform, you agree to be bound by these
 						Terms of Use. By accessing or using the Site in any manner, you agree to be bound by these Terms. If you do not accept all of the terms
 						and conditions of this agreement, please do not use this Site.
