@@ -164,7 +164,7 @@
 					"id": "second-card",
 					"formTitle": "Second Card Form",
 					"title": "Tell us where you are",
-					"description": "The more honest the picture, the sharper our reply. We read every brief and we replu within 48 hours.",
+					"description": "The more honest the picture, the sharper our reply. We read every brief and we reply within 48 hours.",
 					"radioFields": [
 						{
 							"label": "What's the rough size of the business?",
@@ -233,7 +233,7 @@
 					"id": "third-card",
 					"formTitle": "third Card Form",
 					"title": "Tell us where you are",
-					"description": "The more honest the picture, the sharper our reply. We read every brief and we replu within 48 hours.",
+					"description": "The more honest the picture, the sharper our reply. We read every brief and we reply within 48 hours.",
 					"radioFields": [
 						{
 							"label": "What's the rough size of the business?",
@@ -302,7 +302,7 @@
 					"id": "fourth-card",
 					"formTitle": "Fourth Card Form",
 					"title": "Tell us where you are",
-					"description": "The more honest the picture, the sharper our reply. We read every brief and we replu within 48 hours.",
+					"description": "The more honest the picture, the sharper our reply. We read every brief and we reply within 48 hours.",
 					"radioFields": [
 						{
 							"label": "What's the rough size of the business?",
