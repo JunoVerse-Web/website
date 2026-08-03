@@ -47,7 +47,7 @@ export async function POST(request: Request) {
 
 	try {
 		const { error } = await resend.emails.send({
-			from: "Contact Form <onboarding@resend.dev>", // swap to your verified domain later
+			from: "Contact Form <noreply@junoverse.io>", // swap to your verified domain later
 			to: process.env.NEXT_PUBLIC_CONTACT_EMAIL_TO!,
 			replyTo: body.email,
 			subject: `New submission: ${body.title || "Contact Form"}`,
